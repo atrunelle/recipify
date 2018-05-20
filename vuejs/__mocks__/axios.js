@@ -1,0 +1,6 @@
+export default {
+  defaults: {
+  },
+  get: jest.fn(() => Promise.resolve({ data: {} })),
+  post: jest.fn(() => Promise.resolve({ data: {} })),
+};

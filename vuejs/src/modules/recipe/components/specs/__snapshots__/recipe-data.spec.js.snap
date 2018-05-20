@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Recipe data should match snapshot 1`] = `
+<div>
+    <div class="card" style="height: auto;">
+        <div class="card__title card__title--primary">
+            <h2>Total nutrients</h2>
+        </div>
+        <div class="card__text">
+            <h3>Calories: NaNcal</h3>
+            <h3>Total Weight: NaNgr</h3>
+            <div class="layout align-end justify-space-between">
+                <div class="flex text-xs-center">
+                    <p>Total Nutrients</p>
+                    <p>Total Daily percentage</p>
+                </div>
+                <div class="flex text-xs-center">
+                    <h3 class="pa-2"></h3>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="flex text-xs-center">
+                    <h3 class="pa-2">Fat</h3>
+                    <p>5.00gr</p>
+                    <p>5.00%</p>
+                </div>
+                <div class="flex text-xs-center">
+                    <h3 class="pa-2">Fat</h3>
+                    <p>5.00gr</p>
+                    <p>5.00%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="height: auto;">
+        <div class="card__title">
+            <h2>Macro in recipe</h2>
+        </div>
+        <div class="card__text">
+            <p>Based on 4 calories per gram of carbs and protein, and 9 calories per gram of fat.</p>
+            <p>Those numbers are approximation only, as the number of calories per macro change per ingredient and depend on quality and other factor.</p>
+        </div>
+        <!---->
+    </div>
+</div>
+`;

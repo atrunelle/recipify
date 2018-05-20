@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: nutrients chart should match snapshot 1`] = `
+<div class="text-xs-center" style="height: 320px;">
+    <svg width="320" height="320" class="bubble">
+        <g class="node" transform="translate(110.50332785208842, 160)">
+            <title></title>
+            <circle r="109.02412908475407" style="fill: #C5E1A5;"></circle>
+            <text dy=".2em" style="text-anchor: middle;" font-family="sans-serif" font-size="21.804825816950814" fill="black">Protein</text>
+            <text dy="1.3em" style="text-anchor: middle;" font-size="15.574875583536295" fill="black">50%</text>
+        </g>
+        <g class="node" transform="translate(269.7637284684212, 160)">
+            <title></title>
+            <circle r="48.757072764244406" style="fill: #AED581;"></circle>
+            <text dy=".2em" style="text-anchor: middle;" font-family="sans-serif" font-size="9.751414552848882" fill="black">Fat</text>
+            <text dy="1.3em" style="text-anchor: middle;" font-size="6.965296109177772" fill="black">10%</text>
+        </g>
+    </svg>
+</div>
+`;

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: recipes view should match snapshot 1`] = `
+<div class="layout column">
+    <h2>List of recipes you created</h2>
+    <div></div>
+</div>
+`;

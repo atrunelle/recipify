@@ -1,0 +1,9 @@
+.search {
+  padding: 20px; }
+  .search__input {
+    height: 40px;
+    width: 100%; }
+  .search__label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block; }

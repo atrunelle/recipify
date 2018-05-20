@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: the header should match snapshot 1`] = `
+<header>
+    <nav></nav>
+    <div class="jumbotron" style="height: 400px;">
+        <div class="jumbotron__wrapper">
+            <div class="jumbotron__background light-green"></div>
+            <div class="jumbotron__content">
+                <div class="container fill-height">
+                    <div class="layout column align-center justify-center">
+                        <img src="/static/logo.svg" alt="logo" class="the-header__logo">
+                        <h1>Recipify</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+`;

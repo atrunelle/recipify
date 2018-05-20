@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: app should match snapshot 1`] = `
+<div class="alert alert--dismissible error">
+    <i aria-hidden="true" class="icon material-icons alert__icon">warning</i>
+    <div>
+        alert
+    </div>
+    <a class="alert__dismissible">
+        <i aria-hidden="true" class="icon icon--right material-icons">cancel</i>
+    </a>
+</div>
+`;

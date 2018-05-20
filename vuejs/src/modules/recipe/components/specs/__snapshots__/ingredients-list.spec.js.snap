@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ingredients list should match snapshot 1`] = `
+<div class="card" style="height: auto;">
+    <div class="card__title justify-space-between card__title--primary">
+        <h2>Your recipe ingredients list</h2>
+        <div class="flex md3">
+            <div class="input-group input-group--text-field primary--text">
+                <label>Recipe name</label>
+                <div class="input-group__input">
+                    <input md3="" ng-model="recipeName" tabindex="0" aria-label="Recipe name" type="text">
+                </div>
+                <div class="input-group__details">
+                    <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list">
+        <div class="list__group">
+            <div class="list__group__header">
+                <div>
+                    <div class="list__tile">
+                        <div class="list__tile__content">
+                            <div class="list__tile__title">carrot 100cal for gr </div>
+                        </div>
+                        <div id="remove-ingredient-0" class="list__tile__action">
+                            <i aria-hidden="true" class="icon material-icons">delete</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="list__group__header__append-icon">
+                    <i aria-hidden="true" class="icon material-icons">keyboard_arrow_down</i>
+                </div>
+            </div>
+            <div class="list__group__items" style="display: none;">
+                <!---->
+            </div>
+        </div>
+        <div class="list__group">
+            <div class="list__group__header">
+                <div>
+                    <div class="list__tile">
+                        <div class="list__tile__content">
+                            <div class="list__tile__title">spinach 100cal for gr </div>
+                        </div>
+                        <div id="remove-ingredient-1" class="list__tile__action">
+                            <i aria-hidden="true" class="icon material-icons">delete</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="list__group__header__append-icon">
+                    <i aria-hidden="true" class="icon material-icons">keyboard_arrow_down</i>
+                </div>
+            </div>
+            <div class="list__group__items" style="display: none;">
+                <!---->
+            </div>
+        </div>
+        <div class="list__group">
+            <div class="list__group__header">
+                <div>
+                    <div class="list__tile">
+                        <div class="list__tile__content">
+                            <div class="list__tile__title">carrot 100cal for gr </div>
+                        </div>
+                        <div id="remove-ingredient-2" class="list__tile__action">
+                            <i aria-hidden="true" class="icon material-icons">delete</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="list__group__header__append-icon">
+                    <i aria-hidden="true" class="icon material-icons">keyboard_arrow_down</i>
+                </div>
+            </div>
+            <div class="list__group__items" style="display: none;">
+                <!---->
+            </div>
+        </div>
+    </div>
+    <div class="card__actions justify-end">
+        <button type="button" class="btn">
+            <div class="btn__content">Remove all ingredients</div>
+        </button>
+        <button type="button" class="btn primary">
+            <div class="btn__content">Save recipe</div>
+        </button>
+    </div>
+</div>
+`;
