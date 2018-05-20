@@ -1,0 +1,9 @@
+<div *ngFor="let nutrient of macroNutrientsData">
+  <h3 class="pa-2">{{ nutrient.label }}</h3>
+  <p>{{ nutrient.quantity | number }}{{ nutrient.unit }}</p>
+</div>
+<mat-chip-list>
+  <mat-chip *ngFor="let label of allLabels">
+    {{ label }}
+  </mat-chip>
+</mat-chip-list>

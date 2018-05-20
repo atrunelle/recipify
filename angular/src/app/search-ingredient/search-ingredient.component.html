@@ -1,0 +1,48 @@
+<mat-card class="search-ingredient">
+  <mat-card-header>
+    <mat-card-title>
+      <h2>What do you have in your fridge?</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form
+      novalidate
+      #SearchForm
+      (ngSubmit)="addIngredient()">
+      <div
+        fxLayout.md="row"
+        fxLayoutAlign="space-between center">
+        <mat-form-field  fxFlex="50%">
+          <input
+            matInput
+            required
+            label="Ingredient and quantity"
+            placeholder="Example: 200gr chicken"
+            name="ingredient"
+            [(ngModel)]="ingredient">
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            fxFlex="20%"
+            placeholder="Number of servings"
+            name="numberOfServing"
+            [(ngModel)]="numberOfServing">
+        </mat-form-field>
+        <button
+          mat-button
+          disabled="{{ !ingredient }}"
+          mat-raised-button
+          type="submit"
+          color="primary">
+          <span *ngIf="!isLoading">Add</span>
+          <mat-spinner
+            *ngIf="isLoading"
+            color="accent"
+            diameter="37"></mat-spinner>
+        </button>
+      </div>
+    </form>
+
+  </mat-card-content>
+</mat-card>

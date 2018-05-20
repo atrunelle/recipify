@@ -1,0 +1,13 @@
+@import '../../assets/scss/global/colors';
+
+.header {
+  background: mat-color($primary);
+
+  &__logo {
+    max-height: 80px;
+  }
+
+  &__jumbotron {
+    min-height: 400px;
+  }
+}
