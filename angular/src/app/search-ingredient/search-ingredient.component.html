@@ -10,16 +10,17 @@
       #SearchForm
       (ngSubmit)="addIngredient()">
       <div
-        fxLayout.md="row"
+        fxLayout.xs="column"
         fxLayoutAlign="space-between center">
-        <mat-form-field  fxFlex="50%">
+        <mat-form-field fxFlex="50%">
           <input
             matInput
-            required
-            label="Ingredient and quantity"
-            placeholder="Example: 200gr chicken"
+            placeholder="Ingredient and quantity"
             name="ingredient"
             [(ngModel)]="ingredient">
+          <mat-hint align="start">
+            <strong>Example: 200gr chicken</strong>
+          </mat-hint>
         </mat-form-field>
         <mat-form-field>
           <input

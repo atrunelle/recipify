@@ -9,6 +9,7 @@ import RecipeService from '../core/recipe.service';
 })
 export class IngredientsListComponent implements OnInit {
   public recipeIngredients: IIngredient[] = [];
+  public recipeName = '';
 
   constructor(private recipeService: RecipeService) { }
 
@@ -27,6 +28,6 @@ export class IngredientsListComponent implements OnInit {
   }
 
   saveRecipe () {
-    this.recipeService.saveRecipe();
+    this.recipeService.saveRecipe(this.recipeName);
   }
 }

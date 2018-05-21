@@ -1,7 +1,5 @@
-import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import RecipeService from '../core/recipe.service';
-import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
 
 @Component({
   selector: 'app-search-ingredient',
@@ -27,6 +25,7 @@ export class SearchIngredientComponent implements OnInit {
         () => {},
         () => {
           this.isLoading = false;
+          this.ingredient = '';
         }
       );
   }

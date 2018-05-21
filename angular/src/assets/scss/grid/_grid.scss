@@ -1,13 +1,12 @@
-$large: 960px;
+$large: 900px;
 $x-large: 1200px;
 
 .l-container {
   max-width: $large;
   margin-left: auto;
   margin-right: auto;
-  padding: 16px;
-
   flex: 1 1 100%;
+  padding: 16px;
   width: 100%;
 
   @include breakpoint($large) {
@@ -15,8 +14,8 @@ $x-large: 1200px;
   }
 }
 
-.ng-star-inserted {
-  flex: 1 1 100%;
-  box-sizing: border-box;
-  max-width: 100%;
-}
+// .ng-star-inserted {
+//   flex: 1 1 100%;
+//   box-sizing: border-box;
+//   max-width: 100%;
+// }

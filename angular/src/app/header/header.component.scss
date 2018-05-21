@@ -1,7 +1,7 @@
 @import '../../assets/scss/global/colors';
 
 .header {
-  background: mat-color($primary);
+  background: mat-color($recipify-app-primary);
 
   &__logo {
     max-height: 80px;
