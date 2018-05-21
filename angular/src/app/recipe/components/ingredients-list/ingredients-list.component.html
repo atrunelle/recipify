@@ -1,24 +1,32 @@
-<mat-card *ngIf="recipeIngredients.length">
+<mat-card *ngIf="ingredients.length">
   <mat-card-header
     fxLayout.xs="column"
     fxLayoutAlign="space-between">
     <mat-card-title>
       <h2>Your recipe ingredients list</h2>
     </mat-card-title>
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="Recipe name"
-        name="recipeName"
-        [(ngModel)]="recipeName">
-    </mat-form-field>
+    <form [formGroup]="form">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Recipe name"
+          formControlName="name">
+      </mat-form-field>
+    </form>
   </mat-card-header>
   <mat-card-content>
     <mat-accordion>
-      <mat-expansion-panel *ngFor="let ingredient of recipeIngredients; let i = index">
+      <mat-expansion-panel
+        *ngFor="let ingredient of ingredients; let i = index"
+        class="mat-elevation-z">
         <mat-expansion-panel-header>
-            <p matLine>{{ ingredient.name }} {{ ingredient.nutrients.calories }}cal for {{ ingredient.nutrients.totalWeight }}gr </p>
-            <button mat-button (click)="removeIngredient(i)">
+            <mat-panel-title>
+                {{ ingredient.name }}
+              </mat-panel-title>
+              <mat-panel-description>
+                  {{ ingredient.nutrients.calories }}cal for {{ ingredient.nutrients.totalWeight }}gr
+              </mat-panel-description>
+            <button mat-button (click)="removeIngredient(i, $event)">
               <mat-icon matListIcon>delete</mat-icon>
             </button>
           </mat-expansion-panel-header>

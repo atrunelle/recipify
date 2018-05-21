@@ -1,8 +1,7 @@
-import { MACRO_NUTRIENTS } from './../core/edamam.constant';
-import { IIngredient } from './../core/recipe.interface';
-import { Component, OnInit } from '@angular/core';
-import RecipeService from '../core/recipe.service';
-import NutritionService from '../core/nutrition.service';
+import { MACRO_NUTRIENTS } from '@/recipe/edamam.constant';
+import { IIngredient } from '@/recipe/recipe.interface';
+import { Component, OnInit, Input } from '@angular/core';
+import NutritionService from '@/recipe/nutrition.service';
 
 @Component({
   selector: 'app-recipe-data',
@@ -10,17 +9,14 @@ import NutritionService from '../core/nutrition.service';
   styleUrls: ['./recipe-data.component.scss']
 })
 export class RecipeDataComponent implements OnInit {
-  public recipeIngredients: IIngredient[] = [];
+  @Input()
+  public ingredients: IIngredient[];
 
   constructor(
-    private recipeService: RecipeService,
     private nutritionService: NutritionService,
   ) { }
 
   ngOnInit() {
-    this.recipeService.recipeIngredients$.subscribe((recipeIngredients) => {
-      this.recipeIngredients = recipeIngredients;
-    });
   }
 
   get totalNutrients () {
@@ -28,11 +24,11 @@ export class RecipeDataComponent implements OnInit {
   }
 
   get totalCalories () {
-    return this.nutritionService.getTotalCalories(this.recipeIngredients);
+    return this.nutritionService.getTotalCalories(this.ingredients);
   }
 
   get totalWeight () {
-    return this.nutritionService.getTotalWeight(this.recipeIngredients);
+    return this.nutritionService.getTotalWeight(this.ingredients);
   }
 
   getTotalNutrients () {
@@ -53,10 +49,10 @@ export class RecipeDataComponent implements OnInit {
   }
 
   totalQuantityFor (nutrient) {
-    return this.nutritionService.getTotalForNutrient(this.recipeIngredients, 'totalNutrients', nutrient, this.totalCalories);
+    return this.nutritionService.getTotalForNutrient(this.ingredients, 'totalNutrients', nutrient, this.totalCalories);
   }
 
   totalDailyIntakeFor (nutrient) {
-    return this.nutritionService.getTotalForNutrient(this.recipeIngredients, 'totalDaily', nutrient);
+    return this.nutritionService.getTotalForNutrient(this.ingredients, 'totalDaily', nutrient);
   }
 }

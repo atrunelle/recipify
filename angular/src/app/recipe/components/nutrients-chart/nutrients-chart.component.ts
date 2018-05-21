@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import { Component, OnInit, Input, ElementRef, OnChanges } from '@angular/core';
-import { INutrient } from '../core/recipe.interface';
+import { INutrient } from '@/recipe/recipe.interface';
 
 @Component({
   selector: 'app-nutrients-chart',
@@ -13,16 +13,16 @@ export class NutrientsChartComponent implements OnInit, OnChanges {
 
   constructor(private elementRef: ElementRef) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.drawChart();
   }
 
-  ngOnChanges(): void {
+  ngOnChanges() {
     this.clearChart();
     this.drawChart();
   }
 
-  drawChart (): void {
+  drawChart () {
     const dataset = {
       children: this.nutritionData,
     };
@@ -78,7 +78,7 @@ export class NutrientsChartComponent implements OnInit, OnChanges {
       .style('height', `${diameter}px`);
   }
 
-  clearChart (): void {
+  clearChart () {
     d3.select(this.elementRef.nativeElement)
       .selectAll('svg')
       .remove();

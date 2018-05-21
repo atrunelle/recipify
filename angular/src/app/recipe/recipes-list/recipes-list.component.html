@@ -1,9 +1,12 @@
 <h2>List of recipes you created</h2>
-<div *ngIf="recipes.length">
+<div
+  *ngIf="(recipes$ | async)?.length; else loading"
+  fxLayout="row"
+  fxLayoutGap="20px">
   <div
     fxFlex
     fxFlex.gt-sm="25"
-    *ngFor="let recipe of recipes">
+    *ngFor="let recipe of recipes$ | async">
     <mat-card>
       <mat-card-header>
         <mat-card-title>
@@ -18,14 +21,14 @@
     </mat-card>
   </div>
 </div>
-<div
-  *ngIf="!recipes.length"
-  fxLayout="column">
-  <div fxFlex="50">
-    <p>You don't have any recipes yet</p>
-    <a
-      mat-button
-      color="primary"
-      routerLink="/">Create recipe</a>
+<ng-template #loading>
+  <div fxLayout="column">
+    <div fxFlex="50">
+      <p>You don't have any recipes yet</p>
+      <a
+        mat-button
+        color="primary"
+        routerLink="/">Create recipe</a>
+    </div>
   </div>
-</div>
+</ng-template>

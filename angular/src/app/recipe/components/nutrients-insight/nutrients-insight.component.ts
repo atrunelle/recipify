@@ -1,6 +1,6 @@
-import { INutrient } from './../core/recipe.interface';
 import { Component, OnInit, Input } from '@angular/core';
-import RecipeService from '../core/recipe.service';
+import { INutrient } from '@/recipe/recipe.interface';
+import RecipeService from '@/recipe/recipe.service';
 
 @Component({
   selector: 'app-nutrients-insight',

@@ -1,51 +1,95 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, EventEmitter, Output } from '@angular/core';
-import { Observable, throwError as observableThrowError } from 'rxjs';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-
+import 'rxjs/add/operator/pluck';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 import { DIET_LABELS, HEALTH_LABEL, MACRO_NUTRIENTS, MICRO_NUTRIENTS } from './edamam.constant';
 import { IIngredient, IRecipe } from './recipe.interface';
 
+export interface IState {
+  recipes: IRecipe[];
+  ingredients: IIngredient[];
+}
+
+const state: IState = {
+  recipes: [],
+  ingredients: [],
+};
+
 @Injectable()
 class RecipeService {
-  public recipes: IRecipe[] = [];
-  public recipeIngredients: IIngredient[] = [];
-
-  @Output() recipeIngredients$: EventEmitter<IIngredient[]> = new EventEmitter();
-
   private foodUrl = `/api/food-database`;
   private apiAuth = `app_id=${environment.appId}&app_key=${environment.appKey}`;
+
+  private subject = new BehaviorSubject<IState>(state);
+  public store = this.subject.asObservable().distinctUntilChanged();
 
   constructor (private http: HttpClient) {
   }
 
-  public addIngredient(ingredient, numberOfServing): Observable<any> {
-    return this.getIngredientNutrition(ingredient, numberOfServing)
+
+  get<T>(name: string): Observable<T> {
+    return this.store.pluck(name);
+  }
+
+  addIngredient({ ingredient, numberOfServing }: { ingredient: IIngredient, numberOfServing: string }) {
+    const value = this.subject.value;
+    return this.getIngredientNutrition(ingredient, parseInt(numberOfServing, 0))
       .pipe(map((ingredientData) => {
-        this.recipeIngredients.push(ingredientData);
-        this.recipeIngredients$.emit(this.recipeIngredients);
+        this.subject.next({
+          ...value,
+          ingredients: [
+            ...value.ingredients,
+            ingredientData,
+          ],
+        });
       }));
   }
 
   public removeIngredient(index) {
-    this.recipeIngredients.splice(index, 1);
-    this.recipeIngredients$.emit(this.recipeIngredients);
+    const value = this.subject.value;
+   if (value.ingredients.length === 1) {
+    this.removeAllIngredients();
+   } else {
+     this.subject.next({
+       ...value,
+       ingredients: [
+         ...value.ingredients.splice(index, 1),
+       ],
+     });
+   }
   }
 
   public removeAllIngredients() {
-    this.recipeIngredients = [];
-    this.recipeIngredients$.emit(this.recipeIngredients);
+    const value = this.subject.value;
+    this.subject.next({
+      ...value,
+      ingredients: [],
+    });
   }
 
-  public saveRecipe(name?: string) {
-    const defaultName = `Recipe ${this.recipes.length + 1}`;
+  public saveRecipe({ name }: { name: string }) {
+    const value = this.subject.value;
 
-    this.recipes.push({
-      name: name || defaultName,
-      ingredients: this.recipeIngredients,
+    const defaultName = `Recipe ${value.recipes.length + 1}`;
+
+    this.subject.next({
+      ...value,
+      recipes: [
+        ...value.recipes,
+        {
+          name: name || defaultName,
+          ingredients: value.ingredients,
+        },
+      ],
     });
+    console.log('recipes', {
+      name: name || defaultName,
+      ingredients: value.ingredients,
+    }, name);
     this.removeAllIngredients();
   }
 
@@ -76,8 +120,8 @@ class RecipeService {
               };
             }));
         }), catchError((response: HttpErrorResponse) => {
-          console.log(response.message);
-          return observableThrowError(response.message);
+          console.error(response.message);
+          return throwError(response.message);
           // throw error.response.data.message;
         })
       );
