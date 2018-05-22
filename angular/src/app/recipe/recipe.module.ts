@@ -8,9 +8,9 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 
 import { SearchIngredientComponent } from './components/search-ingredient/search-ingredient.component';
 import { IngredientsListComponent } from './components/ingredients-list/ingredients-list.component';
-import { RecipeDataComponent } from './components/recipe-data/recipe-data.component';
-import { NutrientsInsightComponent } from './components/nutrients-insight/nutrients-insight.component';
-import { NutrientsChartComponent } from './components/nutrients-chart/nutrients-chart.component';
+import { IngredientsDataComponent } from './components/ingredients-data/ingredients-data.component';
+import { IngredientNutrientsComponent } from './components/ingredient-nutrients/ingredient-nutrients.component';
+import { NutrientsMacroChartComponent } from './components/nutrients-macro-chart/nutrients-macro-chart.component';
 
 import { MatDesignModule } from '@/mat-design.module';
 
@@ -28,9 +28,9 @@ import NutritionService from './nutrition.service';
     RecipeCreatorComponent,
     SearchIngredientComponent,
     IngredientsListComponent,
-    NutrientsChartComponent,
-    NutrientsInsightComponent,
-    RecipeDataComponent,
+    NutrientsMacroChartComponent,
+    IngredientNutrientsComponent,
+    IngredientsDataComponent,
     RecipesListComponent,
   ],
   providers: [

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NutrientsChartComponent } from './nutrients-chart.component';
+import { NutrientsMacroChartComponent } from './nutrients-macro-chart.component';
 
 describe('NutrientsChartComponent', () => {
-  let component: NutrientsChartComponent;
-  let fixture: ComponentFixture<NutrientsChartComponent>;
+  let component: NutrientsMacroChartComponent;
+  let fixture: ComponentFixture<NutrientsMacroChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NutrientsChartComponent ]
+      declarations: [ NutrientsMacroChartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NutrientsChartComponent);
+    fixture = TestBed.createComponent(NutrientsMacroChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

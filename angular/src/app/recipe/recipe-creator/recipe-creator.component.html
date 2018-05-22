@@ -12,8 +12,8 @@
     (removeAll)="removeAllIngredients($event)"
     (save)="saveRecipe($event)">
   </app-ingredients-list>
-  <app-recipe-data
+  <app-ingredients-data
     fxFlex
     [ingredients]="ingredients$ | async">
-  </app-recipe-data>
+  </app-ingredients-data>
 </div>

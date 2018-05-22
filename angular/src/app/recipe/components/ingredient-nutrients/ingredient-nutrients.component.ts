@@ -4,12 +4,12 @@ import { INutrient } from '@/recipe/recipe.interface';
 import RecipeService from '@/recipe/recipe.service';
 
 @Component({
-  selector: 'app-nutrients-insight',
-  templateUrl: './nutrients-insight.component.html',
-  styleUrls: ['./nutrients-insight.component.scss']
+  selector: 'app-ingredient-nutrients',
+  templateUrl: './ingredient-nutrients.component.html',
+  styleUrls: ['./ingredient-nutrients.component.scss']
 })
 
-export class NutrientsInsightComponent implements OnInit {
+export class IngredientNutrientsComponent implements OnInit {
   @Input()
   public nutrients: INutrient;
 

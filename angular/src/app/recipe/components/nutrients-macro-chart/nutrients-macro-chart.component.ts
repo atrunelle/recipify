@@ -3,11 +3,11 @@ import { Component, OnInit, Input, ElementRef, OnChanges } from '@angular/core';
 import { INutrient } from '@/recipe/recipe.interface';
 
 @Component({
-  selector: 'app-nutrients-chart',
-  templateUrl: './nutrients-chart.component.html',
-  styleUrls: ['./nutrients-chart.component.scss']
+  selector: 'app-nutrients-macro-chart',
+  templateUrl: './nutrients-macro-chart.component.html',
+  styleUrls: ['./nutrients-macro-chart.component.scss']
 })
-export class NutrientsChartComponent implements OnInit, OnChanges {
+export class NutrientsMacroChartComponent implements OnInit, OnChanges {
   @Input()
   public nutritionData: INutrient[];
 

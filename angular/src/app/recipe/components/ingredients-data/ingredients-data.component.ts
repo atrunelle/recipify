@@ -5,11 +5,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import NutritionService from '@/recipe/nutrition.service';
 
 @Component({
-  selector: 'app-recipe-data',
-  templateUrl: './recipe-data.component.html',
-  styleUrls: ['./recipe-data.component.scss']
+  selector: 'app-ingredients-data',
+  templateUrl: './ingredients-data.component.html',
+  styleUrls: ['./ingredients-data.component.scss']
 })
-export class RecipeDataComponent implements OnInit {
+export class IngredientsDataComponent implements OnInit {
   @Input()
   public ingredients: IIngredient[];
 
