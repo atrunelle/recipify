@@ -1,12 +1,9 @@
 .header {
-  grid-area: header;
-  background-color: #69962f;
-  height: 150px;
-  padding: 20px;
-  color: white;
   text-align: center; }
   .header__logo {
     height: 80px; }
   .header__title {
     font-size: 1.5em;
     text-transform: uppercase; }
+  .header__text {
+    margin-bottom: auto; }

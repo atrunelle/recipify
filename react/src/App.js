@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Provider } from 'react-redux';
 
-import Search from './components/search/Search';
+import './App.css';
+import store from './store';
+
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import RecipeCreator from './recipe/recipe-creator/RecipeCreator';
 
 class App extends Component {
   render() {
     return (
-      <div className="l-container">
-	  	<Header />
-		  <main>
-		  	<Search />
-		  </main>
-		<Footer />
-      </div>
+      <Provider store={store}>
+        <div className="app">
+          <Header />
+            <main className="l-container">
+              <RecipeCreator />
+            </main>
+            <Footer />
+        </div>
+      </Provider>
     );
   }
 }

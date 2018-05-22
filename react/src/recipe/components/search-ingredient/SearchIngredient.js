@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import './SearchInput.css';
+import './SearchIngredient.css';
 
-class SearchInput extends Component {
+import React, { Component } from 'react';
+
+class SearchIngredient extends Component {
     constructor(props) {
         super(props);
     
@@ -10,13 +11,13 @@ class SearchInput extends Component {
         };
     }
 
-    handleChange= (event) => {
+    handleChange = (event) => {
         this.setState({ value : event.target.value });
     }
     
     handleSubmit = (event) => {
       event.preventDefault();
-      this.props.setValue(this.state.value);
+      this.props.add('ingredient');
     }
     
   render() {
@@ -31,9 +32,10 @@ class SearchInput extends Component {
             type="text" 
             placeholder="Find an ingredient..."
             onChange={this.handleChange}/>
+            <button type="submit">Submit</button>
         </form>
     );
   }
 }
 
-export default SearchInput;
+export default SearchIngredient;

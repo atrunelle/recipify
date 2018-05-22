@@ -1,9 +1,8 @@
-.l-container {
-  display: grid;
-  grid-template-columns: 40px auto 40px;
-  grid-template-rows: 25% 50% auto;
-  grid-row-gap: 15px;
-  grid-template-areas: "header header header" ". main ." "footer footer footer"; }
-
-main {
-  grid-area: main; }
+.app {
+  display: flex;
+  flex: 1 1 auto;
+  backface-visibility: hidden;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100%;
+  position: relative; }

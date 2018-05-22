@@ -1,10 +1,5 @@
 
 .header {
-    grid-area: header;
-	background-color: rgb(105, 150, 47);
-	height: 150px;
-	padding: 20px;
-	color: white;
 	text-align: center;
 
 	&__logo {
@@ -14,5 +9,9 @@
 	&__title {
 		font-size: 1.5em;
 		text-transform: uppercase;
+	}
+
+	&__text {
+		margin-bottom: auto; 
 	}
 }
