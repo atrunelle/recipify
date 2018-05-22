@@ -38,20 +38,32 @@ describe('Service: ingredients service', () => {
     expect(recipeService.getIngredientNutrition('apple')).rejects.toBe('I am an error');
   });
 
-  it('should return an array of labels for diet tags', () => {
-    const items = ['LOW_FAT', 'LOW_SODIUM'];
-    const results = recipeService.getDietLabels(items);
-    const expected = ['Low fat'];
+  describe('when getting diet labels', () => {
+    it('should return empty array if no items is passed', () => {
+      expect(recipeService.getDietLabels()).toEqual([]);
+    });
 
-    expect(results).toEqual(expected);
+    it('should return an array of labels for diet tags', () => {
+      const items = ['LOW_FAT', 'LOW_SODIUM'];
+      const results = recipeService.getDietLabels(items);
+      const expected = ['Low fat'];
+
+      expect(results).toEqual(expected);
+    });
   });
 
-  it('should return an array of labels for health tags', () => {
-    const items = ['VEGETARIAN', 'PESCATARIAN', 'DAIRY_FREE', 'LOW_FAT_ABS'];
-    const results = recipeService.getHealthLabels(items);
-    const expected = ['Vegetarian', 'Pescatarian', 'Dairy free'];
+  describe('when getting health labels', () => {
+    it('should return empty array if no items is passed', () => {
+      expect(recipeService.getHealthLabels()).toEqual([]);
+    });
 
-    expect(results).toEqual(expected);
+    it('should return an array of labels for health tags', () => {
+      const items = ['VEGETARIAN', 'PESCATARIAN', 'DAIRY_FREE', 'LOW_FAT_ABS'];
+      const results = recipeService.getHealthLabels(items);
+      const expected = ['Vegetarian', 'Pescatarian', 'Dairy free'];
+
+      expect(results).toEqual(expected);
+    });
   });
 
   it('should get list of macro nutrients to display', () => {

@@ -1,4 +1,4 @@
-export const GET_RECIPE = 'getRecipe';
+export const GET_INGREDIENTS = 'getRecipe';
 export const GET_RECIPES = 'getRecipes';
 
 export const ADD_INGREDIENT = 'addIngredient';

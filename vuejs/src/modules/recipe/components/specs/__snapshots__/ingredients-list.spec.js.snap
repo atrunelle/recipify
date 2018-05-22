@@ -22,9 +22,9 @@ exports[`Component: ingredients list should match snapshot 1`] = `
                 <div>
                     <div class="list__tile">
                         <div class="list__tile__content">
-                            <div class="list__tile__title">carrot 100cal for gr </div>
+                            <div class="list__tile__title">carrot cal for gr </div>
                         </div>
-                        <div id="remove-ingredient-0" class="list__tile__action">
+                        <div id="remove-button-0" class="list__tile__action">
                             <i aria-hidden="true" class="icon material-icons">delete</i>
                         </div>
                     </div>
@@ -34,56 +34,30 @@ exports[`Component: ingredients list should match snapshot 1`] = `
                 </div>
             </div>
             <div class="list__group__items" style="display: none;">
-                <!---->
-            </div>
-        </div>
-        <div class="list__group">
-            <div class="list__group__header">
                 <div>
-                    <div class="list__tile">
-                        <div class="list__tile__content">
-                            <div class="list__tile__title">spinach 100cal for gr </div>
+                    <div class="layout justify-space-between align-center row">
+                        <div class="flex text-xs-center">
+                            <h3 class="pa-2">Fat</h3>
+                            <p>5.00gr</p>
                         </div>
-                        <div id="remove-ingredient-1" class="list__tile__action">
-                            <i aria-hidden="true" class="icon material-icons">delete</i>
-                        </div>
-                    </div>
-                </div>
-                <div class="list__group__header__append-icon">
-                    <i aria-hidden="true" class="icon material-icons">keyboard_arrow_down</i>
-                </div>
-            </div>
-            <div class="list__group__items" style="display: none;">
-                <!---->
-            </div>
-        </div>
-        <div class="list__group">
-            <div class="list__group__header">
-                <div>
-                    <div class="list__tile">
-                        <div class="list__tile__content">
-                            <div class="list__tile__title">carrot 100cal for gr </div>
-                        </div>
-                        <div id="remove-ingredient-2" class="list__tile__action">
-                            <i aria-hidden="true" class="icon material-icons">delete</i>
+                        <div class="flex text-xs-center">
+                            <h3 class="pa-2">Fat</h3>
+                            <p>5.00gr</p>
                         </div>
                     </div>
+                    <div class="text-xs-center pa-2"></div>
                 </div>
-                <div class="list__group__header__append-icon">
-                    <i aria-hidden="true" class="icon material-icons">keyboard_arrow_down</i>
-                </div>
-            </div>
-            <div class="list__group__items" style="display: none;">
-                <!---->
             </div>
         </div>
     </div>
     <div class="card__actions justify-end">
-        <button type="button" class="btn">
+        <button type="button" class="btn" id="remove-all-button">
             <div class="btn__content">Remove all ingredients</div>
         </button>
-        <button type="button" class="btn primary">
-            <div class="btn__content">Save recipe</div>
+        <button type="button" class="btn primary" id="save-button">
+            <div class="btn__content">
+                Save recipe
+            </div>
         </button>
     </div>
 </div>

@@ -12,6 +12,9 @@
             class="the-header__logo"
             alt="logo">
           <h1>Recipify</h1>
+          <p class="the-header__text text-xs-center">
+            Create your own recipes by selecting ingredient and reviewing nutritional values before saving!
+          </p>
         </v-layout>
       </v-container>
     </v-jumbotron>
@@ -33,6 +36,10 @@ export default {
 .the-header {
   &__logo {
     max-height: 80px;
+  }
+
+  &__text {
+    margin-bottom: auto;
   }
 }
 

@@ -3,21 +3,21 @@ import mutations from '../mutations';
 describe('Store: recipe mutations', () => {
   it('should add ingredient to recipe ', () => {
     const state = {
-      recipeIngredients: [],
+      ingredients: [],
     };
     const ingredient = {
       name: 'carrot',
     };
 
     mutations.addIngredient(state, ingredient);
-    expect(state.recipeIngredients).toEqual([{
+    expect(state.ingredients).toEqual([{
       name: 'carrot',
     }]);
   });
 
   it('should remove ingredient from recipe', () => {
     const state = {
-      recipeIngredients: [{
+      ingredients: [{
         name: 'carrot',
       }, {
         name: 'spinach',
@@ -27,7 +27,7 @@ describe('Store: recipe mutations', () => {
     };
 
     mutations.removeIngredient(state, 1);
-    expect(state.recipeIngredients).toEqual(
+    expect(state.ingredients).toEqual(
       [{
         name: 'carrot',
       }, {
@@ -37,7 +37,7 @@ describe('Store: recipe mutations', () => {
 
   it('should remove all ingredient from recipe', () => {
     const state = {
-      recipeIngredients: [{
+      ingredients: [{
         name: 'carrot',
       }, {
         name: 'spinach',
@@ -47,12 +47,12 @@ describe('Store: recipe mutations', () => {
     };
 
     mutations.removeAllIngredients(state);
-    expect(state.recipeIngredients).toEqual([]);
+    expect(state.ingredients).toEqual([]);
   });
 
   it('should save recipe from list of saved ingredients with default name', () => {
     const state = {
-      recipeIngredients: [{
+      ingredients: [{
         name: 'carrot',
       }, {
         name: 'spinach',
@@ -77,7 +77,7 @@ describe('Store: recipe mutations', () => {
 
   it('should save recipe from list of saved ingredients with given name', () => {
     const state = {
-      recipeIngredients: [{
+      ingredients: [{
         name: 'carrot',
       }, {
         name: 'spinach',

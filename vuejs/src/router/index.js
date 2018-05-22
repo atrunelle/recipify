@@ -11,11 +11,17 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: {
+        name: 'CreateRecipe',
+      },
+    },
+    {
+      path: '/recipes/create',
       name: 'CreateRecipe',
       component: CreateRecipe,
     },
     {
-      path: '/recipes',
+      path: '/recipes/list',
       name: 'RecipesList',
       component: RecipesView,
     },

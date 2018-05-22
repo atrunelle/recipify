@@ -36,11 +36,11 @@ const recipeService = {
     };
   },
 
-  getDietLabels (items) {
+  getDietLabels (items = []) {
     return this.getLabels(DIET_LABELS, items);
   },
 
-  getHealthLabels (items) {
+  getHealthLabels (items = []) {
     return this.getLabels(HEALTH_LABEL, items);
   },
 

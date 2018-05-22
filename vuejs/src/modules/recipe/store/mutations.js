@@ -2,15 +2,15 @@ import * as types from './types';
 
 export default {
   [types.ADD_INGREDIENT]: (state, payload) => {
-    state.recipeIngredients.push(payload);
+    state.ingredients.push(payload);
   },
 
   [types.REMOVE_INGREDIENT]: (state, payload) => {
-    state.recipeIngredients.splice(payload, 1);
+    state.ingredients.splice(payload, 1);
   },
 
   [types.REMOVE_ALL_INGREDIENTS]: (state) => {
-    state.recipeIngredients = [];
+    state.ingredients = [];
   },
 
   [types.SAVE_RECIPE]: (state, payload) => {
@@ -18,7 +18,7 @@ export default {
 
     state.recipes.push({
       name: payload || `Recipe ${numberOfRecipes + 1}`,
-      ingredients: state.recipeIngredients,
+      ingredients: state.ingredients,
     });
   },
 };

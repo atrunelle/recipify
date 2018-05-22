@@ -1,20 +1,25 @@
 import Vuex from 'vuex';
-import { mount, createLocalVue } from '@vue/test-utils';
 
-import RecipeData from '../recipe-data';
+import { mount, createLocalVue } from '@vue/test-utils';
 import getters from '@/modules/recipe/store/getters';
 
-describe('Component: Recipe data', () => {
+import RecipeCreator from '../recipe-creator';
+
+describe('Component: recipe creator', () => {
   let component;
   let localVue = createLocalVue();
-
   localVue.use(Vuex);
+
+  const recipeActions = {
+    removeIngredient: jest.fn(),
+  };
 
   beforeEach(() => {
     const recipeStore = {
       namespaced: true,
       state: {
-        recipeIngredients: [{
+        ingredients: [{
+          name: 'carrot',
           nutrients: {
             totalNutrients: {
               FAT: {
@@ -44,6 +49,7 @@ describe('Component: Recipe data', () => {
         }],
       },
       getters,
+      actions: recipeActions,
     };
 
     const store = new Vuex.Store({
@@ -51,9 +57,8 @@ describe('Component: Recipe data', () => {
         recipe: recipeStore,
       },
     });
-
-    component = mount(RecipeData, {
-      stubs: ['nutrients-chart'],
+    component = mount(RecipeCreator, {
+      stubs: ['ingredients-list', 'ingredients-data', 'search-ingredient'],
       localVue,
       store,
     });

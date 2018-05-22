@@ -1,5 +1,5 @@
 <template>
-  <v-card v-if="recipeIngredients.length">
+  <v-card v-if="ingredients.length">
     <v-card-title
       primary-title
       class="justify-space-between">
@@ -13,7 +13,7 @@
     </v-card-title>
     <v-list>
       <v-list-group
-        v-for="(ingredient, key) in recipeIngredients"
+        v-for="(ingredient, key) in ingredients"
         :key="key"
         :value="ingredient.active">
         <v-list-tile slot="activator">
@@ -21,52 +21,65 @@
             <v-list-tile-title>{{ ingredient.name }} {{ ingredient.nutrients.calories }}cal for {{ ingredient.nutrients.totalWeight }}gr </v-list-tile-title>
           </v-list-tile-content>
           <v-list-tile-action
-            :id="`remove-ingredient-${key}`"
-            @click="removeIngredient(key)">
+            :id="`remove-button-${key}`"
+            @click="remove(key)">
             <v-icon>delete</v-icon>
           </v-list-tile-action>
         </v-list-tile>
-        <nutrients-insight :nutrients="ingredient.nutrients"/>
+        <ingredient-nutrients :nutrients="ingredient.nutrients"/>
       </v-list-group>
     </v-list>
     <v-card-actions class="justify-end">
-      <v-btn @click="removeAllIngredients">Remove all ingredients</v-btn>
       <v-btn
+        id="remove-all-button"
+        @click="removeAll">Remove all ingredients</v-btn>
+      <v-btn
+        id="save-button"
         color="primary"
-        @click="saveRecipe(recipeName)">Save recipe</v-btn>
+        @click="save(recipeName)">
+        Save recipe
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
-import NutrientsInsight from '@/modules/recipe/components/nutrients-insight.vue';
-
-import { mapGetters, mapActions } from 'vuex';
-import * as recipeTypes from '@/modules/recipe/store/types';
+import IngredientNutrients from '@/modules/recipe/components/ingredient-nutrients';
 
 export default {
+  components: {
+    IngredientNutrients,
+  },
+
   data () {
     return {
       recipeName: '',
     };
   },
 
-  components: {
-    NutrientsInsight,
-  },
-
-  computed: {
-    ...mapGetters('recipe', {
-      recipeIngredients: recipeTypes.GET_RECIPE,
-    }),
-  },
-
-  methods: {
-    ...mapActions('recipe', {
-      removeIngredient: recipeTypes.REMOVE_INGREDIENT,
-      removeAllIngredients: recipeTypes.REMOVE_ALL_INGREDIENTS,
-      saveRecipe: recipeTypes.SAVE_RECIPE,
-    }),
+  props: {
+    ingredients: {
+      type: Array,
+      required: true,
+    },
+    remove: {
+      type: Function,
+      required: true,
+    },
+    removeAll: {
+      type: Function,
+      required: true,
+    },
+    save: {
+      type: Function,
+      required: true,
+    },
   },
 };
 </script>
+
+<style type="scss">
+.list__tile__title {
+  max-width: 48vw;
+}
+</style>

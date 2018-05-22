@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
-import NutrientsInsight from '../nutrients-insight';
+import IngredientNutrients from '../ingredient-nutrients';
 
-describe('Component: nutrient insight', () => {
+describe('Component: ingredient nutrients', () => {
   let component;
 
   beforeEach(() => {
-    component = mount(NutrientsInsight, {
+    component = mount(IngredientNutrients, {
       propsData: {
         nutrients: {
           dietLabels: [ 'LOW_FAT' ],

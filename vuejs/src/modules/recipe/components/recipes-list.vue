@@ -50,9 +50,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.list__tile__title {
-  max-width: 48vw;
-}
-</style>

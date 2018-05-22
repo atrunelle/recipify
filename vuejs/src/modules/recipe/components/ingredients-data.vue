@@ -1,0 +1,105 @@
+<template>
+  <div v-if="ingredients.length">
+    <v-flex xs12>
+      <v-card>
+        <v-card-title primary-title>
+          <h2>Total nutrients</h2>
+        </v-card-title>
+        <v-card-text>
+          <h3>Calories: {{ totalCalories }}cal</h3>
+          <h3>Total Weight: {{ totalWeight }}gr</h3>
+          <v-layout
+            align-end
+            justify-space-between>
+            <v-flex text-xs-center>
+              <p>Total Nutrients</p>
+              <p>Total Daily percentage</p>
+            </v-flex>
+
+            <v-flex
+              :key="key"
+              v-for="(nutrient, key) in totalNutrients"
+              text-xs-center>
+              <h3 class="pa-2">{{ nutrient.label }}</h3>
+              <p>{{ nutrient.totalQuantity.quantity | round(2) }}{{ nutrient.totalQuantity.unit }}</p>
+              <p>{{ nutrient.totalDaily.quantity | round(2) }}{{ nutrient.totalDaily.unit }}</p>
+            </v-flex>
+          </v-layout>
+        </v-card-text>
+      </v-card>
+    </v-flex>
+
+    <v-flex xs12>
+      <v-card>
+        <v-card-title>
+          <h2>Macro in recipe</h2>
+        </v-card-title>
+        <v-card-text>
+          <p>Based on 4 calories per gram of carbs and protein, and 9 calories per gram of fat.</p>
+          <p>Those numbers are approximation only, as the number of calories per macro change per ingredient and depend on quality and other factor.</p>
+        </v-card-text>
+        <nutrients-macro-chart :nutrition-data="totalNutrients"/>
+      </v-card>
+    </v-flex>
+  </div>
+</template>
+
+<script>
+import NutrientsMacroChart from '@/modules/recipe/components/nutrients-macro-chart';
+import { MACRO_NUTRIENTS } from '@/core/edamam.constant';
+import nutritionService from '@/core/nutrition.service';
+
+export default {
+  components: {
+    NutrientsMacroChart,
+  },
+
+  props: {
+    ingredients: {
+      type: Array,
+      required: true,
+    },
+  },
+
+  computed: {
+    totalNutrients () {
+      return this.getTotalNutrients();
+    },
+
+    totalCalories () {
+      return nutritionService.getTotalCalories(this.ingredients);
+    },
+
+    totalWeight () {
+      return nutritionService.getTotalWeight(this.ingredients);
+    },
+  },
+
+  methods: {
+    getTotalNutrients () {
+      return MACRO_NUTRIENTS.map((nutrient) => {
+        const totalQuantity = this.totalQuantityFor(nutrient);
+        const totalDaily = this.totalDailyIntakeFor(nutrient);
+
+        return {
+          label: totalQuantity.label,
+          totalQuantity: {
+            ...totalQuantity,
+          },
+          totalDaily: {
+            ...totalDaily,
+          },
+        };
+      });
+    },
+
+    totalQuantityFor (nutrient) {
+      return nutritionService.getTotalForNutrient(this.ingredients, 'totalNutrients', nutrient, this.totalCalories);
+    },
+
+    totalDailyIntakeFor (nutrient) {
+      return nutritionService.getTotalForNutrient(this.ingredients, 'totalDaily', nutrient);
+    },
+  },
+};
+</script>

@@ -2,16 +2,16 @@
   <v-layout
     row
     wrap>
-    <make-recipe/>
+    <recipe-creator/>
   </v-layout>
 </template>
 
 <script>
-import MakeRecipe from '@/modules/recipe/recipe';
+import RecipeCreator from '@/modules/recipe/recipe-creator';
 
 export default {
   components: {
-    MakeRecipe,
+    RecipeCreator,
   },
 };
 </script>

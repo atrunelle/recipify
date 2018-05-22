@@ -1,57 +1,70 @@
-import Vuex from 'vuex';
-import { shallow, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+
 import IngredientsList from '../ingredients-list';
-import getters from '@/modules/recipe/store/getters';
 
 describe('Component: ingredients list', () => {
   let component;
-  let localVue = createLocalVue();
-  localVue.use(Vuex);
 
-  const recipeActions = {
-    removeIngredient: jest.fn(),
-  };
+  const removeIngredient = jest.fn();
+  const removeAllIngredients = jest.fn();
+  const saveRecipe = jest.fn();
 
   beforeEach(() => {
-    const recipeStore = {
-      namespaced: true,
-      state: {
-        recipeIngredients: [{
-          name: 'carrot',
-          nutrients: {
-            calories: 100,
+    const ingredients = [{
+      name: 'carrot',
+      nutrients: {
+        dietLabels: [],
+        healthLabels: [],
+        totalNutrients: {
+          FAT: {
+            quantity: 5,
+            unit: 'gr',
+            label: 'Fat',
           },
-        }, {
-          name: 'spinach',
-          nutrients: {
-            calories: 100,
+          PROCNT: {
+            quantity: 5,
+            unit: 'gr',
+            label: 'Fat',
           },
-        }, {
-          name: 'carrot',
-          nutrients: {
-            calories: 100,
+        },
+        totalDaily: {
+          FAT: {
+            quantity: 5,
+            unit: '%',
+            label: 'Fat',
           },
-        }],
+          PROCNT: {
+            quantity: 5,
+            unit: '%',
+            label: 'Fat',
+          },
+        },
       },
-      getters,
-      actions: recipeActions,
-    };
+    }];
 
-    const store = new Vuex.Store({
-      modules: {
-        recipe: recipeStore,
+    component = mount(IngredientsList, {
+      propsData: {
+        ingredients,
+        save: saveRecipe,
+        remove: removeIngredient,
+        removeAll: removeAllIngredients,
       },
-    });
-
-    component = shallow(IngredientsList, {
-      localVue,
-      store,
     });
   });
 
   it('should remove ingredient', () => {
-    component.find('#remove-ingredient-1').trigger('click');
-    expect(recipeActions.removeIngredient).toHaveBeenCalled();
+    component.find('#remove-button-0').trigger('click');
+    expect(removeIngredient).toHaveBeenCalled();
+  });
+
+  it('should remove ingredient', () => {
+    component.find('#remove-all-button').trigger('click');
+    expect(removeAllIngredients).toHaveBeenCalled();
+  });
+
+  it('should remove ingredient', () => {
+    component.find('#save-button').trigger('click');
+    expect(saveRecipe).toHaveBeenCalled();
   });
 
   it('should match snapshot', () => {

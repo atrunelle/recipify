@@ -6,7 +6,7 @@ describe('Component: create recipe', () => {
 
   beforeEach(() => {
     component = mount(CreateRecipe, {
-      stubs: ['make-recipe'],
+      stubs: ['recipe-creator'],
     });
   });
 

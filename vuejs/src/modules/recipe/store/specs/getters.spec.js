@@ -3,7 +3,7 @@ import getters from '../getters';
 describe('Store: recipe getters', () => {
   it('should return recipe state', () => {
     const state = {
-      recipeIngredients: [{
+      ingredients: [{
         name: 'carrot',
       }],
     };

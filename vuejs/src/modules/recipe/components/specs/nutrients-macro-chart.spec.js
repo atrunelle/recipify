@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
-import NutrientsChart from '../nutrients-chart';
+import NutrientsMacroChart from '../nutrients-macro-chart';
 
 describe('Component: nutrients chart', () => {
   let component;
 
   beforeEach(() => {
-    component = mount(NutrientsChart, {
+    component = mount(NutrientsMacroChart, {
       propsData: {
         nutritionData: [{
           totalQuantity: {

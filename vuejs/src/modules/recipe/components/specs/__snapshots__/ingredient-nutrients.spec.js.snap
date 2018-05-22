@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component: nutrient insight should match snapshot 1`] = `
+exports[`Component: ingredient nutrients should match snapshot 1`] = `
 <div>
     <div class="layout justify-space-between align-center row"></div>
     <div class="text-xs-center pa-2"><span tabindex="0" class="chip"><span class="chip__content">
