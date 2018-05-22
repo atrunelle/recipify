@@ -1,26 +1,27 @@
+import { INutrientDataList } from './recipe.interface';
 import { Injectable } from '@angular/core';
 import { CALORIES_PER_MACRO } from './nutrition.constant';
 
 @Injectable()
 
 class NutritionService {
-  calculatePercentage (quantity, totalCalories, nutrient) {
+  calculatePercentage (quantity, totalCalories, nutrient): number {
     return Math.round(quantity * CALORIES_PER_MACRO[nutrient] / totalCalories * 100);
   }
 
-  getTotalCalories  (ingredients) {
+  getTotalCalories  (ingredients): number {
     return ingredients.reduce((sum, ingredient) => {
       return ingredient.nutrients.calories + sum;
     }, 0);
   }
 
-  getTotalWeight (ingredients) {
+  getTotalWeight (ingredients): number {
     return ingredients.reduce((sum, ingredient) => {
       return ingredient.nutrients.totalWeight + sum;
     }, 0);
   }
 
-  getTotalForNutrient (items, totalKey, nutrient, totalCalories = 0) {
+  getTotalForNutrient (items, totalKey, nutrient, totalCalories = 0): INutrientDataList {
     return items
     .reduce((sum, ingredient) => {
       const nutrientTotal = ingredient.nutrients[totalKey][nutrient];

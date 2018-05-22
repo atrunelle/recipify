@@ -15,6 +15,8 @@ import { AppRoutingModule } from '@/app-routing.module';
 import { RecipeModule } from '@/recipe/recipe.module';
 import { MatDesignModule } from '@/mat-design.module';
 
+import ToastService from '@/core/toast.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,7 @@ import { MatDesignModule } from '@/mat-design.module';
     MatDesignModule,
     RecipeModule
   ],
-  providers: [],
+  providers: [ ToastService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

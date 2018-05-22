@@ -1,8 +1,12 @@
-interface INutrientsValue {
+export interface INutrientsValue {
   label: string;
   quantity: number;
   unit: string;
   percantge?: number;
+}
+
+export interface INutrientDataList {
+  [index: string]: INutrientsValue;
 }
 
 export interface INutrient {
@@ -12,13 +16,9 @@ export interface INutrient {
   totalWeight: number;
   dietLabels: string[];
   healthLabels: string[];
-  cautions: any[];
-  totalNutrients: {
-    [index: string]: INutrientsValue;
-  };
-  totalDaily: {
-    [index: string]: INutrientsValue;
-  };
+  cautions: string[];
+  totalNutrients: INutrientDataList;
+  totalDaily: INutrientDataList;
   ingredients: any[];
 }
 

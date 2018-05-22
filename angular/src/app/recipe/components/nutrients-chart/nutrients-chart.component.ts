@@ -34,6 +34,7 @@ export class NutrientsChartComponent implements OnInit, OnChanges {
       .padding(1.5);
 
     const svg = d3.select(this.elementRef.nativeElement)
+      .select('div')
       .append('svg')
       .attr('width', diameter)
       .attr('height', diameter)
@@ -56,8 +57,8 @@ export class NutrientsChartComponent implements OnInit, OnChanges {
 
     node
       .append('circle')
-      .attr('r', (d: any) => d.r);
-      // .style('fill', (d, i) => color(i));
+      .attr('r', (d: any) => d.r)
+      .style('fill', (d, i) =>  color(i + '') as string);
 
     node.append('text')
       .attr('dy', '.2em')

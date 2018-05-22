@@ -1,3 +1,4 @@
+import { INutrientsValue } from './../../recipe.interface';
 import { Component, OnInit, Input } from '@angular/core';
 import { INutrient } from '@/recipe/recipe.interface';
 import RecipeService from '@/recipe/recipe.service';
@@ -17,14 +18,14 @@ export class NutrientsInsightComponent implements OnInit {
   ngOnInit() {
   }
 
-  get allLabels () {
+  get allLabels (): string[] {
     const dietsLabels = this.recipeService.getDietLabels(this.nutrients.dietLabels);
     const healthLabels = this.recipeService.getHealthLabels(this.nutrients.healthLabels);
 
     return dietsLabels.concat(healthLabels);
   }
 
-  get macroNutrientsData () {
+  get macroNutrientsData (): INutrientsValue[] {
     return this.recipeService.getMacroNutrientsList(this.nutrients.totalNutrients);
   }
 }

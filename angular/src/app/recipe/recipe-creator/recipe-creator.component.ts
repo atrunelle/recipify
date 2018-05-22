@@ -1,3 +1,4 @@
+import ToastService from '@/core/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { IIngredient, IRecipe } from '@/recipe/recipe.interface';
 import RecipeService from '@/recipe/recipe.service';
@@ -12,18 +13,22 @@ export class RecipeCreatorComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
+    private toastService: ToastService,
   ) { }
 
   ngOnInit() {
   }
 
-  public addIngredient(event: any) {
+  public addIngredient(event) {
     this.recipeService
       .addIngredient(event)
-      .subscribe();
+      .subscribe(
+        () => {},
+        (error) => this.toastService.show('ERROR', error.message),
+      );
   }
 
-  public removeIngredient(event: any) {
+  public removeIngredient(event) {
     this.recipeService
       .removeIngredient(event);
   }

@@ -1,3 +1,4 @@
+import { INutrientDataList } from './../../recipe.interface';
 import { MACRO_NUTRIENTS } from '@/recipe/edamam.constant';
 import { IIngredient } from '@/recipe/recipe.interface';
 import { Component, OnInit, Input } from '@angular/core';
@@ -23,11 +24,11 @@ export class RecipeDataComponent implements OnInit {
     return this.getTotalNutrients();
   }
 
-  get totalCalories () {
+  get totalCalories (): number {
     return this.nutritionService.getTotalCalories(this.ingredients);
   }
 
-  get totalWeight () {
+  get totalWeight (): number {
     return this.nutritionService.getTotalWeight(this.ingredients);
   }
 
@@ -48,11 +49,11 @@ export class RecipeDataComponent implements OnInit {
     });
   }
 
-  totalQuantityFor (nutrient) {
+  totalQuantityFor (nutrient): INutrientDataList {
     return this.nutritionService.getTotalForNutrient(this.ingredients, 'totalNutrients', nutrient, this.totalCalories);
   }
 
-  totalDailyIntakeFor (nutrient) {
+  totalDailyIntakeFor (nutrient): INutrientDataList {
     return this.nutritionService.getTotalForNutrient(this.ingredients, 'totalDaily', nutrient);
   }
 }

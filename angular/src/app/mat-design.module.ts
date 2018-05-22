@@ -10,7 +10,8 @@ import {
   MatListModule,
   MatChipsModule,
   MatProgressSpinnerModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatSnackBarModule,
 } from '@angular/material';
 
 
@@ -26,6 +27,7 @@ import {
     MatChipsModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatToolbarModule,
@@ -38,6 +40,7 @@ import {
     MatChipsModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
+    MatSnackBarModule,
   ],
 })
 export class MatDesignModule { }
