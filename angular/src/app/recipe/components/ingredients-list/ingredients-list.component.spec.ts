@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { RecipeModule } from '@/recipe/recipe.module';
+import { MatDesignModule } from '@/mat-design.module';
+
 import { IngredientsListComponent } from './ingredients-list.component';
 
 describe('IngredientsListComponent', () => {
@@ -8,7 +11,10 @@ describe('IngredientsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IngredientsListComponent ]
+      imports: [
+        MatDesignModule,
+        RecipeModule,
+      ],
     })
     .compileComponents();
   }));

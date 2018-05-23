@@ -11,7 +11,7 @@ import NutritionService from '@/recipe/nutrition.service';
 })
 export class IngredientsDataComponent implements OnInit {
   @Input()
-  public ingredients: IIngredient[];
+  public ingredients: IIngredient[] = [];
 
   constructor(
     private nutritionService: NutritionService,

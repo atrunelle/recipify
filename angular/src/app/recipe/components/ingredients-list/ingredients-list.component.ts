@@ -9,7 +9,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class IngredientsListComponent implements OnInit {
   @Input()
-  public ingredients: IIngredient[];
+  public ingredients: IIngredient[] = [];
 
   @Output()
   remove = new EventEmitter<any>();

@@ -1,5 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { RecipeModule } from '@/recipe/recipe.module';
+import { MatDesignModule } from '@/mat-design.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 import { SearchIngredientComponent } from './search-ingredient.component';
 
 describe('SearchIngredientComponent', () => {
@@ -8,7 +12,11 @@ describe('SearchIngredientComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchIngredientComponent ]
+      imports: [
+        MatDesignModule,
+        NoopAnimationsModule,
+        RecipeModule,
+      ],
     })
     .compileComponents();
   }));

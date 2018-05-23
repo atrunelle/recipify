@@ -9,7 +9,7 @@ import { INutrient } from '@/recipe/recipe.interface';
 })
 export class NutrientsMacroChartComponent implements OnInit, OnChanges {
   @Input()
-  public nutritionData: INutrient[];
+  public nutritionData;
 
   constructor(private elementRef: ElementRef) { }
 

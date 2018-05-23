@@ -1,14 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecipesListComponent } from './recipes-list.component';
+import { RecipeModule } from './../recipe.module';
+import { MatDesignModule } from '@/mat-design.module';
+import { HttpClientModule } from '@angular/common/http';
 
-describe('RecipesComponent', () => {
+import { RecipesListComponent } from './recipes-list.component';
+import ToastService from '@/core/toast.service';
+
+describe('RecipesListComponent', () => {
   let component: RecipesListComponent;
   let fixture: ComponentFixture<RecipesListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecipesListComponent ]
+      imports: [
+        MatDesignModule,
+        RecipeModule,
+        HttpClientModule,
+      ],
+      providers: [ToastService],
     })
     .compileComponents();
   }));

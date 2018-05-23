@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import { MatDesignModule } from '@/mat-design.module';
+import { MenuComponent } from '@/components/menu/menu.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -8,7 +10,13 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [
+        HeaderComponent,
+        MenuComponent,
+      ],
+      imports: [
+        MatDesignModule,
+      ],
     })
     .compileComponents();
   }));
