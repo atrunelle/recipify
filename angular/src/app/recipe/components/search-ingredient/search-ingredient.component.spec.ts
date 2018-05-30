@@ -27,7 +27,22 @@ describe('SearchIngredientComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should submit form', () => {
+    let formValue = {};
+    component.form.setValue({
+      numberOfServing: '2',
+      ingredient: 'name',
+    });
+
+    component.add.subscribe((data) => formValue = data);
+    component.onSubmit();
+    expect(formValue).toEqual({
+      numberOfServing: '2',
+      ingredient: 'name',
+    });
+    expect(component.form.value).toEqual({
+      numberOfServing: '1',
+      ingredient: '',
+    });
   });
 });

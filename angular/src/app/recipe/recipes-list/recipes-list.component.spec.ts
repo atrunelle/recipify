@@ -1,24 +1,31 @@
+import { Observable } from 'rxjs';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecipeModule } from './../recipe.module';
 import { MatDesignModule } from '@/mat-design.module';
-import { HttpClientModule } from '@angular/common/http';
 
+import RecipeService from '@/recipe/recipe.service';
 import { RecipesListComponent } from './recipes-list.component';
-import ToastService from '@/core/toast.service';
 
 describe('RecipesListComponent', () => {
   let component: RecipesListComponent;
   let fixture: ComponentFixture<RecipesListComponent>;
+  let recipeServiceSpy: {
+    get: jasmine.Spy,
+  };
 
   beforeEach(async(() => {
+    recipeServiceSpy = jasmine.createSpyObj('RecipeService', [
+      'get',
+    ]);
+
     TestBed.configureTestingModule({
+      declarations: [ RecipesListComponent ],
       imports: [
         MatDesignModule,
-        RecipeModule,
-        HttpClientModule,
       ],
-      providers: [ToastService],
+      providers: [
+        { provide: RecipeService, useValue: recipeServiceSpy },
+      ],
     })
     .compileComponents();
   }));
@@ -29,7 +36,7 @@ describe('RecipesListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should render list of ingredients', () => {
     expect(component).toBeTruthy();
   });
 });

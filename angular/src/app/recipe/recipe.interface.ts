@@ -2,7 +2,7 @@ export interface INutrientsValue {
   label: string;
   quantity: number;
   unit: string;
-  percantge?: number;
+  percentage?: number;
 }
 
 export interface INutrientDataList {

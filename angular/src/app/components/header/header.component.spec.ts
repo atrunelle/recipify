@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
 import { MatDesignModule } from '@/mat-design.module';
-import { MenuComponent } from '@/components/menu/menu.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -12,11 +12,11 @@ describe('HeaderComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         HeaderComponent,
-        MenuComponent,
       ],
       imports: [
         MatDesignModule,
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));

@@ -39,8 +39,9 @@ class RecipeService {
     return this.store.pluck(name);
   }
 
-  addIngredient({ ingredient, numberOfServing }: { ingredient: IIngredient, numberOfServing: string }) {
+  addIngredient({ ingredient, numberOfServing }: { ingredient: string, numberOfServing: string }) {
     const value = this.subject.value;
+
     return this.getIngredientNutrition(ingredient, parseInt(numberOfServing, 0))
       .pipe(map((ingredientData) => {
         this.subject.next({
@@ -55,16 +56,17 @@ class RecipeService {
 
   public removeIngredient(index) {
     const value = this.subject.value;
-   if (value.ingredients.length === 1) {
-    this.removeAllIngredients();
-   } else {
-     this.subject.next({
+
+    if (value.ingredients.length === 1) {
+      this.removeAllIngredients();
+    } else {
+      this.subject.next({
        ...value,
        ingredients: [
          ...value.ingredients.splice(index, 1),
        ],
      });
-   }
+    }
   }
 
   public removeAllIngredients() {
@@ -101,13 +103,13 @@ class RecipeService {
     return this.http.get(url);
   }
 
-  private getNutrients (ingredient): Observable<any> {
+  private getNutrients (ingredients): Observable<any> {
     const url = `${this.foodUrl}/nutrients?${this.apiAuth}`;
 
-    return this.http.post(url, ingredient);
+    return this.http.post(url, ingredients);
   }
 
-  public getIngredientNutrition (ingredientName, numberOfServings): Observable<IIngredient> {
+  public getIngredientNutrition (ingredientName: string, numberOfServings: number): Observable<IIngredient> {
     return this.parseIngredient(ingredientName)
       .pipe(
         mergeMap((data) => {

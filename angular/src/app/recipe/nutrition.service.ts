@@ -1,4 +1,4 @@
-import { INutrientDataList } from './recipe.interface';
+import { INutrientsValue } from './recipe.interface';
 import { Injectable } from '@angular/core';
 import { CALORIES_PER_MACRO } from './nutrition.constant';
 
@@ -21,7 +21,7 @@ class NutritionService {
     }, 0);
   }
 
-  getTotalForNutrient (items, totalKey, nutrient, totalCalories = 0): INutrientDataList {
+  getTotalForNutrient (items, totalKey, nutrient, totalCalories = 0): INutrientsValue {
     return items
     .reduce((sum, ingredient) => {
       const nutrientTotal = ingredient.nutrients[totalKey][nutrient];

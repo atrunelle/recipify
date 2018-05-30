@@ -40,5 +40,4 @@ export class RecipeCreatorComponent implements OnInit {
   public saveRecipe (event) {
     this.recipeService.saveRecipe(event);
   }
-
 }

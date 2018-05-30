@@ -26,7 +26,10 @@
               <mat-panel-description>
                   {{ ingredient.nutrients.calories }}cal for {{ ingredient.nutrients.totalWeight }}gr
               </mat-panel-description>
-            <button mat-button (click)="removeIngredient(i, $event)">
+            <button
+              mat-button
+              (click)="removeIngredient(i, $event)"
+              id="removeButton"              >
               <mat-icon matListIcon>delete</mat-icon>
             </button>
           </mat-expansion-panel-header>
@@ -39,12 +42,14 @@
     fxLayoutAlign="end">
       <button
         mat-button
+        id="removeAllButton"
         (click)="removeAllIngredients()">
         Remove all ingredients
       </button>
       <button
         mat-raised-button
         color="primary"
+        id="saveRecipeButton"
         (click)="saveRecipe()">
         Save recipe
       </button>
