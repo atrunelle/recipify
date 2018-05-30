@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { IRecipe } from '@/recipe/recipe.interface';
-import RecipeService from '@/recipe/recipe.service';
+import RecipeStore from '@/recipe/store/recipeStore';
 
 @Component({
   selector: 'app-recipes',
@@ -9,10 +9,10 @@ import RecipeService from '@/recipe/recipe.service';
   styleUrls: ['./recipes-list.component.scss']
 })
 export class RecipesListComponent implements OnInit {
-  public recipes$ = this.recipeService.get<IRecipe[]>('recipes');
+  public recipes$ = this.recipeStore.get<IRecipe[]>('recipes');
 
   constructor(
-    private recipeService: RecipeService,
+    private recipeStore: RecipeStore,
   ) { }
 
   ngOnInit() {

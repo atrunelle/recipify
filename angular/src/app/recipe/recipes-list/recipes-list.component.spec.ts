@@ -3,18 +3,18 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MatDesignModule } from '@/mat-design.module';
 
-import RecipeService from '@/recipe/recipe.service';
+import RecipeStore from '@/recipe/store/recipeStore';
 import { RecipesListComponent } from './recipes-list.component';
 
 describe('RecipesListComponent', () => {
   let component: RecipesListComponent;
   let fixture: ComponentFixture<RecipesListComponent>;
-  let recipeServiceSpy: {
+  let recipeStoreSpy: {
     get: jasmine.Spy,
   };
 
   beforeEach(async(() => {
-    recipeServiceSpy = jasmine.createSpyObj('RecipeService', [
+    recipeStoreSpy = jasmine.createSpyObj('RecipeService', [
       'get',
     ]);
 
@@ -24,7 +24,7 @@ describe('RecipesListComponent', () => {
         MatDesignModule,
       ],
       providers: [
-        { provide: RecipeService, useValue: recipeServiceSpy },
+        { provide: RecipeStore, useValue: recipeStoreSpy },
       ],
     })
     .compileComponents();

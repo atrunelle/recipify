@@ -14,6 +14,7 @@ import { NutrientsMacroChartComponent } from './components/nutrients-macro-chart
 
 import { MatDesignModule } from '@/mat-design.module';
 
+import RecipeStore from './store/recipeStore';
 import RecipeService from './recipe.service';
 import NutritionService from './nutrition.service';
 
@@ -36,6 +37,7 @@ import NutritionService from './nutrition.service';
   providers: [
     RecipeService,
     NutritionService,
+    RecipeStore,
   ],
   exports: [
     RecipeCreatorComponent,

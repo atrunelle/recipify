@@ -7,14 +7,14 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import ToastService from '@/core/toast.service';
-import RecipeService from '@/recipe/recipe.service';
+import RecipeStore from '@/recipe/store/recipeStore';
 
 import { RecipeCreatorComponent } from './recipe-creator.component';
 
 describe('RecipeCreatorComponent', () => {
   let component: RecipeCreatorComponent;
   let fixture: ComponentFixture<RecipeCreatorComponent>;
-  let recipeServiceSpy: {
+  let recipeStoreSpy: {
     get: jasmine.Spy,
     addIngredient: jasmine.Spy,
     removeIngredient: jasmine.Spy,
@@ -26,7 +26,7 @@ describe('RecipeCreatorComponent', () => {
   };
 
   beforeEach(async(() => {
-    recipeServiceSpy = jasmine.createSpyObj('RecipeService', [
+    recipeStoreSpy = jasmine.createSpyObj('RecipeStore', [
       'get',
       'addIngredient',
       'removeIngredient',
@@ -36,6 +36,7 @@ describe('RecipeCreatorComponent', () => {
     toastServiceSpy = jasmine.createSpyObj('ToastService', [
       'show',
     ]);
+
     TestBed.configureTestingModule({
       declarations: [ RecipeCreatorComponent ],
       imports: [
@@ -43,7 +44,7 @@ describe('RecipeCreatorComponent', () => {
         NoopAnimationsModule,
       ],
       providers: [
-        { provide: RecipeService, useValue: recipeServiceSpy },
+        { provide: RecipeStore, useValue: recipeStoreSpy },
         { provide: ToastService, useValue: toastServiceSpy },
       ],
       schemas: [NO_ERRORS_SCHEMA],
@@ -58,14 +59,14 @@ describe('RecipeCreatorComponent', () => {
   });
 
   it('should add ingredient', () => {
-    recipeServiceSpy.addIngredient.and.returnValue(Observable.of({}));
+    recipeStoreSpy.addIngredient.and.returnValue(Observable.of({}));
     const event = {};
     component.addIngredient(event);
-    expect(recipeServiceSpy.addIngredient).toHaveBeenCalledWith(event);
+    expect(recipeStoreSpy.addIngredient).toHaveBeenCalledWith(event);
   });
 
   it('should throw error when adding ingredient', () => {
-    recipeServiceSpy.addIngredient.and.returnValue(throwError(new Error('add error')));
+    recipeStoreSpy.addIngredient.and.returnValue(throwError(new Error('add error')));
     const event = {};
     component.addIngredient(event);
     expect(toastServiceSpy.show).toHaveBeenCalledWith('ERROR', 'add error');
@@ -74,17 +75,17 @@ describe('RecipeCreatorComponent', () => {
   it('should remove ingredient', () => {
     const event = {};
     component.removeIngredient(event);
-    expect(recipeServiceSpy.removeIngredient).toHaveBeenCalledWith(event);
+    expect(recipeStoreSpy.removeIngredient).toHaveBeenCalledWith(event);
   });
 
   it('should remove all ingredient', () => {
     component.removeAllIngredients();
-    expect(recipeServiceSpy.removeAllIngredients).toHaveBeenCalled();
+    expect(recipeStoreSpy.removeAllIngredients).toHaveBeenCalled();
   });
 
   it('should remove ingredient', () => {
     const event = 'name';
     component.saveRecipe(event);
-    expect(recipeServiceSpy.saveRecipe).toHaveBeenCalledWith('name');
+    expect(recipeStoreSpy.saveRecipe).toHaveBeenCalledWith('name');
   });
 });

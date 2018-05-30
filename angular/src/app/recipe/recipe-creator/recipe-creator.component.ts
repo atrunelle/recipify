@@ -2,6 +2,7 @@ import ToastService from '@/core/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { IIngredient, IRecipe } from '@/recipe/recipe.interface';
 import RecipeService from '@/recipe/recipe.service';
+import RecipeStore from '@/recipe/store/recipeStore';
 
 @Component({
   selector: 'app-recipe-creator',
@@ -9,10 +10,10 @@ import RecipeService from '@/recipe/recipe.service';
   styleUrls: ['./recipe-creator.component.scss']
 })
 export class RecipeCreatorComponent implements OnInit {
-  public ingredients$ = this.recipeService.get<IIngredient[]>('ingredients');
+  public ingredients$ = this.recipeStore.get<IIngredient[]>('ingredients');
 
   constructor(
-    private recipeService: RecipeService,
+    private recipeStore: RecipeStore,
     private toastService: ToastService,
   ) { }
 
@@ -20,7 +21,7 @@ export class RecipeCreatorComponent implements OnInit {
   }
 
   public addIngredient(event) {
-    this.recipeService
+    this.recipeStore
       .addIngredient(event)
       .subscribe(
         () => {},
@@ -29,15 +30,15 @@ export class RecipeCreatorComponent implements OnInit {
   }
 
   public removeIngredient(event) {
-    this.recipeService
+    this.recipeStore
       .removeIngredient(event);
   }
 
   public removeAllIngredients() {
-    this.recipeService.removeAllIngredients();
+    this.recipeStore.removeAllIngredients();
   }
 
   public saveRecipe (event) {
-    this.recipeService.saveRecipe(event);
+    this.recipeStore.saveRecipe(event);
   }
 }

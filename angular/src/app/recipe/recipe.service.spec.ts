@@ -25,47 +25,6 @@ describe('Service: RecipeService', () => {
     service = TestBed.get(RecipeService);
   });
 
-  it('should add ingredient nutrients data', () => {
-    const mockedIngredient = {
-      nutrients: [{
-        uri: '',
-        yield: 1,
-        calories: 100,
-        totalWeight: 120,
-        dietLabels: [],
-        healthLabels: [],
-        cautions: [],
-        totalNutrients: {},
-        totalDaily: {},
-        ingredients: [],
-      }],
-      name: 'Carrot',
-    };
-
-    service.getIngredientNutrition = jasmine.createSpy().and.returnValue(Observable.of(mockedIngredient));
-    service.addIngredient({ ingredient: 'carrot', numberOfServing: '1' })
-      .subscribe(() => {
-        service.get<IIngredient[]>('ingredients')
-          .subscribe((data) => {
-            expect(data).toEqual([{
-              nutrients: [{
-                uri: '',
-                yield: 1,
-                calories: 100,
-                totalWeight: 120,
-                dietLabels: [],
-                healthLabels: [],
-                cautions: [],
-                totalNutrients: {},
-                totalDaily: {},
-                ingredients: [],
-              }],
-              name: 'Carrot',
-            }]);
-        });
-      });
-  });
-
   it('should parse ingredient, and get nutrients data', () => {
     const mockParsedIngredient = {
       parsed: [{
