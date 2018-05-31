@@ -7,7 +7,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import ToastService from '@/core/toast.service';
-import RecipeStore from '@/recipe/store/recipeStore';
+import RecipeStore from '@/recipe/store/recipe-store';
 
 import { RecipeCreatorComponent } from './recipe-creator.component';
 

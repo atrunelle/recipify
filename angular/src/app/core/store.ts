@@ -3,19 +3,19 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/pluck';
 
-class Store<T> {
-  private _state$: BehaviorSubject<T>;
+abstract class Store<T> {
+  private subject$: BehaviorSubject<T>;
 
   protected constructor (initialState: T) {
-    this._state$ = new BehaviorSubject(initialState);
+    this.subject$ = new BehaviorSubject(initialState);
   }
 
   get state$ (): Observable<T> {
-    return this._state$.asObservable().distinctUntilChanged();
+    return this.subject$.asObservable().distinctUntilChanged();
   }
 
   get state (): T {
-    return this._state$.value;
+    return this.subject$.value;
   }
 
   get<S>(name: string): Observable<S> {
@@ -23,7 +23,7 @@ class Store<T> {
   }
 
   setState (nextState: T): void {
-    this._state$.next(nextState);
+    this.subject$.next(nextState);
   }
 }
 

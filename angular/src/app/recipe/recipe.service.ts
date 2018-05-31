@@ -56,7 +56,7 @@ class RecipeService {
       );
   }
 
-  public getIngredients (data, numberOfServings = 1) {
+  public getIngredients (data, numberOfServings) {
     const ingredients = data.parsed.map((item, index) => {
       return {
         quantity: item.quantity,

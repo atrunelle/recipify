@@ -2,7 +2,7 @@ import ToastService from '@/core/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { IIngredient, IRecipe } from '@/recipe/recipe.interface';
 import RecipeService from '@/recipe/recipe.service';
-import RecipeStore from '@/recipe/store/recipeStore';
+import RecipeStore from '@/recipe/store/recipe-store';
 
 @Component({
   selector: 'app-recipe-creator',

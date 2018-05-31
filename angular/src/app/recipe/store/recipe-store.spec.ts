@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { TestBed } from '@angular/core/testing';
 import ToastService from '@/core/toast.service';
-import RecipeStore from '@/recipe/store/recipeStore';
+import RecipeStore from '@/recipe/store/recipe-store';
 import RecipeService from '@/recipe/recipe.service';
 
 describe('Store: recipe', () => {

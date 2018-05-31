@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MatDesignModule } from '@/mat-design.module';
 
-import RecipeStore from '@/recipe/store/recipeStore';
+import RecipeStore from '@/recipe/store/recipe-store';
 import { RecipesListComponent } from './recipes-list.component';
 
 describe('RecipesListComponent', () => {

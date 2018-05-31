@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { IRecipe } from '@/recipe/recipe.interface';
-import RecipeStore from '@/recipe/store/recipeStore';
+import RecipeStore from '@/recipe/store/recipe-store';
 
 @Component({
   selector: 'app-recipes',
