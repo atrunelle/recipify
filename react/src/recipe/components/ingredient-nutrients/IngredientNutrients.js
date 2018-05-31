@@ -17,7 +17,7 @@ class IngredientNutrients extends Component {
   render() {
     const nutrientsView = this.macroNutrientsData.map((nutrient) => 
       <div>
-          <h3 class="pa-2">{ nutrient.label }</h3>
+          <h3>{ nutrient.label }</h3>
           <p>{ nutrient.quantity } { nutrient.unit }</p>
       </div>
     )

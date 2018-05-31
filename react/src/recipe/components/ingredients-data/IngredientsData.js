@@ -38,11 +38,11 @@ class IngredientsData extends Component {
   }
 
   totalQuantityFor (nutrient) {
-    return this.nutritionService.getTotalForNutrient(this.ingredients, 'totalNutrients', nutrient, this.totalCalories);
+    return nutritionService.getTotalForNutrient(this.props.ingredients, 'totalNutrients', nutrient, this.totalCalories);
   }
 
   totalDailyIntakeFor (nutrient) {
-    return this.nutritionService.getTotalForNutrient(this.ingredients, 'totalDaily', nutrient);
+    return nutritionService.getTotalForNutrient(this.props.ingredients, 'totalDaily', nutrient);
   }
   render() {
     if (!this.props.ingredients.length) return (<div></div>);
@@ -66,7 +66,7 @@ class IngredientsData extends Component {
               <p>Total Nutrients</p>
               <p>Total Daily percentage</p>
             </div>
-            <div class="u-text-center">
+            <div className="u-text-center">
               {nutrientsDetails}
             </div>
           </div>

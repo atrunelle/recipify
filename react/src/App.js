@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 import './App.css';
-import store from './store';
 
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import RecipeCreator from './recipe/recipe-creator/RecipeCreator';
+import RecipesList from './recipe/recipes-list/RecipesList';
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <div className="app">
-          <Header />
-            <main className="l-container">
-              <RecipeCreator />
-            </main>
-            <Footer />
-        </div>
-      </Provider>
+      <div className="app">
+        <Header />
+          <main className="l-container">
+            <Route exact path="/" component={RecipeCreator} />
+            <Route path="/recipes/list" component={RecipesList} />
+          </main>
+          <Footer />
+      </div>
     );
   }
 }
