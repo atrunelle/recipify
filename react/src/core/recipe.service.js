@@ -1,8 +1,30 @@
-import apiService from '@/core/api.service';
+import apiService from './api.service';
 import { DIET_LABELS, HEALTH_LABEL, MACRO_NUTRIENTS, MICRO_NUTRIENTS } from './edamam.constant';
 
 const recipeService = {
-  getIngredientNutrition (ingredientName, numberOfServings) {
+  getIngredients (data, numberOfServings) {
+    const ingredients = data.parsed.map((item, index) => {
+      const value = {
+        foodURI: item.food.uri,        
+      };
+
+      if (item.quantity) {
+        value.quantity = item.quantity;
+      }
+
+      if (item.measure) {
+        value.measureURI = item.measure.uri;
+      }
+      return value;
+    });
+
+    return {
+      yield: numberOfServings,
+      ingredients,
+    };
+  },
+  
+  fetchIngredient (ingredientName, numberOfServings = 1) {
     return apiService.parseIngredient(ingredientName)
       .then((data) => {
         const ingredients = this.getIngredients(data, numberOfServings);
@@ -17,23 +39,8 @@ const recipeService = {
           });
       })
       .catch((error) => {
-        throw error.response.data.message;
+        throw error;
       });
-  },
-
-  getIngredients (data, numberOfServings = 1) {
-    const ingredients = data.parsed.map((item, index) => {
-      return {
-        quantity: item.quantity,
-        measureURI: item.measure.uri,
-        foodURI: item.food.uri,
-      };
-    });
-
-    return {
-      yield: numberOfServings,
-      ingredients,
-    };
   },
 
   getDietLabels (items) {
@@ -69,11 +76,12 @@ const recipeService = {
   },
 
   filterObject (object, callback) {
-    return Object.keys(object).filter(callback)
+    console.log(object);
+    return Object.values(Object.keys(object).filter(callback)
     .reduce((obj, key) => {
       obj[key] = object[key];
       return obj;
-    }, {});
+    }, {}));
   },
 };
 

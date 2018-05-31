@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
 // import './ingredientsList.css';
-
+import IngredientNutrients from '../ingredient-nutrients/IngredientNutrients';
 
 class IngredientsList extends Component {
 
-    render() {
-        if (!this.props.ingredients.healthLabels) return (<div></div>);
-        const healthLabels = this.props.ingredients.healthLabels.reduce((acc, h) => {
-            return `${acc} <br> ${h}`;
-        })
-        return(
-            <div className="results">
-                <h2>{this.props.title}</h2>
-                <div>{this.props.ingredients.calories}</div>
-                <div>{this.props.ingredients.totalWeight}</div>
-                <div>{this.props.ingredients.dietLabels}</div>
-                <div>{healthLabels}</div>
-                {/* {this.props.results.totalDaily} */}
-                {/* {this.props.results.totalNutrients} */}
-                <div>{this.props.ingredients.cautions}</div>
-                <div>{this.props.ingredients.glycemicIndex}</div>
-                {/* {this.props.results.ingredients} */}
-            </div>
-        );
-    }
+  render() {
+    if (!this.props.ingredients.length) return (<div></div>);
+  
+    const ingredients = this.props.ingredients.map((ingredient) => 
+    <div>
+      <h2>{ingredient.name} { ingredient.nutrients.calories }cal for {ingredient.nutrients.totalWeight }gr</h2>
+      <IngredientNutrients nutrients={ingredient.nutrients}></IngredientNutrients>
+    </div>
+    )
+    return(
+      <div className="results">
+        {ingredients}
+      </div>
+    );
+  }
 }
 
 export default IngredientsList;

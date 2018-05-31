@@ -7,31 +7,42 @@ class SearchIngredient extends Component {
         super(props);
     
         this.state = {
-          value: '',
+          ingredientName: '',
+          numberOfServings: 1,
         };
     }
 
-    handleChange = (event) => {
-        this.setState({ value : event.target.value });
+    onIngredientChange = (event) => {
+      this.setState({ ingredientName : event.target.value });
     }
-    
-    handleSubmit = (event) => {
+
+    onNumberOfServingsChange = (event) => {
+      this.setState({ numberOfServings : event.target.value });
+    }
+
+    onSubmit = (event) => {
       event.preventDefault();
-      this.props.add('ingredient');
+      this.props.add(this.state.ingredientName, this.state.numberOfServings);
     }
     
   render() {
     return (
-        <form className="search" onSubmit={this.handleSubmit}>
+        <form className="search" onSubmit={this.onSubmit}>
           <label className="search__label">
             What do you want to use?
           </label>
           <input 
             className="search__input" 
-            value={this.state.value} 
+            value={this.state.ingredientName} 
             type="text" 
             placeholder="Find an ingredient..."
-            onChange={this.handleChange}/>
+            onChange={this.onIngredientChange}/>
+          <input 
+            className="search__input" 
+            value={this.state.numberOfServings} 
+            type="text" 
+            placeholder="Find an ingredient..."
+            onChange={this.onNumberOfServingsChange}/>
             <button type="submit">Submit</button>
         </form>
     );

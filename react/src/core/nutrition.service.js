@@ -1,4 +1,4 @@
-import { CALORIES_PER_MACRO } from '@/core/nutrition.constant';
+import { CALORIES_PER_MACRO } from './nutrition.constant';
 
 const nutritionService = {
 

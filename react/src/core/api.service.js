@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = '/api';
-const APP_ID = process.env.APP_ID;
-const APP_KEY = process.env.APP_KEY;
+axios.defaults.baseURL = '/';
+const APP_ID = process.env.REACT_APP_ID;
+const APP_KEY = process.env.REACT_APP_KEY;
 
 const apiService = {
   defaults: {
