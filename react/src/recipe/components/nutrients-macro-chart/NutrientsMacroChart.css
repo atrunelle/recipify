@@ -1,0 +1,18 @@
+.graph {
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  @media (min-width: 600px) {
+    .graph {
+      flex-direction: row; } }
+  .graph__bar {
+    font-weight: 700;
+    text-align: center;
+    padding: 20px;
+    color: #fff; }
+    .graph__bar--fat {
+      background: #FF5722; }
+    .graph__bar--protein {
+      background: #FFC107; }
+    .graph__bar--carbs {
+      background: #3F51B5; }

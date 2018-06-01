@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import recipeService from "../../../core/recipe.service";
+import { Chip, Typography, Grid } from "@material-ui/core";
 
 class IngredientNutrients extends Component {
 
@@ -15,23 +16,47 @@ class IngredientNutrients extends Component {
   }
 
   render() {
-    const nutrientsView = this.macroNutrientsData.map((nutrient) => 
-      <div>
-          <h3>{ nutrient.label }</h3>
-          <p>{ nutrient.quantity } { nutrient.unit }</p>
-      </div>
-    )
-    const allLabelsView = this.allLabels.map((label) => <li>{label}</li>);
+    const nutrientsView = this.macroNutrientsData.map((nutrient, index) => {
+      const quantity = Math.round(nutrient.quantity);
+
+      return (
+        <div key={index}>
+          <Typography
+            gutterBottom
+            component="h3">
+            { nutrient.label }
+          </Typography>
+          <Typography
+            gutterBottom
+            paragraph
+            component="p">
+              { quantity } { nutrient.unit }
+            </Typography>
+        </div>
+      );
+    });
+    const allLabelsView = this.allLabels.map((label, index) => 
+      <Chip key={index} label={label}/>
+    );
 
     return (
-      <div>
-        <div className="u-text-center">
+      <Grid 
+        container
+        spacing={8}
+        alignItems="center"
+        justify="center">
+        <Grid
+          container 
+          justify="space-between">
           {nutrientsView}
-        </div>
-        <ul>
+        </Grid>
+        <Grid
+          container
+          alignItems="center"
+          justify="center">
           {allLabelsView}
-        </ul>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }

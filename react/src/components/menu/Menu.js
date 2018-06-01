@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
-import Toolbar from '@material-ui/core/Toolbar'; 
 import './Menu.css';
 import { Link } from 'react-router-dom';
+import { Button, Toolbar, Grid } from '@material-ui/core';
 
 class Menu extends Component {
   render() {
     return (
       <Toolbar>
-        <nav>
-          <Link to="/">
+        <Grid
+        container
+        justify="flex-end">
+          <nav>
+            <Button 
+              component={Link}
+              to="/">
               Create recipe
-          </Link>
-          <Link to="/recipes/list">
-            My recipes
-          </Link>
-        </nav>
+            </Button>
+            <Button
+              component={Link}
+              to="/recipes/list">
+              My recipes
+            </Button>
+          </nav>
+        </Grid>
       </Toolbar>
     );
   }

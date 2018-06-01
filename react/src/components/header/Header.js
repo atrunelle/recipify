@@ -7,7 +7,10 @@ import { AppBar } from '@material-ui/core';
 class Header extends Component {
   render() {
     return (
-    <AppBar className="header" position="static">
+    <AppBar 
+      className="header" 
+      position="static" 
+      elevation={0}>
         <Menu></Menu>
         <img src={logo} className="header__logo" alt="logo" />
         <h1 className="header__title">Recipify</h1>

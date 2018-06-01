@@ -1,5 +1,6 @@
 .header {
-  text-align: center; }
+  text-align: center;
+  height: 400px; }
   .header__logo {
     height: 80px; }
   .header__title {

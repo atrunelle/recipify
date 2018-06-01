@@ -1,6 +1,8 @@
+import * as actionsTypes from '../actions.type';
+
 export const saveRecipe = (recipe) => {
     return {
-        type: 'SAVE_RECIPE',
+        type: actionsTypes.SAVE_RECIPE,
         payload: recipe,
     }
 }

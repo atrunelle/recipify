@@ -1,0 +1,15 @@
+.ingredient-details {  
+  .ingredient-details__button {
+    opacity: 0;
+    position: absolute;
+    right: 16px;
+    top: 0px;
+    z-index: 2000;
+  }
+
+  &:hover {
+    .ingredient-details__button {
+      opacity: 1;
+    }
+  }
+}

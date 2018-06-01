@@ -17,12 +17,20 @@ body {
   font-family: 'Roboto', sans-serif; }
 
 .l-container {
-  max-width: 900px;
+  max-width: 960px;
   margin-left: auto;
   margin-right: auto;
   flex: 1 1 100%;
   padding: 16px;
   width: 100%; }
-  @media (min-width: 900px) {
+  @media (min-width: 960px) {
     .l-container {
-      max-width: 1200px; } }
+      max-width: 1280px; } }
+
+.u-text-center {
+  text-align: center; }
+
+.u-push-top {
+  position: relative;
+  margin-top: -100px;
+  z-index: 1220; }
