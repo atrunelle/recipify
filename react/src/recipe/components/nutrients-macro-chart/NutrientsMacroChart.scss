@@ -1,7 +1,7 @@
 @import "breakpoint-sass/stylesheets/breakpoint";
 @import "../../../assets/scss/global/site-settings";
 
-.graph {
+.nutrients-macro-chart {
   width: 100%;
   display: flex;
 
@@ -9,24 +9,5 @@
 
   @include breakpoint($medium) {
     flex-direction: row;    
-  }
-
-  &__bar {
-    font-weight: 700;
-    text-align: center;
-    padding: 20px;
-    color: #fff;
-    
-    &--fat {
-      background: #FF5722;      
-    }
-    
-    &--protein { 
-      background: #FFC107;      
-    }
-    
-    &--carbs {
-      background: #3F51B5;      
-    }
   }
 }

@@ -2,6 +2,7 @@ import './RecipeCreator.css';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Grid } from '@material-ui/core';
 
 import SearchIngredient from '../components/search-ingredient/SearchIngredient';
 import IngredientsList from '../components/ingredients-list/IngredientsList';
@@ -9,7 +10,6 @@ import IngredientsData from '../components/ingredients-data/IngredientsData';
 import * as ingredientsActions from '../actions/ingredientsActions';
 import * as recipesActions from '../actions/recipesActions';
 import recipeService from '../../core/recipe.service';
-import { Grid } from '@material-ui/core';
 import NutritionMacro from '../components/nutrition-macro/NutritionMacro';
 import nutritionService from '../../core/nutrition.service';
 

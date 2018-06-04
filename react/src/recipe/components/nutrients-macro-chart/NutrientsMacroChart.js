@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './NutrientsMacroChart.css';
+import BarGraph from '../../../components/bar-graph/BarGraph';
 
 class NutrientsMacroChart extends Component {
 
@@ -8,19 +9,15 @@ class NutrientsMacroChart extends Component {
       const percentage = data.totalQuantity.percentage;
       const label = data.totalQuantity.label;
 
-      if (!percentage) return ('');
-
       return (
-        <div
+        <BarGraph
           key={index}
-          style={{width : `${percentage}%`}}
-          className={`graph__bar graph__bar--${label.toLowerCase()}`}>
-          <p>{label} {percentage}%</p>
-        </div>
+          label={label}
+          percentage={percentage}/>
       )
     });
     return (
-      <div className="graph">
+      <div className="nutrients-macro-chart">
         {bars}
       </div>
     );

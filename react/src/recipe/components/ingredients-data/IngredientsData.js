@@ -9,7 +9,7 @@ class IngredientsData extends Component {
     if (!this.props.totalNutrients.length) return '';
 
     const nutrientsDetails = this.props.totalNutrients.map((nutrient, index) => 
-        <div className="u-text-center">
+        <div className="u-text-center" key={index}>
           <NutrientDetails key={index} nutrient={nutrient}/>
         </div>
       );

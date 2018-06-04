@@ -6,12 +6,12 @@ import recipesIcon from '../../assets/images/recipes.svg';
 
 import './RecipesList.css';
 import RecipeDetails from '../components/recipe-details/RecipesDetails';
-import CircleIcon from '../components/circle-icon/CircleIcon';
+import CircleIcon from '../../components/circle-icon/CircleIcon';
 
 class RecipesList extends Component {
   render() {
     let render;
-
+    
     if (!this.props.recipes.length) {
       render = (
         <div className="u-text-center">

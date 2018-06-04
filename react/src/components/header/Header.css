@@ -1,10 +1,7 @@
 .header {
   text-align: center;
-  height: 400px; }
+  min-height: 400px; }
   .header__logo {
     height: 80px; }
-  .header__title {
-    font-size: 1.5em;
-    text-transform: uppercase; }
   .header__text {
     margin-bottom: auto; }
