@@ -9,7 +9,7 @@
         xs12
         text-xs-center
         white--text>
-        <p class="my-2">Powered by Vue</p>
+        <p class="my-2 body-1">Powered by Vue</p>
       </v-flex>
     </v-layout>
   </v-footer>

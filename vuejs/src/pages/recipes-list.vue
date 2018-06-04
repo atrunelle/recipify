@@ -3,10 +3,12 @@
     <v-layout
       row
       wrap>
-      <recipe-details
-        v-for="(recipe, key) in recipes"
-        :key="key"
-        :recipe="recipe"/>
+      <v-flex md4>
+        <recipe-details
+          v-for="(recipe, key) in recipes"
+          :key="key"
+          :recipe="recipe"/>
+      </v-flex>
     </v-layout>
 
     <v-layout

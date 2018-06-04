@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`bar-graph  bar-graph--${type}`"
+    :class="classes"
     :style="{ width: `${percentage}%` }"
     v-if="hasWidth">
     <p class="bar-graph__text">{{ label }} {{ percentage }}%</p>
@@ -21,8 +21,8 @@ export default {
   },
 
   computed: {
-    type () {
-      return this.label.toLowerCase();
+    classes () {
+      return `bar-graph  bar-graph--${this.label.toLowerCase()}`;
     },
 
     hasWidth () {

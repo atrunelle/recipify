@@ -13,8 +13,8 @@
           align-end
           justify-space-between>
           <v-flex text-xs-center>
-            <p>Total Nutrients</p>
-            <p>Total Daily percentage</p>
+            <p class="body-1">Total Nutrients</p>
+            <p class="body-1">Total Daily percentage</p>
           </v-flex>
 
           <v-flex
