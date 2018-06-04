@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import recipeService from '@/core/recipe.service';
+import recipeService from '../recipe.service';
 
 export default {
   props: {

@@ -43,6 +43,9 @@ describe('Component: ingredients list', () => {
     }];
 
     component = mount(IngredientsList, {
+      stubs: {
+        'v-text-field': '<input type="text">',
+      },
       propsData: {
         ingredients,
         save: saveRecipe,

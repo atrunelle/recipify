@@ -1,7 +1,6 @@
 import Vuex from 'vuex';
 import { mount, createLocalVue } from '@vue/test-utils';
 import SearchIngredient from '../search-ingredient';
-import apiService from '@/core/api.service';
 
 describe('Component: search ingredient', () => {
   let component;

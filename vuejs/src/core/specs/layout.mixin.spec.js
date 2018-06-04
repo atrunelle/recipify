@@ -16,7 +16,7 @@ describe('Mixin: layout', () => {
     expect(layoutMixin.computed.rowMdLayout()).toEqual(expected);
   });
 
-  it('should be row layout above md brekapoint', () => {
+  it('should be row layout above md breakpoint', () => {
     const expected = {
       row: true,
       column: false,

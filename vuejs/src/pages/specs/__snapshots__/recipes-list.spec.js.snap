@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: recipes list should match snapshot 1`] = `
+<div class="container grid-list-md">
+    <div class="layout row wrap">
+        <div class="flex md4">
+            <div class="card" style="height: 100%;">
+                <div class="card__title card__title--primary">
+                    <h2 class="headline">recipe 1</h2>
+                </div>
+                <div class="list">
+                    <div>
+                        <div class="list__tile">
+                            <div class="list__tile__content">
+                                <div class="list__tile__title">apple 100cal for 200gr </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+</div>
+`;

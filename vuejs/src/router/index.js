@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import CreateRecipe from '@/pages/create-recipe';
-const RecipesView = () => import('@/pages/recipes-view');
+import RecipeCreator from '@/pages/recipe-creator';
+const RecipesList = () => import('@/pages/recipes-list');
 
 Vue.use(Router);
 
@@ -12,18 +12,18 @@ export default new Router({
     {
       path: '/',
       redirect: {
-        name: 'CreateRecipe',
+        name: 'RecipeCreator',
       },
     },
     {
       path: '/recipes/create',
-      name: 'CreateRecipe',
-      component: CreateRecipe,
+      name: 'RecipeCreator',
+      component: RecipeCreator,
     },
     {
       path: '/recipes/list',
       name: 'RecipesList',
-      component: RecipesView,
+      component: RecipesList,
     },
   ],
 });

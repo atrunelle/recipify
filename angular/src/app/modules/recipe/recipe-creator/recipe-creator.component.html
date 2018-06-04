@@ -1,0 +1,25 @@
+<div
+  fxLayout="column"
+  fxLayoutGap="10px">
+  <app-search-ingredient
+    fxFlex
+    (add)="addIngredient($event)">
+  </app-search-ingredient>
+  <app-ingredients-list
+    fxFlex
+    [ingredients]="ingredients$ | async"
+    (remove)="removeIngredient($event)"
+    (removeAll)="removeAllIngredients($event)"
+    (save)="saveRecipe($event)">
+  </app-ingredients-list>
+  <app-ingredients-data
+    fxFlex
+    [totalNutrients]="totalNutrients$ | async"
+    [totalWeight]="totalWeight$ | async"
+    [totalCalories]="totalCalories$ | async">
+  </app-ingredients-data>
+  <app-nutrition-macro
+    fxFlex
+    [totalNutrients]="totalNutrients$ | async">
+  </app-nutrition-macro>
+</div>

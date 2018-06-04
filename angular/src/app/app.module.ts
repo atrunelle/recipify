@@ -11,8 +11,7 @@ import { MenuComponent } from './components/menu/menu.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from '@/app-routing.module';
-import { RecipeModule } from '@/recipe/recipe.module';
+import { RecipeModule } from '@/modules/recipe/recipe.module';
 import { MatDesignModule } from '@/mat-design.module';
 
 import ToastService from '@/core/toast.service';
@@ -26,7 +25,6 @@ import ToastService from '@/core/toast.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FlexLayoutModule,
     NoopAnimationsModule,

@@ -4,6 +4,9 @@ import mutations from './mutations';
 
 const state = {
   ingredients: [],
+  totalNutrients: [],
+  totalCalories: 0,
+  totalWeight: 0,
   recipes: [],
 };
 

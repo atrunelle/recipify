@@ -11,8 +11,8 @@
             src="/static/logo.svg"
             class="the-header__logo"
             alt="logo">
-          <h1>Recipify</h1>
-          <p class="the-header__text text-xs-center">
+          <h1 class="display-3">Recipify</h1>
+          <p class="the-header__text text-xs-center subheading">
             Create your own recipes by selecting ingredient and reviewing nutritional values before saving!
           </p>
         </v-layout>
@@ -42,5 +42,4 @@ export default {
     margin-bottom: auto;
   }
 }
-
 </style>

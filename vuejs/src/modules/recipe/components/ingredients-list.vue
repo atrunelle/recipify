@@ -3,36 +3,29 @@
     <v-card-title
       primary-title
       class="justify-space-between">
-      <h2>Your recipe ingredients list</h2>
+      <h2 class="headline">Your recipe ingredients list</h2>
       <v-flex md3>
         <v-text-field
           md3
-          ng-model="recipeName"
+          v-model="recipeName"
           label="Recipe name"/>
       </v-flex>
     </v-card-title>
     <v-list>
-      <v-list-group
+      <ingredient-details
         v-for="(ingredient, key) in ingredients"
         :key="key"
-        :value="ingredient.active">
-        <v-list-tile slot="activator">
-          <v-list-tile-content>
-            <v-list-tile-title>{{ ingredient.name }} {{ ingredient.nutrients.calories }}cal for {{ ingredient.nutrients.totalWeight }}gr </v-list-tile-title>
-          </v-list-tile-content>
-          <v-list-tile-action
-            :id="`remove-button-${key}`"
-            @click="remove(key)">
-            <v-icon>delete</v-icon>
-          </v-list-tile-action>
-        </v-list-tile>
-        <ingredient-nutrients :nutrients="ingredient.nutrients"/>
-      </v-list-group>
+        :index="key"
+        :ingredient="ingredient"
+        :remove="remove"/>
     </v-list>
     <v-card-actions class="justify-end">
       <v-btn
+        flat
         id="remove-all-button"
-        @click="removeAll">Remove all ingredients</v-btn>
+        @click="removeAll">
+        Remove all ingredients
+      </v-btn>
       <v-btn
         id="save-button"
         color="primary"
@@ -45,10 +38,12 @@
 
 <script>
 import IngredientNutrients from '@/modules/recipe/components/ingredient-nutrients';
+import IngredientDetails from '@/modules/recipe/components/ingredient-details';
 
 export default {
   components: {
     IngredientNutrients,
+    IngredientDetails,
   },
 
   data () {

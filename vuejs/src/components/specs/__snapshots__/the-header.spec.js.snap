@@ -10,8 +10,8 @@ exports[`Component: the header should match snapshot 1`] = `
                 <div class="container fill-height">
                     <div class="layout column align-center justify-center">
                         <img src="/static/logo.svg" alt="logo" class="the-header__logo">
-                        <h1>Recipify</h1>
-                        <p class="the-header__text text-xs-center">
+                        <h1 class="display-3">Recipify</h1>
+                        <p class="the-header__text text-xs-center subheading">
                             Create your own recipes by selecting ingredient and reviewing nutritional values before saving!
                         </p>
                     </div>

@@ -1,0 +1,14 @@
+<div fxFlex *ngIf="totalNutrients.length">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h2 class="mat-headline">Macro in recipe</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="mat-body-1">Based on 4 calories per gram of carbs and protein, and 9 calories per gram of fat.</p>
+      <p class="mat-body-1">Those numbers are approximation only, as the number of calories per macro change per ingredient and depend on quality and other factor.</p>
+    </mat-card-content>
+    <app-nutrients-macro-chart [nutritionData]="totalNutrients"></app-nutrients-macro-chart>
+  </mat-card>
+</div>

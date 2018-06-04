@@ -6,39 +6,38 @@ describe('Component: Ingredients data', () => {
   let component;
 
   beforeEach(() => {
-    const ingredients = [{
-      nutrients: {
-        totalNutrients: {
-          FAT: {
-            quantity: 5,
-            unit: 'gr',
-            label: 'Fat',
-          },
-          PROCNT: {
-            quantity: 5,
-            unit: 'gr',
-            label: 'Fat',
-          },
-        },
-        totalDaily: {
-          FAT: {
-            quantity: 5,
-            unit: '%',
-            label: 'Fat',
-          },
-          PROCNT: {
-            quantity: 5,
-            unit: '%',
-            label: 'Fat',
-          },
-        },
+    const totalNutrients = [{
+      totalQuantity: {
+        label: 'Protein',
+        quantity: 100,
+        percentage: 50,
+        unit: 'gr',
+      },
+      totalDaily: {
+        label: 'Protein',
+        quantity: 20,
+        unit: '%',
+      },
+    }, {
+      totalQuantity: {
+        label: 'Fat',
+        quantity: 100,
+        percentage: 10,
+        unit: 'gr',
+      },
+      totalDaily: {
+        label: 'Fat',
+        quantity: 40,
+        unit: '%',
       },
     }];
 
     component = mount(IngredientsDat, {
       stubs: ['nutrients-macro-chart'],
       propsData: {
-        ingredients,
+        totalNutrients,
+        totalCalories: 120,
+        totalWeight: 100,
       },
     });
   });

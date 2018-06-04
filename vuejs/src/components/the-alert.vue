@@ -1,5 +1,6 @@
 <template>
   <v-alert
+    class="the-alert"
     :type="alert.type"
     :value="alert.text"
     @input="onAlertInput"
@@ -46,3 +47,12 @@ export default {
 
 };
 </script>
+
+<style lang="scss">
+.the-alert {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>

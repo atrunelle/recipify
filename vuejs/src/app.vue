@@ -49,4 +49,8 @@ h1 {
 #app {
   min-height: 100vh;
 }
+
+main {
+  margin-top: -100px;
+}
 </style>

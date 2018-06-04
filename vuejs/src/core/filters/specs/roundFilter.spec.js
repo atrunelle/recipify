@@ -11,7 +11,7 @@ describe('Filter: round', () => {
     expect(roundFilter(pi)).toBe('3.14');
   });
 
-  it('should return rounded value with n decimal', () => {
+  it('should return rounded value with n decimals', () => {
     expect(roundFilter(pi, 0)).toBe('3');
     expect(roundFilter(pi, 6)).toBe('3.141593');
   });

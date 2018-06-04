@@ -3,7 +3,7 @@
 exports[`Component: search ingredient should match snapshot 1`] = `
 <div class="search-ingredient card" style="height: auto;">
     <div class="card__title card__title--primary">
-        <h2>What do you have in your fridge?</h2>
+        <h2 class="headline">What do you have in your fridge?</h2>
     </div>
     <form novalidate="novalidate" id="search-ingredient-form">
         <div class="layout justify-space-between align-center px-4 column">

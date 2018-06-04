@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: recipe creator should match snapshot 1`] = `
+<div class="layout row wrap">
+    <div class="flex xs12">
+        <div class="flex xs12">
+            <!---->
+        </div>
+        <div class="flex xs12 align-center justify-center">
+            <!---->
+        </div>
+        <!---->
+        <!---->
+    </div>
+</div>
+`;

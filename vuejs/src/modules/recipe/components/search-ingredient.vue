@@ -1,7 +1,7 @@
 <template>
   <v-card class="search-ingredient">
     <v-card-title primary-title>
-      <h2>What do you have in your fridge?</h2>
+      <h2 class="headline">What do you have in your fridge?</h2>
     </v-card-title>
     <form
       novalidate
@@ -61,19 +61,13 @@ export default {
         ingredient: this.ingredient,
         numberOfServing: this.numberOfServing,
       })
-        .then(() => {
-          this.isLoading = false;
-          this.ingredient = '';
-          this.numberOfServing = 1;
-        })
-        .catch(() => this.isLoading = false);
+      .then(() => {
+        this.isLoading = false;
+        this.ingredient = '';
+        this.numberOfServing = 1;
+      })
+      .catch(() => this.isLoading = false);
     },
   },
 };
 </script>
-
-<style lang="scss">
-.search-ingredient {
-  margin-top: -100px;
-}
-</style>

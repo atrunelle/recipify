@@ -3,17 +3,9 @@
 exports[`Component: ingredients list should match snapshot 1`] = `
 <div class="card" style="height: auto;">
     <div class="card__title justify-space-between card__title--primary">
-        <h2>Your recipe ingredients list</h2>
+        <h2 class="headline">Your recipe ingredients list</h2>
         <div class="flex md3">
-            <div class="input-group input-group--text-field primary--text">
-                <label>Recipe name</label>
-                <div class="input-group__input">
-                    <input md3="" ng-model="recipeName" tabindex="0" aria-label="Recipe name" type="text">
-                </div>
-                <div class="input-group__details">
-                    <!---->
-                </div>
-            </div>
+            <input type="text" md3="" label="Recipe name">
         </div>
     </div>
     <div class="list">
@@ -51,8 +43,10 @@ exports[`Component: ingredients list should match snapshot 1`] = `
         </div>
     </div>
     <div class="card__actions justify-end">
-        <button type="button" class="btn" id="remove-all-button">
-            <div class="btn__content">Remove all ingredients</div>
+        <button type="button" class="btn btn--flat" id="remove-all-button">
+            <div class="btn__content">
+                Remove all ingredients
+            </div>
         </button>
         <button type="button" class="btn primary" id="save-button">
             <div class="btn__content">

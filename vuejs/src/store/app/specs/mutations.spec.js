@@ -24,6 +24,7 @@ describe('Store: app mutations', () => {
 
   it('should reset alert to original state', () => {
     mutations.resetAlert(state);
+
     expect(state.alert).toEqual({
       text: '',
       type: 'error',
