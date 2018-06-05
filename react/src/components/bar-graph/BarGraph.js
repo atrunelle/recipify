@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './BarGraph.css';
 
 class BarGraph extends Component {
 
@@ -7,8 +8,9 @@ class BarGraph extends Component {
   }
 
   get width () {
-    return `${this.percentage}%`;
+    return `${this.props.percentage}%`;
   }
+
   render() {
     if (!this.props.percentage) return ('');
 

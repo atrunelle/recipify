@@ -33,15 +33,41 @@ export const removeAllIngredients = () => {
   }
 }
 
-export const updateIngredientsTotalNutritients = (totalNutrients) => {
+export const updateTotalNutriton = (totalNutrients) => {
   return {
-    type: actionsTypes.UPDATE_INGREDIENTS_TOTAL_NUTRITION,
+    type: actionsTypes.UPDATE_TOTAL_NUTRITION,
     payload: totalNutrients
   }  
 }
 
-export const removeAllIngredientsTotalNutritients = () => {
+export const updateTotalWeight = (totalWeight) => {
   return {
-    type: actionsTypes.REMOVE_ALL_INGREDIENTS_TOTAL_NUTRITION,
+    type: actionsTypes.UPDATE_TOTAL_WEIGHT,
+    payload: totalWeight
+  }  
+}
+
+export const updateTotalCalories = (totalCalories) => {
+  return {
+    type: actionsTypes.UPDATE_TOTAL_CALORIES,
+    payload: totalCalories
+  }  
+}
+
+export const resetTotalNutritients = () => {
+  return {
+    type: actionsTypes.RESET_TOTAL_NUTRITION,
+  }  
+}
+
+export const resetTotalCalories = () => {
+  return {
+    type: actionsTypes.RESET_TOTAL_CALORIES,
+  }  
+}
+
+export const resetTotalWeight = () => {
+  return {
+    type: actionsTypes.RESET_TOTAL_WEIGHT,
   }  
 }

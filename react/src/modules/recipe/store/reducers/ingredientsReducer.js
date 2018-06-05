@@ -7,6 +7,8 @@ const defaultState = {
   error: null,
   ingredients: [],
   totalNutrients: [],
+  totalCalories: 0,
+  totalWeight: 0,
 }
 
 const reducer = createReducer(defaultState, {
@@ -55,17 +57,45 @@ const reducer = createReducer(defaultState, {
     };
   },
 
-  [actionsTypes.UPDATE_INGREDIENTS_TOTAL_NUTRITION]: (state, action) => {
+  [actionsTypes.UPDATE_TOTAL_NUTRITION]: (state, action) => {
     return {
       ...state,
       totalNutrients: [...action.payload],
     };
   },
 
-  [actionsTypes.REMOVE_ALL_INGREDIENTS_TOTAL_NUTRITION]: (state, action) => {
+  [actionsTypes.UPDATE_TOTAL_CALORIES]: (state, action) => {
+    return {
+      ...state,
+      totalCalories: action.payload,
+    };
+  },
+
+  [actionsTypes.UPDATE_TOTAL_WEIGHT]: (state, action) => {
+    return {
+      ...state,
+      totalWeight: action.payload,
+    };
+  },
+
+  [actionsTypes.RESET_TOTAL_NUTRITION]: (state, action) => {
     return {
       ...state,
       totalNutrients: [],
+    };
+  },
+
+  [actionsTypes.RESET_TOTAL_CALORIES]: (state, action) => {
+    return {
+      ...state,
+      totalCalories: 0,
+    };
+  },
+
+  [actionsTypes.RESET_TOTAL_WEIGHT]: (state, action) => {
+    return {
+      ...state,
+      totalWeight: 0,
     };
   },
 });

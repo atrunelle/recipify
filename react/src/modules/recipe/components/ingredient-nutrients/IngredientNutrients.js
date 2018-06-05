@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import recipeService from "../../../core/recipe.service";
+import recipeService from "../../recipe.service";
 import { Chip, Typography, Grid } from "@material-ui/core";
 
 class IngredientNutrients extends Component {

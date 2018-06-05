@@ -5,8 +5,8 @@ import './App.css';
 
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
-import RecipeCreator from './recipe/recipe-creator/RecipeCreator';
-import RecipesList from './recipe/recipes-list/RecipesList';
+import RecipeCreator from './modules/recipe/recipe-creator/RecipeCreator';
+import RecipesList from './modules/recipe/recipes-list/RecipesList';
 
 class App extends Component {
   render() {

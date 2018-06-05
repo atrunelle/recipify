@@ -7,29 +7,20 @@ import { Grid } from '@material-ui/core';
 import SearchIngredient from '../components/search-ingredient/SearchIngredient';
 import IngredientsList from '../components/ingredients-list/IngredientsList';
 import IngredientsData from '../components/ingredients-data/IngredientsData';
-import * as ingredientsActions from '../actions/ingredientsActions';
-import * as recipesActions from '../actions/recipesActions';
-import recipeService from '../../core/recipe.service';
+import * as ingredientsActions from '../store/actions/ingredientsActions';
+import * as recipesActions from '../store/actions/recipesActions';
+import recipeService from '../recipe.service';
 import NutritionMacro from '../components/nutrition-macro/NutritionMacro';
-import nutritionService from '../../core/nutrition.service';
+import nutritionService from '../nutrition.service';
 
 class RecipeCreator extends Component {
-
-	get totalCalories () {
-    return nutritionService.getTotalCalories(this.props.ingredients);
-  }
-
-  get totalWeight () {
-    return nutritionService.getTotalWeight(this.props.ingredients);
-  }
-
 	addIngredient = (ingredientName, numberOfServings) => {
 		this.props.dispatch(ingredientsActions.fetchIngredientPending());
 
 		recipeService.fetchIngredient(ingredientName, numberOfServings)
 			.then((data) => {
 				this.props.dispatch(ingredientsActions.addIngredient(data));
-				this.updateIngredientsTotalNutrition();
+				this.calculateTotalNutriton();
 			})
 			.catch((error) => {
 				this.props.dispatch(ingredientsActions.fetchIngredientRejected(error));
@@ -37,15 +28,19 @@ class RecipeCreator extends Component {
   }
 
   removeIngredient = (index) => {
-		this.props.dispatch(ingredientsActions.removeIngredient(index));
-		if (!this.props.ingredients.length) {
-			this.props.dispatch(ingredientsActions.removeAllIngredientsTotalNutritients());
+		if (this.props.ingredients.length === 1) {
+			this.removeAllIngredients();
+		} else {
+			this.props.dispatch(ingredientsActions.removeIngredient(index));
+			this.calculateTotalNutriton();
 		}
   }
 
   removeAllIngredients = () => {
 		this.props.dispatch(ingredientsActions.removeAllIngredients());
-		this.props.dispatch(ingredientsActions.removeAllIngredientsTotalNutritients());
+		this.props.dispatch(ingredientsActions.resetTotalCalories());
+		this.props.dispatch(ingredientsActions.resetTotalWeight());
+		this.props.dispatch(ingredientsActions.resetTotalNutritients());
 	}
 	
 	saveRecipe = (name) => {
@@ -57,9 +52,15 @@ class RecipeCreator extends Component {
 		this.props.dispatch(recipesActions.saveRecipe(recipe));
 	}
 
-	updateIngredientsTotalNutrition = () => {
-		const totalNutrients = nutritionService.getTotalNutrients(this.props.ingredients, this.totalCalories);
-		this.props.dispatch(ingredientsActions.updateIngredientsTotalNutritients(totalNutrients));
+	calculateTotalNutriton = () => {
+		const totalCalories = nutritionService.getTotalCalories(this.props.ingredients);
+    const totalWeight = nutritionService.getTotalWeight(this.props.ingredients);
+
+		this.props.dispatch(ingredientsActions.updateTotalCalories(totalCalories));
+		this.props.dispatch(ingredientsActions.updateTotalWeight(totalWeight));
+
+		const totalNutrients = nutritionService.getTotalNutrients(this.props.ingredients, this.props.totalCalories);
+		this.props.dispatch(ingredientsActions.updateTotalNutriton(totalNutrients));
 	}
 
 	render() {
@@ -80,8 +81,8 @@ class RecipeCreator extends Component {
 				<Grid item xs={12}>
 					<IngredientsData 
 						totalNutrients={this.props.totalNutrients}
-						totalWeight={this.totalWeight}
-						totalCalories={this.totalCalories}/>
+						totalWeight={this.props.totalWeight}
+						totalCalories={this.props.totalCalories}/>
 				</Grid>
 				<Grid item xs={12}>
 					<NutritionMacro totalNutrients={this.props.totalNutrients}/>
@@ -94,6 +95,8 @@ class RecipeCreator extends Component {
 const mapStateToProps = (state) => ({
 	ingredients: state.ingredients.ingredients,
 	totalNutrients: state.ingredients.totalNutrients,
+	totalWeight: state.ingredients.totalWeight,
+	totalCalories: state.ingredients.totalCalories,
 	isFetching: state.ingredients.isFetching,
 });
 

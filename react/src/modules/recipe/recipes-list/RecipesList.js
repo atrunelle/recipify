@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Typography, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import recipesIcon from '../../assets/images/recipes.svg';
+import recipesIcon from '../../../assets/images/recipes.svg';
 
 import './RecipesList.css';
 import RecipeDetails from '../components/recipe-details/RecipesDetails';
-import CircleIcon from '../../components/circle-icon/CircleIcon';
+import CircleIcon from '../../../components/circle-icon/CircleIcon';
 
 class RecipesList extends Component {
   render() {
