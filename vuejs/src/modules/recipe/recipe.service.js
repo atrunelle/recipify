@@ -24,7 +24,7 @@ const recipeService = {
       .then((d) => d.data);
   },
 
-  getIngredients (data, numberOfServings = 1) {
+  formatIngredients (data, numberOfServings = 1) {
     const ingredients = data.parsed.map((item, index) => {
       const value = {
         foodURI: item.food.uri,
@@ -52,7 +52,7 @@ const recipeService = {
         if (!data.parsed.length) {
           throw new Error(`We couldn't find the food you entered. Please check the format and spelling. Example: 200gr chicken`);
         }
-        const ingredients = this.getIngredients(data, numberOfServings);
+        const ingredients = this.formatIngredients(data, numberOfServings);
 
         return this
           .getNutrients(ingredients)

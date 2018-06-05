@@ -11,8 +11,8 @@ exports[`Component: Ingredients data should match snapshot 1`] = `
             <h3 class="subheading">Total Weight: 100gr</h3>
             <div class="layout align-end justify-space-between">
                 <div class="flex text-xs-center">
-                    <p>Total Nutrients</p>
-                    <p>Total Daily percentage</p>
+                    <p class="body-1">Total Nutrients</p>
+                    <p class="body-1">Total Daily percentage</p>
                 </div>
                 <div class="flex text-xs-center">
                     <h3 class="subheading pa-2"></h3>

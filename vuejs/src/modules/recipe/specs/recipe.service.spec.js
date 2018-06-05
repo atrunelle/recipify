@@ -20,34 +20,89 @@ describe('Service: ingredients service', () => {
 
     expect(mockAxios.post).toHaveBeenCalledWith('/api/food-database/nutrients?app_id=123&app_key=abc', {});
   });
-  it('should get list of ingredients info from api', (done) => {
-    recipeService.parseIngredient = jest.fn(() => Promise.resolve({
-      parsed: [{
-        food: {
-          label: 'Apple',
-          uri: 'http://food/uri',
-        },
-        measure: {
-          uri: 'http://measure/uri',
-        },
-        quantity: 10,
-      }],
-    }));
 
-    recipeService.getIngredientNutrition('apple').then((results) => {
-      expect(recipeService.parseIngredient).toBeCalledWith('apple');
-      expect(results).toEqual({
-        name: 'Apple',
-        nutrients: {},
+  describe('when formatting ingredients', () => {
+    it('should return formatted ingredient even with missing data', () => {
+      const data = {
+        parsed: [{
+          food: {
+            uri: '/food/uri',
+          },
+        }],
+      };
+
+      expect(recipeService.formatIngredients(data)).toEqual({
+        yield: 1,
+        ingredients: [{
+          foodURI: '/food/uri',
+        }],
       });
-      done();
+    });
+
+    it('should return formatted ingredient', () => {
+      const data = {
+        parsed: [{
+          food: {
+            uri: '/food/uri',
+          },
+          quantity: 150,
+          measure: {
+            uri: '/measure/uri',
+          },
+        }],
+      };
+
+      expect(recipeService.formatIngredients(data, 5)).toEqual({
+        yield: 5,
+        ingredients: [{
+          quantity: 150,
+          foodURI: '/food/uri',
+          measureURI: '/measure/uri',
+        }],
+      });
     });
   });
 
-  it('should throw error', () => {
-    recipeService.parseIngredient = jest.fn(() => Promise.reject('I am an error'));
+  describe('when getting ingredient nutriton', () => {
+    it('should get list of ingredients info from api', (done) => {
+      recipeService.parseIngredient = jest.fn(() => Promise.resolve({
+        parsed: [{
+          food: {
+            label: 'Apple',
+            uri: 'http://food/uri',
+          },
+          measure: {
+            uri: 'http://measure/uri',
+          },
+          quantity: 10,
+        }],
+      }));
 
-    expect(recipeService.getIngredientNutrition('apple')).rejects.toBe('I am an error');
+      recipeService.getIngredientNutrition('apple').then((results) => {
+        expect(recipeService.parseIngredient).toBeCalledWith('apple');
+        expect(results).toEqual({
+          name: 'Apple',
+          nutrients: {},
+        });
+        done();
+      });
+    });
+
+    it('should throw error', () => {
+      recipeService.parseIngredient = jest.fn(() => Promise.reject(new Error('I am an error')));
+
+      expect(recipeService.getIngredientNutrition('apple')).rejects.toEqual(new Error('I am an error'));
+    });
+
+    it('should throw error if data received are incorrect', () => {
+      recipeService.parseIngredient = jest.fn(() => Promise.resolve({
+        parsed: [],
+      }));
+
+      recipeService.getIngredientNutrition('apple').catch((error) => {
+        expect(error).toEqual(new Error(`We couldn't find the food you entered. Please check the format and spelling. Example: 200gr chicken`));
+      });
+    });
   });
 
   describe('when getting diet labels', () => {

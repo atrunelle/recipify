@@ -12,6 +12,8 @@ describe('Component: recipe creator', () => {
 
   const recipeActions = {
     removeIngredient: jest.fn(),
+    removeAllIngredients: jest.fn(),
+    saveRecipe: jest.fn(),
   };
 
   beforeEach(() => {
@@ -61,7 +63,10 @@ describe('Component: recipe creator', () => {
       },
     });
     component = mount(RecipeCreator, {
-      stubs: ['ingredients-list', 'ingredients-data', 'search-ingredient'],
+      stubs: {
+        'ingredients-list': '<div></div>',
+        'search-ingredient': '<div></div>',
+      },
       localVue,
       store,
     });
