@@ -54,7 +54,7 @@ describe('Service: Nutrition', () => {
     });
   });
 
-  it(`should get return defaults values if nutrient values don't exist`, () => {
+  it(`should return defaults values if nutrient values don't exist`, () => {
     const items = [{
       nutrients: {
         totalNutrients: {
