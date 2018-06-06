@@ -4,7 +4,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { MatDesignModule } from '@/mat-design.module';
-import { IIngredient } from '@/recipe/recipe.interface';
+import { IIngredient } from '@/modules/recipe/recipe.interface';
 
 import { IngredientsListComponent } from './ingredients-list.component';
 
@@ -14,7 +14,7 @@ describe('IngredientsListComponent', () => {
 
   const mockIngredients: IIngredient[] = [{
     name: 'carrot',
-    nutrients: [{
+    nutrients: {
       uri: '',
       yield: 1,
       calories: 100,
@@ -47,7 +47,7 @@ describe('IngredientsListComponent', () => {
           label: 'Fat',
         },
       },
-    }],
+    },
   }];
 
   beforeEach(async(() => {
@@ -71,13 +71,12 @@ describe('IngredientsListComponent', () => {
   });
 
   it('should remove ingredient', () => {
-    const removeButon  = fixture.debugElement.nativeElement.querySelector('#removeButton');
     let index = -1;
 
     component.remove.subscribe((data) => index = data);
-    removeButon.click();
+    component.removeIngredient(1);
 
-    expect(index).toBe(0);
+    expect(index).toBe(1);
   });
 
   it('should remove all ingredients', () => {

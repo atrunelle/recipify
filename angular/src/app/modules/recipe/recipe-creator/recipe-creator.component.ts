@@ -1,4 +1,3 @@
-import NutritionService from '@/modules/recipe/nutrition.service';
 import ToastService from '@/core/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { IIngredient, IRecipe } from '@/modules/recipe/recipe.interface';
@@ -19,7 +18,6 @@ export class RecipeCreatorComponent implements OnInit {
   constructor(
     private recipeStore: RecipeStore,
     private toastService: ToastService,
-    private nutritionService: NutritionService,
   ) { }
 
   ngOnInit() {

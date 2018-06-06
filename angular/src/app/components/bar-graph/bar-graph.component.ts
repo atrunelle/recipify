@@ -10,7 +10,7 @@ export class BarGraphComponent implements OnInit {
   public label = '';
 
   @Input()
-  public percentage = '';
+  public percentage: number;
 
   constructor() { }
 

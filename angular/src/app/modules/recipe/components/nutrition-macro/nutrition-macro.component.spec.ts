@@ -1,4 +1,6 @@
+import { MatDesignModule } from '@/mat-design.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { NutritionMacroComponent } from './nutrition-macro.component';
 
@@ -8,7 +10,11 @@ describe('NutritionMacroComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NutritionMacroComponent ]
+      declarations: [ NutritionMacroComponent ],
+      imports: [
+        MatDesignModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));

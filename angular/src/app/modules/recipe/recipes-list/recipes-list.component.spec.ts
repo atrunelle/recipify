@@ -1,9 +1,11 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { CircleIconComponent } from '@/components/circle-icon/circle-icon.component';
 import { Observable } from 'rxjs';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MatDesignModule } from '@/mat-design.module';
 
-import RecipeStore from '@/recipe/store/recipe-store';
+import RecipeStore from '@/modules/recipe/store/recipe-store';
 import { RecipesListComponent } from './recipes-list.component';
 
 describe('RecipesListComponent', () => {
@@ -26,6 +28,7 @@ describe('RecipesListComponent', () => {
       providers: [
         { provide: RecipeStore, useValue: recipeStoreSpy },
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));

@@ -1,9 +1,9 @@
 import { Observable, throwError } from 'rxjs';
-import { IIngredient } from '@/recipe/recipe.interface';
+import { IIngredient } from '@/modules/recipe/recipe.interface';
 import { TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
 
-import RecipeService from '@/recipe/recipe.service';
+import RecipeService from '@/modules/recipe/recipe.service';
 import ToastService from '@/core/toast.service';
 
 describe('Service: RecipeService', () => {
@@ -25,6 +25,51 @@ describe('Service: RecipeService', () => {
     service = TestBed.get(RecipeService);
   });
 
+  describe('when formatting ingredients', () => {
+    it('should return formatted ingredient even with missing data', () => {
+      const data = {
+        parsed: [{
+          food: {
+            uri: '/food/uri',
+          },
+        }],
+      };
+
+      expect(service.formatIngredients(data)).toEqual({
+        yield: 1,
+        ingredients: [{
+          foodURI: '/food/uri',
+          quantity: undefined,
+          measureURI: undefined,
+        }],
+      });
+    });
+
+    it('should return formatted ingredient', () => {
+      const data = {
+        parsed: [{
+          food: {
+            uri: '/food/uri',
+          },
+          quantity: 150,
+          measure: {
+            uri: '/measure/uri',
+          },
+        }],
+      };
+
+      expect(service.formatIngredients(data, 5)).toEqual({
+        yield: 5,
+        ingredients: [{
+          quantity: 150,
+          foodURI: '/food/uri',
+          measureURI: '/measure/uri',
+        }],
+      });
+    });
+  });
+
+
   describe('when getting ingredient nutrition', () => {
     it('should parse ingredient, and get nutrients data', () => {
       const mockParsedIngredient = {
@@ -40,7 +85,7 @@ describe('Service: RecipeService', () => {
         }],
       };
 
-      const mockNutrients = [{
+      const mockNutrients = {
         uri: '',
         yield: 1,
         calories: 100,
@@ -51,14 +96,14 @@ describe('Service: RecipeService', () => {
         totalNutrients: {},
         totalDaily: {},
         ingredients: [],
-      }];
+      };
 
       httpClientSpy.get.and.returnValue(Observable.of(mockParsedIngredient));
       httpClientSpy.post.and.returnValue(Observable.of(mockNutrients));
       service.getIngredientNutrition('carrot', 1)
         .subscribe((data) => {
           expect(data).toEqual({
-            nutrients: [{
+            nutrients: {
               uri: '',
               yield: 1,
               calories: 100,
@@ -69,7 +114,7 @@ describe('Service: RecipeService', () => {
               totalNutrients: {},
               totalDaily: {},
               ingredients: [],
-            }],
+            },
             name: 'Carrot',
           });
         });

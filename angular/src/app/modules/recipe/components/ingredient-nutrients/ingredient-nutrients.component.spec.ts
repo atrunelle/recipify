@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDesignModule } from '@/mat-design.module';
 
 import { IngredientNutrientsComponent } from './ingredient-nutrients.component';
-import RecipeService from '@/recipe/recipe.service';
+import RecipeService from '@/modules/recipe/recipe.service';
 
 describe('IngredientNutrientsComponent', () => {
   let component: IngredientNutrientsComponent;

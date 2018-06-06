@@ -35,7 +35,7 @@ class RecipeStore extends Store<IRecipeState> {
     super(state);
   }
 
-  addIngredient({ ingredient, numberOfServing }: { ingredient: string, numberOfServing: string }) {
+  public addIngredient({ ingredient, numberOfServing }: { ingredient: string, numberOfServing: string }) {
     return this.recipeService.getIngredientNutrition(ingredient, parseInt(numberOfServing, 0))
       .pipe(map((ingredientData) => {
         this.setState({

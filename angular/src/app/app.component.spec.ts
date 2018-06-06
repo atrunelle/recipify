@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
+import { APP_BASE_HREF } from '@angular/common';
 
-import { RecipeModule } from '@/recipe/recipe.module';
+import { RecipeModule } from '@/modules/recipe/recipe.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatDesignModule } from '@/mat-design.module';
 import { MenuComponent } from './components/menu/menu.component';
@@ -21,7 +22,8 @@ describe('AppComponent', () => {
         RouterTestingModule,
         RecipeModule,
         MatDesignModule,
-      ]
+      ],
+      providers: [{provide: APP_BASE_HREF, useValue: '/'}]
     }).compileComponents();
   }));
 

@@ -16,10 +16,14 @@ describe('BarGraphComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BarGraphComponent);
     component = fixture.componentInstance;
+    component.label = 'Fat';
+    component.percentage = 10;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render', () => {
+    const element = fixture.nativeElement;
+
+    expect(element.querySelector('p').innerHTML).toBe('Fat 10%');
   });
 });

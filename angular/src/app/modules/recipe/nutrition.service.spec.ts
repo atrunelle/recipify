@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import NutritionService from '@/recipe/nutrition.service';
+import NutritionService from '@/modules/recipe/nutrition.service';
 
 describe('Service: NutritionService', () => {
   let service: NutritionService;
@@ -20,42 +20,6 @@ describe('Service: NutritionService', () => {
     const expected = 81;
 
     expect(results).toBe(expected);
-  });
-
-  it('should get total calories for the whole recipe', () => {
-    const ingredients = [{
-      nutrients: {
-        calories: 25,
-      },
-    }, {
-      nutrients: {
-        calories: 50,
-      },
-    }, {
-      nutrients: {
-        calories: 15,
-      },
-    }];
-
-    expect(service.getTotalCalories(ingredients)).toBe(90);
-  });
-
-  it('should get total weight for the whole recipe', () => {
-    const ingredients = [{
-      nutrients: {
-        totalWeight: 250,
-      },
-    }, {
-      nutrients: {
-        totalWeight: 500,
-      },
-    }, {
-      nutrients: {
-        totalWeight: 15,
-      },
-    }];
-
-    expect(service.getTotalWeight(ingredients)).toBe(765);
   });
 
   it('should get total nutrient for recipe', () => {
@@ -170,5 +134,115 @@ describe('Service: NutritionService', () => {
       unit: 'gr',
       percentage: 0,
     });
+  });
+
+  it('should get total nutrients', () => {
+    const ingredients = [{
+      nutrients: {
+        totalNutrients: {
+          FAT: {
+            label: 'Fat',
+            quantity: 100,
+            unit: 'gr',
+          },
+          CHOCDF: {
+            label: 'Carbs',
+            quantity: 200,
+            unit: 'gr',
+          },
+        },
+        totalDaily: {
+          FAT: {
+            label: 'Fat',
+            quantity: 20,
+            unit: '%',
+          },
+          CHOCDF: {
+            label: 'Carbs',
+            quantity: 40,
+            unit: '%',
+          },
+        },
+      },
+    }, {
+      nutrients: {
+        totalNutrients: {
+          FAT: {
+            label: 'Fat',
+            quantity: 100,
+            unit: 'gr',
+          },
+          CHOCDF: {
+            label: 'Carbs',
+            quantity: 200,
+            unit: 'gr',
+          },
+        },
+        totalDaily: {
+          FAT: {
+            label: 'Fat',
+            quantity: 20,
+            unit: '%',
+          },
+          CHOCDF: {
+            label: 'Carbs',
+            quantity: 40,
+            unit: '%',
+          },
+        },
+      },
+    }];
+
+    const totalNutrients = service.getTotalNutrients(ingredients, 1000);
+
+    const expected = [
+      {
+        label: 'Carbs',
+        totalQuantity: {
+          label: 'Carbs',
+          quantity: 400,
+          unit: 'gr',
+          percentage: 160,
+        },
+        totalDaily: {
+          label: 'Carbs',
+          quantity: 80,
+          unit: '%',
+          percentage: 0,
+        },
+      },
+      {
+        label: 'Fat',
+        totalQuantity: {
+          label: 'Fat',
+          quantity: 200,
+          unit: 'gr',
+          percentage: 180,
+        },
+        totalDaily: {
+          label: 'Fat',
+          quantity: 40,
+          unit: '%',
+          percentage: 0,
+        },
+      },
+      {
+        label: '',
+        totalQuantity: {
+          label: '',
+          quantity: 0,
+          unit: '',
+          percentage: 0,
+        },
+        totalDaily: {
+          label: '',
+          quantity: 0,
+          unit: '',
+          percentage: 0,
+        },
+      },
+    ];
+
+    expect(totalNutrients).toEqual(expected);
   });
 });

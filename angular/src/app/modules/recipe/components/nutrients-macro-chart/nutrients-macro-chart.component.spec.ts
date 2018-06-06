@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { NutrientsMacroChartComponent } from './nutrients-macro-chart.component';
 
@@ -20,7 +21,8 @@ describe('NutrientsMacroChartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NutrientsMacroChartComponent ]
+      declarations: [ NutrientsMacroChartComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));
@@ -32,23 +34,8 @@ describe('NutrientsMacroChartComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should redraw on changes', () => {
-    spyOn(component, 'clearChart');
-    spyOn(component, 'drawChart');
-    component.ngOnChanges();
 
-    expect(component.clearChart).toHaveBeenCalled();
-    expect(component.drawChart).toHaveBeenCalled();
-  });
-
-  it('should clear chart', () => {
-    let svg  = fixture.debugElement.nativeElement.querySelector('svg');
-
-    expect(svg).toBeDefined();
-    component.clearChart();
-
-    svg  = fixture.debugElement.nativeElement.querySelector('svg');
-
-    expect(svg).toBeNull();
+  it('should exist', () => {
+    expect(component).toBeTruthy();
   });
 });
