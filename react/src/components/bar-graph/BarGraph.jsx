@@ -12,14 +12,14 @@ class BarGraph extends Component {
   }
 
   render() {
-    if (!this.props.percentage) return ('');
+    if (!this.props.percentage) return false;
 
     return (
-    <div
-      style={{width : `${this.width}`}}
-      className={this.classes}>
-      <p>{this.props.label} {this.width}</p>
-    </div>
+      <div
+        style={{width : `${this.width}`}}
+        className={this.classes}>
+        <p>{this.props.label} {this.width}</p>
+      </div>
     );
   }
 }

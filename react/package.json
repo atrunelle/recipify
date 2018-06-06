@@ -9,12 +9,13 @@
     "history": "^4.7.2",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.1.2",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
-    "react-scripts": "1.0.17",
+    "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
     "remove": "^0.1.5"
@@ -27,12 +28,29 @@
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
+    "test:watch": "npm run test --watch --coverage",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@types/jest": "^23.0.0",
     "breakpoint-sass": "^2.7.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "react-router-test-context": "^0.1.0",
+    "react-test-renderer": "^16.4.0",
     "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.1",
     "redux-promise-middleware": "^5.1.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/setupTests.js",
+      "!src/store/index.js"
+    ]
   }
 }

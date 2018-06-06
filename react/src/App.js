@@ -13,11 +13,11 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-          <main className="l-container">
-            <Route exact path="/" component={RecipeCreator} />
-            <Route path="/recipes/list" component={RecipesList} />
-          </main>
-          <Footer />
+        <main className="l-container">
+          <Route exact path="/" component={RecipeCreator} />
+          <Route path="/recipes/list" component={RecipesList} />
+        </main>
+        <Footer />
       </div>
     );
   }

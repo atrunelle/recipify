@@ -3,6 +3,8 @@ import { Card, CardContent, Typography } from '@material-ui/core';
 
 class RecipeDetails extends Component {
   render() {
+    if (!this.props.recipe) return false;
+    
     const ingredientsList = this.props.recipe.ingredients.map((ingredient, index) => 
       <li key={index}>{ingredient.name}</li>
     );

@@ -28,6 +28,7 @@ class IngredientDetails extends Component {
             color="secondary"
             className="ingredient-details__button"
             aria-label="Delete"
+            id={`removeButton-${this.props.index}`}
             onClick={() => this.props.remove(this.props.index)}>
             <DeleteIcon />
           </IconButton>

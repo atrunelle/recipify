@@ -3,7 +3,6 @@ import recipeService from "../../recipe.service";
 import { Chip, Typography, Grid } from "@material-ui/core";
 
 class IngredientNutrients extends Component {
-
   get allLabels () {
     const dietsLabels = recipeService.getDietLabels(this.props.nutrients.dietLabels);
     const healthLabels = recipeService.getHealthLabels(this.props.nutrients.healthLabels);
@@ -16,6 +15,8 @@ class IngredientNutrients extends Component {
   }
 
   render() {
+    if (!this.props.nutrients) return false;
+    
     const nutrientsView = this.macroNutrientsData.map((nutrient, index) => {
       const quantity = Math.round(nutrient.quantity);
 

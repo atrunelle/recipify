@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import recipesIcon from '../../../assets/images/recipes.svg';
 
 import './RecipesList.css';
-import RecipeDetails from '../components/recipe-details/RecipesDetails';
+import RecipeDetails from '../components/recipe-details/RecipeDetails';
 import CircleIcon from '../../../components/circle-icon/CircleIcon';
 
 class RecipesList extends Component {

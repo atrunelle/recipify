@@ -34,6 +34,7 @@ class SearchIngredient extends Component {
     } else {
       buttonContent = 'Add ingredient';
     }
+
     return (
       <Card className="u-push-top">
         <CardContent>
@@ -56,20 +57,23 @@ class SearchIngredient extends Component {
                   fullWidth
                   label="Find an ingredient"
                   value={this.state.ingredientName} 
+                  id="ingredientNameInput"
                   placeholder="Ex: 200gr chicken"
                   onChange={this.onIngredientChange}/>
               </Grid>
               <Grid item>
                 <TextField
                   label="Number of servings"
-                  value={this.state.numberOfServings} 
+                  value={this.state.numberOfServings}
+                  id="numberOfServingsInput"
                   onChange={this.onNumberOfServingsChange}/>
               </Grid>
               <Button
                 disabled={!this.state.ingredientName}
                 type="submit"
                 variant="raised"
-                color="primary">
+                color="primary"
+                id="submitButton">
                 {buttonContent}
               </Button>
             </Grid>

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: NutrientsMacroChart should match snapshot 1`] = `"<div class=\\"nutrients-macro-chart\\"><div style=\\"width:12%\\" class=\\"bar-graph bar-graph--fat\\"><p>Fat 12%</p></div></div>"`;

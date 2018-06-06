@@ -4,7 +4,7 @@ import { Card, CardContent, Typography } from '@material-ui/core';
 
 class NutritionMacro extends Component {
   render() {
-    if (!this.props.totalNutrients.length) return '';
+    if (!this.props.totalNutrients) return false;
 
     return (
       <Card>

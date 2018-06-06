@@ -17,7 +17,6 @@ const reducer = createReducer(defaultState, {
       ...state,
       isFetching: true,
     };
-
   },
 
   [actionsTypes.FETCH_INGREDIENT_REJECTED]: (state, action) => {

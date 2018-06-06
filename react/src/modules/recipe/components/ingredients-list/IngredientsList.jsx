@@ -23,7 +23,7 @@ class IngredientsList extends Component {
   }
 
   render() {
-    if (!this.props.ingredients.length) return '';
+    if (!this.props.ingredients) return false;
   
     const ingredientsList = this.props.ingredients.map((ingredient, index) => 
       <IngredientDetails key={index} index={index} ingredient={ingredient} remove={this.props.remove}/>
@@ -47,7 +47,8 @@ class IngredientsList extends Component {
           <form>
             <TextField
               label="Recipe name"
-              value={this.state.recipeName} 
+              value={this.state.recipeName}
+              id="recipeNameInput"
               onChange={this.onRecipeNameChange}
             />
           </form>
@@ -63,7 +64,8 @@ class IngredientsList extends Component {
           justify="flex-end">
           <Grid item>
             <Button
-              onClick={this.props.removeAll}>
+              onClick={this.props.removeAll}
+              id="removeAllButton">
               Remove all ingredients
             </Button>
           </Grid>
@@ -71,6 +73,7 @@ class IngredientsList extends Component {
             <Button
               variant="raised"
               color="primary"
+              id="saveButton"
               onClick={this.save}>
               Save recipe
             </Button>

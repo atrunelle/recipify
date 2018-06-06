@@ -5,11 +5,11 @@ import BarGraph from '../../../../components/bar-graph/BarGraph';
 class NutrientsMacroChart extends Component {
 
   render() {
+    if (!this.props.nutritionData) return false;
     const bars = this.props.nutritionData.map((data, index) => {
       const percentage = data.totalQuantity.percentage;
       const label = data.totalQuantity.label;
 
-      console.log(label, percentage);
       return (
         <BarGraph
           key={index}
