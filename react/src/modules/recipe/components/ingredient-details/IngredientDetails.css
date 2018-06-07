@@ -1,9 +1,6 @@
 .ingredient-details .ingredient-details__button {
-  opacity: 0;
   position: absolute;
-  right: 16px;
-  top: 0px;
-  z-index: 2000; }
-
-.ingredient-details:hover .ingredient-details__button {
-  opacity: 1; }
+  right: 60px;
+  top: 0px; }
+  .ingredient-details .ingredient-details__button:last-child {
+    padding-right: 0; }

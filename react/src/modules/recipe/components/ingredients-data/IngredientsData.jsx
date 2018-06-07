@@ -6,7 +6,7 @@ import NutrientDetails from '../nutritient-details/NutrientDetails';
 
 class IngredientsData extends Component {
   render() {
-    if (!this.props.totalNutrients) return false;
+    if (!this.props.totalNutrients || !this.props.totalNutrients.length) return false;
 
     const nutrientsDetails = this.props.totalNutrients.map((nutrient, index) => 
         <div className="u-text-center" key={index}>

@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core';
 
 class NutrientDetails extends Component {
   render() {
-    if (!this.props.nutrient || !this.props.nutrient.totalQuantity) return false;
+    if (!this.props.nutrient || !this.props.nutrient.totalQuantity.quantity) return false;
     
     const totalQuantityQuantity = Math.round(this.props.nutrient.totalQuantity.quantity);
     const totalDailyQuantity = Math.round(this.props.nutrient.totalDaily.quantity);

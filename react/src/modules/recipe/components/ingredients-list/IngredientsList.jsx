@@ -23,7 +23,7 @@ class IngredientsList extends Component {
   }
 
   render() {
-    if (!this.props.ingredients) return false;
+    if (!this.props.ingredients || !this.props.ingredients.length) return false;
   
     const ingredientsList = this.props.ingredients.map((ingredient, index) => 
       <IngredientDetails key={index} index={index} ingredient={ingredient} remove={this.props.remove}/>

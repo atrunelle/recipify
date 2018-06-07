@@ -24,6 +24,10 @@ class SearchIngredient extends Component {
   onSubmit = (event) => {
     event.preventDefault();
     this.props.add(this.state.ingredientName, this.state.numberOfServings);
+    this.setState({
+      ingredientName: '',
+      numberOfServings: 1,
+    });
   }
   
   render() {
