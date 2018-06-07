@@ -5,4 +5,4 @@ The project was generated using angular cli
 
 ## Preview
 
-[Link]()
+![Recipify preview](https://github.com/atrunelle/recipify/blob/master/angular/preview.gif)
