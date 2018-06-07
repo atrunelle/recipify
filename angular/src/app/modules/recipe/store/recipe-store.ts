@@ -59,7 +59,7 @@ class RecipeStore extends Store<IRecipeState> {
           ...this.state.ingredients.filter(((item, itemIndex) => itemIndex !== index)),
         ],
       });
-      this.resetTotalNutrients();
+      this.calculateTotalNutrients();
     }
   }
 

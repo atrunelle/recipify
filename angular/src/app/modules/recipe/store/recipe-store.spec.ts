@@ -152,8 +152,10 @@ describe('Store: recipe', () => {
           name: 'Cream',
         }],
       });
+      spyOn(store, 'calculateTotalNutrients');
 
       store.removeIngredient(1);
+      expect(store.calculateTotalNutrients).toHaveBeenCalled();
       expect(store.state.ingredients).toEqual([{
         nutrients: {
           uri: '',
