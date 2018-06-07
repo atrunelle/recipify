@@ -1,10 +1,9 @@
 # Recipify application
 
 In order to compare FE frameworks and keep myself updated with latest technologies, I choose to make the same application using different techniques and frameworks: 
-- Vue
-- Angular 2+
-- React
-- Vanilla (soon)
+- [Vue](https://github.com/atrunelle/recipify/tree/master/vuejs)
+- [Angular 2+](https://github.com/atrunelle/recipify/tree/master/angular)
+- [React](https://github.com/atrunelle/recipify/tree/master/react)
 
 ## Features
 The application purpose is to be able to create recipes by searching for ingreadients and comparing the nutritional content of each ingredients.
