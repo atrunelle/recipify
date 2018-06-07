@@ -5,4 +5,4 @@ The project was generated using vue cli
 
 ## Preview
 
-![Recipify preview](https://github.com/atrunelle/recipify/tree/master/vuejs/preview.gif)
+![Recipify preview](https://github.com/atrunelle/recipify/blob/master/vuejs/preview.gif)
