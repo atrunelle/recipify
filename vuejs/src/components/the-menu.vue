@@ -4,7 +4,7 @@
     <v-toolbar-items>
       <v-btn
         flat
-        to="/">Create recipe</v-btn>
+        to="/recipes/create">Create recipe</v-btn>
       <v-btn
         flat
         to="/recipes/list">My recipes</v-btn>

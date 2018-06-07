@@ -29,7 +29,7 @@
       <v-btn
         id="save-button"
         color="primary"
-        @click="save(recipeName)">
+        @click="saveRecipe()">
         Save recipe
       </v-btn>
     </v-card-actions>
@@ -68,6 +68,13 @@ export default {
     save: {
       type: Function,
       required: true,
+    },
+  },
+
+  methods: {
+    saveRecipe () {
+      this.save(this.recipeName);
+      this.recipeName = '';
     },
   },
 };
