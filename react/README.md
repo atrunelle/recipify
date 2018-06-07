@@ -5,4 +5,4 @@ The project was generated using create-react-app
 
 ## Preview
 
-[Link]()
+![Recipify preview](https://github.com/atrunelle/recipify/blob/master/react/preview.gif)
