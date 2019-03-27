@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import NutrientsMacroChart from '@/modules/recipe/components/nutrients-macro-chart';
+import NutrientsMacroChart from '@/components/nutrients-macro-chart';
 
 export default {
   components: {

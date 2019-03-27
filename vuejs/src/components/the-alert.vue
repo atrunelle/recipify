@@ -11,21 +11,19 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
-import * as appTypes from '@/store/app/types';
+import * as appTypes from '@/store/types';
 
 export default {
   name: 'TheAlert',
 
   computed: {
-    ...mapGetters('app', {
-      alert: appTypes.GET_ALERT,
-    }),
+    ...mapState(['alert']),
   },
 
   methods: {
-    ...mapActions('app', [
+    ...mapActions([
       appTypes.HIDE_ALERT,
     ]),
 

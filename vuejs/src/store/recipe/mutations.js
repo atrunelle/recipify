@@ -1,5 +1,5 @@
 import * as types from './types';
-import nutritionService from '../nutrition.service';
+import nutritionService from '@/core/nutrition.service';
 
 export default {
   [types.ADD_INGREDIENT]: (state, payload) => {

@@ -22,7 +22,7 @@
       align-center
     >
       <circle-icon
-        :icon="'/static/recipes.svg'"
+        icon="/recipes.svg"
         alt="recipes icon"
       />
       <h2 class="ma-2 headline">
@@ -40,10 +40,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import * as recipeTypes from '@/modules/recipe/store/types';
+import * as recipeTypes from '@/store/recipe/types';
 
 import CircleIcon from '@/components/circle-icon';
-import RecipeDetails from '@/modules/recipe/components/recipe-details.vue';
+import RecipeDetails from '@/components/recipe-details.vue';
 
 export default {
   components: {

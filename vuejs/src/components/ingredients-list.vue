@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import IngredientDetails from '@/modules/recipe/components/ingredient-details';
+import IngredientDetails from '@/components/ingredient-details';
 
 export default {
   components: {

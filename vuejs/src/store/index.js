@@ -1,16 +1,24 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import app from '@/store/app';
-import recipe from '@/modules/recipe/store';
+import actions from '@/store/actions';
+import mutations from '@/store/mutations';
+import recipe from '@/store/recipe/';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {
-    app,
     recipe,
   },
+  state: {
+    alert: {
+      text: '',
+      type: 'error',
+    },
+  },
+  actions,
+  mutations,
 });
 
 export default store;

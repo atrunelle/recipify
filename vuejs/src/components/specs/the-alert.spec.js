@@ -1,6 +1,6 @@
 import Vuex from 'vuex';
 import { mount, createLocalVue } from '@vue/test-utils';
-import getters from '@/store/app/getters';
+import getters from '@/store/getters';
 import TheAlert from '../the-alert';
 
 describe('Component: app', () => {

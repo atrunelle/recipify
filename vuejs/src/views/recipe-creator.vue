@@ -30,13 +30,13 @@
 </template>
 
 <script>
-import SearchIngredient from '@/modules/recipe/components/search-ingredient';
-import IngredientsList from '@/modules/recipe/components/ingredients-list';
-import IngredientsData from '@/modules/recipe/components/ingredients-data';
-import NutritionMacro from '@/modules/recipe/components/nutrition-macro';
+import SearchIngredient from '@/components/search-ingredient';
+import IngredientsList from '@/components/ingredients-list';
+import IngredientsData from '@/components/ingredients-data';
+import NutritionMacro from '@/components/nutrition-macro';
 
 import { mapGetters, mapActions } from 'vuex';
-import * as recipeTypes from '@/modules/recipe/store/types';
+import * as recipeTypes from '@/store/recipe/types';
 
 export default {
   components: {

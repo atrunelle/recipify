@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import recipeService from '../recipe.service';
+import recipeService from '@/core/recipe.service';
 
 export default {
   props: {

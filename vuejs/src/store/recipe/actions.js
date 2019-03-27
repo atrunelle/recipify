@@ -1,7 +1,7 @@
 import * as types from './types';
-import * as appTypes from '@/store/app/types';
+import * as appTypes from '@/store/types';
 
-import recipeService from '../recipe.service';
+import recipeService from '@/core/recipe.service';
 
 export default {
   [types.REMOVE_INGREDIENT]: (context, payload) => {
@@ -28,7 +28,7 @@ export default {
             type: 'error',
           };
 
-          context.commit(`app/${appTypes.SHOW_ALERT}`, alert, { root: true });
+          context.commit(appTypes.SHOW_ALERT, alert, { root: true });
           reject(error);
         });
     });
@@ -52,7 +52,7 @@ export default {
       type: 'success',
     };
 
-    context.commit(`app/${appTypes.SHOW_ALERT}`, alert, { root: true });
+    context.commit(appTypes.SHOW_ALERT, alert, { root: true });
   },
 
   [types.CALCULATE_TOTAL_CALORIES]: (context) => {

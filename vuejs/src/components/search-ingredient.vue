@@ -44,7 +44,7 @@
 import layoutMixin from '@/core/layout.mixin';
 
 import { mapActions } from 'vuex';
-import * as recipeTypes from '@/modules/recipe/store/types';
+import * as recipeTypes from '@/store/recipe/types';
 
 export default {
   data: () => {

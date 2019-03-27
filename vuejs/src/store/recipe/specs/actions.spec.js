@@ -55,7 +55,7 @@ describe('Store: recipes actions', () => {
     };
 
     const expectedMutations = [{
-      type: 'app/showAlert',
+      type: 'showAlert',
       payload: {
         text: 'Error: my error',
         type: 'error',
@@ -120,7 +120,7 @@ describe('Store: recipes actions', () => {
     };
 
     const expectedMutations = [{
-      type: 'app/showAlert',
+      type: 'showAlert',
       payload: undefined,
     }];
 

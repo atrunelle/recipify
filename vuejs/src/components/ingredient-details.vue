@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import IngredientNutrients from '@/modules/recipe/components/ingredient-nutrients';
+import IngredientNutrients from '@/components/ingredient-nutrients';
 
 export default {
 
