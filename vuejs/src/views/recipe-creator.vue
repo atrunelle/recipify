@@ -58,12 +58,16 @@
           </v-card-actions>
         </v-card>
       </v-flex>
-      <ingredients-data
-        :total-nutrients="totalNutrients"
-        :total-weight="totalWeight"
-        :total-calories="totalCalories"
-      />
-      <nutrition-macro :total-nutrients="totalNutrients" />
+      <div v-show="ingredients.length">
+        <ingredients-data
+          :total-nutrients="totalNutrients"
+          :total-weight="totalWeight"
+          :total-calories="totalCalories"
+        />
+        <nutrition-macro
+          :total-nutrients="totalNutrients"
+        />
+      </div>
     </v-flex>
   </v-layout>
 </template>
@@ -74,7 +78,7 @@ import SearchIngredient from '@/components/search-ingredient';
 import IngredientsData from '@/components/ingredients-data';
 import NutritionMacro from '@/components/nutrition-macro';
 
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 import * as recipeTypes from '@/store/recipe/types';
 
 export default {
@@ -96,6 +100,8 @@ export default {
   computed: {
     ...mapState('recipe', [
       'ingredients',
+    ]),
+    ...mapGetters('recipe', [
       'totalNutrients',
       'totalWeight',
       'totalCalories',

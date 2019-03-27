@@ -7,35 +7,54 @@ describe('Component: recipes list', () => {
 
   localVue.use(Vuex);
 
-  const recipeStore = {
-    namespaced: true,
-    state: {
-      recipes: [{
-        name: 'recipe 1',
-        ingredients: [{
-          name: 'apple',
-          nutrients: {
-            calories: 100,
-            totalWeight: 200,
-          },
+  it('should display list of recipes', () => {
+    const recipeStore = {
+      namespaced: true,
+      state: {
+        recipes: [{
+          name: 'recipe 1',
+          ingredients: [{
+            name: 'apple',
+            nutrients: {
+              calories: 100,
+              totalWeight: 200,
+            },
+          }],
         }],
       },
-      ],
-    },
-  };
+    };
 
-  const store = new Vuex.Store({
-    modules: {
-      recipe: recipeStore,
-    },
-  });
-
-  it('should match snapshot', () => {
+    const store = new Vuex.Store({
+      modules: {
+        recipe: recipeStore,
+      },
+    });
     const wrapper = mount(RecipesList, {
       localVue,
       store,
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.text()).toContain('recipe 1');
+  });
+
+  it('should display empty state', () => {
+    const recipeStore = {
+      namespaced: true,
+      state: {
+        recipes: [],
+      },
+    };
+
+    const store = new Vuex.Store({
+      modules: {
+        recipe: recipeStore,
+      },
+    });
+    const wrapper = mount(RecipesList, {
+      localVue,
+      store,
+    });
+
+    expect(wrapper.text()).toContain('No recipes yet');
   });
 });

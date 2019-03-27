@@ -20,11 +20,11 @@ module.exports = {
     'jest-serializer-vue',
   ],
   setupFiles: ['<rootDir>/tests/unit/setup', 'dotenv/config'],
-  coverageDirectory: '<rootDir>/tests/unit/coverage',
+  collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
     '!src/main.js',
-    '!src/router/index.js',
+    '!src/router.js',
     '!src/**/store/**/index.js',
     '!**/node_modules/**',
   ],

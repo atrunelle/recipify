@@ -2,7 +2,7 @@
   <header>
     <the-menu />
     <v-responsive
-      height="40vh"
+      height="30vh"
       class="light-green"
     >
       <v-container fill-height>

@@ -2,11 +2,14 @@
   <v-list-group :value="ingredient.active">
     <v-list-tile slot="activator">
       <v-list-tile-content>
-        <v-list-tile-title>{{ ingredient.name }} {{ ingredient.nutrients.calories }}cal for {{ ingredient.nutrients.totalWeight }}gr </v-list-tile-title>
+        <v-list-tile-title data-test="ingredient-detail">
+          {{ ingredient.name }} {{ ingredient.nutrients.calories }}cal for {{ ingredient.nutrients.totalWeight }}gr
+        </v-list-tile-title>
       </v-list-tile-content>
       <v-list-tile-action
         :id="`remove-button-${index}`"
-        @click="onRemove(index)"
+        data-test="remove-ingredient"
+        @click="onRemove"
       >
         <v-icon>delete</v-icon>
       </v-list-tile-action>
@@ -37,8 +40,8 @@ export default {
   },
 
   methods: {
-    onRemove (index) {
-      this.$emit('remove', index);
+    onRemove () {
+      this.$emit('remove', this.index);
     },
   },
 };

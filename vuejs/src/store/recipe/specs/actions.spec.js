@@ -1,7 +1,7 @@
 import { testAction } from 'test/unit/utils';
 import actions from '../actions';
 
-import recipeService from '@/core/recipe.service';
+import recipeApi from '@/core/recipeApi';
 
 describe('Store: recipes actions', () => {
   it('should trigger remove ingredients mutation ', (done) => {
@@ -21,7 +21,7 @@ describe('Store: recipes actions', () => {
   });
 
   it('should trigger add ingredients mutation ', (done) => {
-    recipeService.getIngredientNutrition = jest.fn(() => Promise.resolve({
+    recipeApi.getIngredientNutrition = jest.fn(() => Promise.resolve({
       name: 'carrot',
       nutrients: {},
     }));
@@ -44,7 +44,7 @@ describe('Store: recipes actions', () => {
   });
 
   it('should trigger show alert mutation ', (done) => {
-    recipeService.getIngredientNutrition = jest.fn(() => Promise.reject(new Error('my-error')));
+    recipeApi.getIngredientNutrition = jest.fn(() => Promise.reject(new Error('my-error')));
     const payload = {
       ingredient: 'apple',
       numberOfServing: 1,
@@ -125,56 +125,5 @@ describe('Store: recipes actions', () => {
     }];
 
     testAction(actions.saveRecipe, payload, state, expectedMutations, done);
-  });
-
-  it('should trigger calculate total calories', (done) => {
-    const payload = undefined;
-
-    const state = {
-      ingredients: [],
-      totalNutrients: [],
-      totalCalories: 0,
-    };
-
-    const expectedMutations = [{
-      type: 'calculateTotalCalories',
-      payload: undefined,
-    }];
-
-    testAction(actions.calculateTotalCalories, payload, state, expectedMutations, done);
-  });
-
-  it('should trigger calculate total weight', (done) => {
-    const payload = undefined;
-
-    const state = {
-      ingredients: [],
-      totalNutrients: [],
-      totalWeight: 0,
-    };
-
-    const expectedMutations = [{
-      type: 'calculateTotalWeight',
-      payload: undefined,
-    }];
-
-    testAction(actions.calculateTotalWeight, payload, state, expectedMutations, done);
-  });
-
-  it('should trigger calculate total nutrients', (done) => {
-    const payload = undefined;
-
-    const state = {
-      ingredients: [],
-      totalNutrients: [],
-      totalWeight: 0,
-    };
-
-    const expectedMutations = [{
-      type: 'calculateTotalNutrients',
-      payload: undefined,
-    }];
-
-    testAction(actions.calculateTotalNutrients, payload, state, expectedMutations, done);
   });
 });

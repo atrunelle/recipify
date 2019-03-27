@@ -10,10 +10,16 @@
         </h2>
       </v-card-title>
       <v-card-text>
-        <h3 class="subheading">
+        <h3
+          class="subheading"
+          data-test="total-calories"
+        >
           Calories: {{ props.totalCalories }}cal
         </h3>
-        <h3 class="subheading">
+        <h3
+          class="subheading"
+          data-test="total-weight"
+        >
           Total Weight: {{ props.totalWeight }}gr
         </h3>
         <v-layout
@@ -33,6 +39,7 @@
             :key="key"
             v-for="(nutrient, key) in props.totalNutrients"
             text-xs-center
+            data-test="nutrients-list"
           >
             <h3 class="subheading pa-2">
               {{ nutrient.label }}

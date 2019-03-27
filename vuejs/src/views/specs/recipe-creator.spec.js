@@ -1,6 +1,7 @@
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import RecipeCreator from '../recipe-creator';
+import getters from '@/store/recipe/getters';
 
 describe('Component: recipe creator', () => {
   let localVue = createLocalVue();
@@ -44,10 +45,8 @@ describe('Component: recipe creator', () => {
           },
         },
       }],
-      totalNutrients: [],
-      totalCalories: 0,
-      totalWeight: 0,
     },
+    getters,
     actions: recipeActions,
   };
 

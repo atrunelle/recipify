@@ -67,15 +67,4 @@ describe('Component: search ingredient', () => {
     await wrapper.vm.$nextTick();
     expect(wrapper.vm.isLoading).toBeFalsy();
   });
-
-  it('should match snapshot', () => {
-    const wrapper = mount(SearchIngredient, {
-      stubs: {
-        'v-text-field': '<input type="text">',
-      },
-      localVue,
-      store,
-    });
-    expect(wrapper.html()).toMatchSnapshot();
-  });
 });

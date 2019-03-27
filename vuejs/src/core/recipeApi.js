@@ -1,4 +1,3 @@
-import { DIET_LABELS, HEALTH_LABEL, MACRO_NUTRIENTS, MICRO_NUTRIENTS } from './edamam.constant';
 import axios from 'axios';
 
 axios.defaults.baseURL = '/api';
@@ -24,7 +23,6 @@ const recipeService = {
       .then((d) => d.data);
   },
 
-  // TODO: move as getter?
   formatIngredients (data, numberOfServings = 1) {
     const ingredients = data.parsed.map((item, index) => {
       const value = {
@@ -67,51 +65,6 @@ const recipeService = {
       .catch((error) => {
         throw error;
       });
-  },
-
-  // TODO: move as getter?
-  getDietLabels (items = []) {
-    return this.getLabels(DIET_LABELS, items);
-  },
-
-  // TODO: move as getter?
-  getHealthLabels (items = []) {
-    return this.getLabels(HEALTH_LABEL, items);
-  },
-
-  // TODO: move as getter?
-  getLabels (labelsArray, items) {
-    return items.reduce((labels, item) => {
-      const label = labelsArray[item];
-
-      if (!label) {
-        return labels;
-      }
-
-      return labels.concat(label);
-    }, []);
-  },
-
-  // TODO: move as getter?
-  getMacroNutrientsList (items) {
-    return this.filterObject(items, (key) => {
-      return MACRO_NUTRIENTS.includes(key);
-    });
-  },
-
-  // TODO: move as getter?
-  getMicroNutrientsList (items) {
-    return this.filterObject(items, (key) => {
-      return MICRO_NUTRIENTS.includes(key);
-    });
-  },
-
-  filterObject (object, callback) {
-    return Object.keys(object).filter(callback)
-      .reduce((obj, key) => {
-        obj[key] = object[key];
-        return obj;
-      }, {});
   },
 };
 

@@ -9,11 +9,14 @@
         :key="key"
         v-for="(nutrient, key) in macroNutrientsData"
         text-xs-center
+        data-test="macro-labels"
       >
         <h3 class="pa-2">
           {{ nutrient.label }}
         </h3>
-        <p>{{ nutrient.quantity | round(2) }}{{ nutrient.unit }}</p>
+        <p>
+          {{ nutrient.quantity | round(2) }}{{ nutrient.unit }}
+        </p>
       </v-flex>
     </v-layout>
 
@@ -21,6 +24,7 @@
       <v-chip
         :key="key"
         v-for="(label, key) in allLabels"
+        data-test="all-labels"
       >
         {{ label }}
       </v-chip>
@@ -29,7 +33,7 @@
 </template>
 
 <script>
-import recipeService from '@/core/recipe.service';
+import { DIET_LABELS, HEALTH_LABEL, MACRO_NUTRIENTS } from '@/core/edamam.constant';
 
 export default {
   props: {
@@ -41,15 +45,37 @@ export default {
 
   computed: {
     allLabels () {
-      const dietsLabels = recipeService.getDietLabels(this.nutrients.dietLabels);
-      const healthLabels = recipeService.getHealthLabels(this.nutrients.healthLabels);
+      const dietsLabels = this.getLabels(DIET_LABELS, this.nutrients.dietLabels);
+      const healthLabels = this.getLabels(HEALTH_LABEL, this.nutrients.healthLabels);
 
       return dietsLabels.concat(healthLabels)
         .filter((label) => !!label);
     },
 
     macroNutrientsData () {
-      return recipeService.getMacroNutrientsList(this.nutrients.totalNutrients);
+      const { totalNutrients } = this.nutrients;
+      return Object.keys(totalNutrients)
+        .filter((key) => {
+          return MACRO_NUTRIENTS.includes(key);
+        })
+        .reduce((obj, key) => {
+          obj[key] = totalNutrients[key];
+          return obj;
+        }, {});
+    },
+  },
+
+  methods: {
+    getLabels (labelsArray, items) {
+      return items.reduce((labels, item) => {
+        const label = labelsArray[item];
+
+        if (!label) {
+          return labels;
+        }
+
+        return labels.concat(label);
+      }, []);
     },
   },
 };

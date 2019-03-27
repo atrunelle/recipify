@@ -1,16 +1,6 @@
 import nutritionService from '../nutrition.service';
 
 describe('Service: Nutrition', () => {
-  it('should calculate percentage of nutrients per total calories', () => {
-    const quantity = 9;
-    const totalCalories = 100;
-
-    const results = nutritionService.calculatePercentage(quantity, totalCalories, 'FAT');
-    const expected = 81;
-
-    expect(results).toBe(expected);
-  });
-
   it('should get total nutrient for recipe', () => {
     const items = [{
       nutrients: {

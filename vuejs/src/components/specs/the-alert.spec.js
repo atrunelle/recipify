@@ -72,12 +72,4 @@ describe('Component: app', () => {
 
     expect(mutations.hideAlert).not.toHaveBeenCalled();
   });
-
-  it('should match snapshot', () => {
-    const wrapper = mount(TheAlert, {
-      localVue,
-      store,
-    });
-    expect(wrapper.html()).toMatchSnapshot();
-  });
 });
