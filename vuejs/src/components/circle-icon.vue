@@ -1,27 +1,12 @@
-<template>
+<template functional>
   <div class="circle-icon">
     <img
       class="circle-icon__icon"
-      :src="icon"
-      :alt="alt"
+      :src="props.icon"
+      :alt="props.alt"
     >
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    icon: {
-      type: String,
-      required: true,
-    },
-    alt: {
-      type: String,
-      required: true,
-    },
-  },
-};
-</script>
 
 <style lang="scss">
 .circle-icon {

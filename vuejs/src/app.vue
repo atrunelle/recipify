@@ -52,6 +52,6 @@ h1 {
 }
 
 main {
-  margin-top: -100px;
+  margin-top: -200px;
 }
 </style>

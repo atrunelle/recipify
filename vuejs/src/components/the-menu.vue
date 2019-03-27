@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <v-toolbar color="light-green">
     <v-spacer />
     <v-toolbar-items>

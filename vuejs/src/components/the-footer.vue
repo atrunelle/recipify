@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <v-footer class="grey darken-3">
     <v-layout
       row

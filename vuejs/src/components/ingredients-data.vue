@@ -1,7 +1,7 @@
-<template>
+<template functional>
   <v-flex
     xs12
-    v-if="totalNutrients.length"
+    v-if="props.totalNutrients.length"
   >
     <v-card>
       <v-card-title primary-title>
@@ -11,10 +11,10 @@
       </v-card-title>
       <v-card-text>
         <h3 class="subheading">
-          Calories: {{ totalCalories }}cal
+          Calories: {{ props.totalCalories }}cal
         </h3>
         <h3 class="subheading">
-          Total Weight: {{ totalWeight }}gr
+          Total Weight: {{ props.totalWeight }}gr
         </h3>
         <v-layout
           align-end
@@ -31,7 +31,7 @@
 
           <v-flex
             :key="key"
-            v-for="(nutrient, key) in totalNutrients"
+            v-for="(nutrient, key) in props.totalNutrients"
             text-xs-center
           >
             <h3 class="subheading pa-2">
@@ -49,23 +49,3 @@
     </v-card>
   </v-flex>
 </template>
-
-<script>
-export default {
-
-  props: {
-    totalNutrients: {
-      type: Array,
-      required: true,
-    },
-    totalCalories: {
-      type: Number,
-      required: true,
-    },
-    totalWeight: {
-      type: Number,
-      required: true,
-    },
-  },
-};
-</script>

@@ -51,7 +51,7 @@
               id="save-button"
               color="primary"
               data-test="save-recipe"
-              @click="save"
+              @click="save(recipeName)"
             >
               Save recipe
             </v-btn>
@@ -78,6 +78,14 @@ import { mapState, mapActions } from 'vuex';
 import * as recipeTypes from '@/store/recipe/types';
 
 export default {
+  name: 'RecipeCreator',
+
+  data () {
+    return {
+      recipeName: '',
+    };
+  },
+
   components: {
     SearchIngredient,
     IngredientDetails,

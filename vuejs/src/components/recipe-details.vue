@@ -1,13 +1,13 @@
-<template>
+<template functional>
   <v-card height="100%">
     <v-card-title primary-title>
       <h2 class="headline">
-        {{ recipe.name }}
+        {{ props.recipe.name }}
       </h2>
     </v-card-title>
     <v-list>
       <v-list-tile
-        v-for="(ingredient, key) in recipe.ingredients"
+        v-for="(ingredient, key) in props.recipe.ingredients"
         :key="key"
       >
         <v-list-tile-content>
@@ -17,14 +17,3 @@
     </v-list>
   </v-card>
 </template>
-
-<script>
-export default {
-  props: {
-    recipe: {
-      type: Object,
-      required: true,
-    },
-  },
-};
-</script>

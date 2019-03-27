@@ -12,26 +12,22 @@ export default {
   },
 
   [types.ADD_INGREDIENT]: (context, payload) => {
-    return new Promise((resolve, reject) => {
-      recipeService
-        .getIngredientNutrition(payload.ingredient, payload.numberOfServing)
-        .then((results) => {
-          context.commit(types.ADD_INGREDIENT, results);
-          context.commit(types.CALCULATE_TOTAL_WEIGHT);
-          context.commit(types.CALCULATE_TOTAL_CALORIES);
-          context.commit(types.CALCULATE_TOTAL_NUTRIENTS);
-          resolve();
-        })
-        .catch((error) => {
-          const alert = {
-            text: `Error: ${error.message}`,
-            type: 'error',
-          };
+    return recipeService
+      .getIngredientNutrition(payload.ingredient, payload.numberOfServing)
+      .then((results) => {
+        context.commit(types.ADD_INGREDIENT, results);
+        context.commit(types.CALCULATE_TOTAL_WEIGHT);
+        context.commit(types.CALCULATE_TOTAL_CALORIES);
+        context.commit(types.CALCULATE_TOTAL_NUTRIENTS);
+      })
+      .catch((error) => {
+        const alert = {
+          text: `Error: ${error.message}`,
+          type: 'error',
+        };
 
-          context.commit(appTypes.SHOW_ALERT, alert, { root: true });
-          reject(error);
-        });
-    });
+        context.commit(appTypes.SHOW_ALERT, alert, { root: true });
+      });
   },
 
   [types.REMOVE_ALL_INGREDIENTS]: (context) => {

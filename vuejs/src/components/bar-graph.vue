@@ -2,7 +2,7 @@
   <div
     :class="classes"
     :style="{ width: `${percentage}%` }"
-    v-if="hasWidth"
+    v-if="percentage > 0"
   >
     <p class="bar-graph__text">
       {{ label }} {{ percentage }}%
@@ -26,10 +26,6 @@ export default {
   computed: {
     classes () {
       return `bar-graph  bar-graph--${this.label.toLowerCase()}`;
-    },
-
-    hasWidth () {
-      return this.percentage > 0;
     },
   },
 };
