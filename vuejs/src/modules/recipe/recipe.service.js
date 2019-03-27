@@ -102,10 +102,10 @@ const recipeService = {
 
   filterObject (object, callback) {
     return Object.keys(object).filter(callback)
-    .reduce((obj, key) => {
-      obj[key] = object[key];
-      return obj;
-    }, {});
+      .reduce((obj, key) => {
+        obj[key] = object[key];
+        return obj;
+      }, {});
   },
 };
 

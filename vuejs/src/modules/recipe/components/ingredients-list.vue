@@ -2,13 +2,17 @@
   <v-card v-if="ingredients.length">
     <v-card-title
       primary-title
-      class="justify-space-between">
-      <h2 class="headline">Your recipe ingredients list</h2>
+      class="justify-space-between"
+    >
+      <h2 class="headline">
+        Your recipe ingredients list
+      </h2>
       <v-flex md3>
         <v-text-field
           md3
           v-model="recipeName"
-          label="Recipe name"/>
+          label="Recipe name"
+        />
       </v-flex>
     </v-card-title>
     <v-list>
@@ -17,19 +21,22 @@
         :key="key"
         :index="key"
         :ingredient="ingredient"
-        :remove="remove"/>
+        :remove="remove"
+      />
     </v-list>
     <v-card-actions class="justify-end">
       <v-btn
         flat
         id="remove-all-button"
-        @click="removeAll">
+        @click="removeAll"
+      >
         Remove all ingredients
       </v-btn>
       <v-btn
         id="save-button"
         color="primary"
-        @click="saveRecipe()">
+        @click="saveRecipe()"
+      >
         Save recipe
       </v-btn>
     </v-card-actions>
@@ -37,12 +44,10 @@
 </template>
 
 <script>
-import IngredientNutrients from '@/modules/recipe/components/ingredient-nutrients';
 import IngredientDetails from '@/modules/recipe/components/ingredient-details';
 
 export default {
   components: {
-    IngredientNutrients,
     IngredientDetails,
   },
 

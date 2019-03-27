@@ -4,7 +4,8 @@
     :type="alert.type"
     :value="alert.text"
     @input="onAlertInput"
-    dismissible>
+    dismissible
+  >
     {{ alert.text }}
   </v-alert>
 </template>

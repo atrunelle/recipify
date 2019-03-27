@@ -6,11 +6,12 @@
       </v-list-tile-content>
       <v-list-tile-action
         :id="`remove-button-${index}`"
-        @click="remove(index)">
+        @click="remove(index)"
+      >
         <v-icon>delete</v-icon>
       </v-list-tile-action>
     </v-list-tile>
-    <ingredient-nutrients :nutrients="ingredient.nutrients"/>
+    <ingredient-nutrients :nutrients="ingredient.nutrients" />
   </v-list-group>
 </template>
 

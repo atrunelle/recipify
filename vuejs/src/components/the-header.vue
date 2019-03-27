@@ -1,23 +1,30 @@
 <template>
   <header>
-    <the-menu/>
-    <v-jumbotron color="light-green">
+    <the-menu />
+    <v-responsive
+      height="40vh"
+      class="light-green"
+    >
       <v-container fill-height>
         <v-layout
           column
           align-center
-          justify-center>
+          justify-center
+        >
           <img
             src="/logo.svg"
             class="the-header__logo"
-            alt="logo">
-          <h1 class="display-3">Recipify</h1>
+            alt="logo"
+          >
+          <h1 class="display-3">
+            Recipify
+          </h1>
           <p class="the-header__text text-xs-center subheading">
             Create your own recipes by selecting ingredient and reviewing nutritional values before saving!
           </p>
         </v-layout>
       </v-container>
-    </v-jumbotron>
+    </v-responsive>
   </header>
 </template>
 

@@ -2,15 +2,16 @@
   <v-app>
     <v-layout
       column
-      justify-space-between>
-      <the-header/>
+      justify-space-between
+    >
+      <the-header />
       <v-container grid-list-lg>
         <main>
-          <router-view/>
+          <router-view />
         </main>
       </v-container>
-      <the-alert/>
-      <the-footer/>
+      <the-alert />
+      <the-footer />
     </v-layout>
   </v-app>
 </template>

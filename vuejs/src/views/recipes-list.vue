@@ -2,13 +2,16 @@
   <v-container grid-list-md>
     <v-layout
       row
-      wrap>
+      wrap
+    >
       <v-flex
         md4
         v-for="(recipe, key) in recipes"
-        :key="key">
+        :key="key"
+      >
         <recipe-details
-          :recipe="recipe"/>
+          :recipe="recipe"
+        />
       </v-flex>
     </v-layout>
 
@@ -16,7 +19,8 @@
       v-if="!recipes.length"
       column
       justify-center
-      align-center>
+      align-center
+    >
       <circle-icon
         :icon="'/static/recipes.svg'"
         alt="recipes icon"
@@ -24,8 +28,12 @@
       <h2 class="ma-2 headline">
         No recipes yet
       </h2>
-      <p class="body-1">Do not forget to save recipes when you play with ingredients. Once saved, they will show here.</p>
-      <v-btn to="/">Create recipe</v-btn>
+      <p class="body-1">
+        Do not forget to save recipes when you play with ingredients. Once saved, they will show here.
+      </p>
+      <v-btn to="/">
+        Create recipe
+      </v-btn>
     </v-layout>
   </v-container>
 </template>

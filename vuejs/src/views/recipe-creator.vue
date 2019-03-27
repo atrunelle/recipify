@@ -1,27 +1,30 @@
 <template>
   <v-layout
     row
-    wrap>
+    wrap
+  >
     <v-flex xs12>
       <v-flex xs12>
-        <search-ingredient/>
+        <search-ingredient />
       </v-flex>
       <v-flex
         xs12
         align-center
-        justify-center>
+        justify-center
+      >
         <ingredients-list
           :ingredients="ingredients"
           :remove="remove"
           :remove-all="removeAll"
-          :save="save"/>
+          :save="save"
+        />
       </v-flex>
       <ingredients-data
         :total-nutrients="totalNutrients"
         :total-weight="totalWeight"
         :total-calories="totalCalories"
       />
-      <nutrition-macro :total-nutrients="totalNutrients"/>
+      <nutrition-macro :total-nutrients="totalNutrients" />
     </v-flex>
   </v-layout>
 </template>

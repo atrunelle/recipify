@@ -3,7 +3,8 @@
     <img
       class="circle-icon__icon"
       :src="icon"
-      :alt="alt">
+      :alt="alt"
+    >
   </div>
 </template>
 

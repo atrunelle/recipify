@@ -3,12 +3,16 @@
     <v-layout
       justify-space-between
       align-center
-      row>
+      row
+    >
       <v-flex
         :key="key"
         v-for="(nutrient, key) in macroNutrientsData"
-        text-xs-center>
-        <h3 class="pa-2">{{ nutrient.label }}</h3>
+        text-xs-center
+      >
+        <h3 class="pa-2">
+          {{ nutrient.label }}
+        </h3>
         <p>{{ nutrient.quantity | round(2) }}{{ nutrient.unit }}</p>
       </v-flex>
     </v-layout>
@@ -17,7 +21,7 @@
       <v-chip
         :key="key"
         v-for="(label, key) in allLabels"
-        v-if="label">
+      >
         {{ label }}
       </v-chip>
     </div>
@@ -40,7 +44,8 @@ export default {
       const dietsLabels = recipeService.getDietLabels(this.nutrients.dietLabels);
       const healthLabels = recipeService.getHealthLabels(this.nutrients.healthLabels);
 
-      return dietsLabels.concat(healthLabels);
+      return dietsLabels.concat(healthLabels)
+        .filter((label) => !!label);
     },
 
     macroNutrientsData () {

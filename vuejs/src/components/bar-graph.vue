@@ -2,8 +2,11 @@
   <div
     :class="classes"
     :style="{ width: `${percentage}%` }"
-    v-if="hasWidth">
-    <p class="bar-graph__text">{{ label }} {{ percentage }}%</p>
+    v-if="hasWidth"
+  >
+    <p class="bar-graph__text">
+      {{ label }} {{ percentage }}%
+    </p>
   </div>
 </template>
 

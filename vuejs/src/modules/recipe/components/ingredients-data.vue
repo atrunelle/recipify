@@ -1,29 +1,48 @@
 <template>
   <v-flex
     xs12
-    v-if="totalNutrients.length">
+    v-if="totalNutrients.length"
+  >
     <v-card>
       <v-card-title primary-title>
-        <h2 class="headline">Total nutrients</h2>
+        <h2 class="headline">
+          Total nutrients
+        </h2>
       </v-card-title>
       <v-card-text>
-        <h3 class="subheading">Calories: {{ totalCalories }}cal</h3>
-        <h3 class="subheading">Total Weight: {{ totalWeight }}gr</h3>
+        <h3 class="subheading">
+          Calories: {{ totalCalories }}cal
+        </h3>
+        <h3 class="subheading">
+          Total Weight: {{ totalWeight }}gr
+        </h3>
         <v-layout
           align-end
-          justify-space-between>
+          justify-space-between
+        >
           <v-flex text-xs-center>
-            <p class="body-1">Total Nutrients</p>
-            <p class="body-1">Total Daily percentage</p>
+            <p class="body-1">
+              Total Nutrients
+            </p>
+            <p class="body-1">
+              Total Daily percentage
+            </p>
           </v-flex>
 
           <v-flex
             :key="key"
             v-for="(nutrient, key) in totalNutrients"
-            text-xs-center>
-            <h3 class="subheading pa-2">{{ nutrient.label }}</h3>
-            <p class="body-1">{{ nutrient.totalQuantity.quantity | round(2) }}{{ nutrient.totalQuantity.unit }}</p>
-            <p class="body-1">{{ nutrient.totalDaily.quantity | round(2) }}{{ nutrient.totalDaily.unit }}</p>
+            text-xs-center
+          >
+            <h3 class="subheading pa-2">
+              {{ nutrient.label }}
+            </h3>
+            <p class="body-1">
+              {{ nutrient.totalQuantity.quantity | round(2) }}{{ nutrient.totalQuantity.unit }}
+            </p>
+            <p class="body-1">
+              {{ nutrient.totalDaily.quantity | round(2) }}{{ nutrient.totalDaily.unit }}
+            </p>
           </v-flex>
         </v-layout>
       </v-card-text>

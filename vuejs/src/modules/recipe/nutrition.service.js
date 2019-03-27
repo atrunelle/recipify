@@ -9,27 +9,27 @@ const nutritionService = {
 
   getTotalForNutrient (items, totalKey, nutrient, totalCalories = 0) {
     return items
-    .reduce((sum, ingredient) => {
-      const nutrientTotal = ingredient.nutrients[totalKey][nutrient];
+      .reduce((sum, ingredient) => {
+        const nutrientTotal = ingredient.nutrients[totalKey][nutrient];
 
-      if (!nutrientTotal) {
+        if (!nutrientTotal) {
+          return sum;
+        }
+        sum.label = nutrientTotal.label;
+        sum.unit = nutrientTotal.unit;
+        sum.quantity += nutrientTotal.quantity;
+
+        if (totalCalories) {
+          sum.percentage = this.calculatePercentage(sum.quantity, totalCalories, nutrient);
+        }
+
         return sum;
-      }
-      sum.label = nutrientTotal.label;
-      sum.unit = nutrientTotal.unit;
-      sum.quantity += nutrientTotal.quantity;
-
-      if (totalCalories) {
-        sum.percentage = this.calculatePercentage(sum.quantity, totalCalories, nutrient);
-      }
-
-      return sum;
-    }, {
-      label: '',
-      quantity: 0,
-      unit: '',
-      percentage: 0,
-    });
+      }, {
+        label: '',
+        quantity: 0,
+        unit: '',
+        percentage: 0,
+      });
   },
 
   totalQuantityFor (nutrient, ingredients, totalCalories) {

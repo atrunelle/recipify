@@ -4,7 +4,8 @@
       v-for="(data, key) in nutritionData"
       :key="key"
       :label="data.totalQuantity.label"
-      :percentage="data.totalQuantity.percentage"/>
+      :percentage="data.totalQuantity.percentage"
+    />
   </v-layout>
 </template>
 
