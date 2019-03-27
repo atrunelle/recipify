@@ -2,10 +2,8 @@ import { mount } from '@vue/test-utils';
 import IngredientNutrients from '../ingredient-nutrients';
 
 describe('Component: ingredient nutrients', () => {
-  let component;
-
-  beforeEach(() => {
-    component = mount(IngredientNutrients, {
+  it('should match snapshot', () => {
+    const wrapper = mount(IngredientNutrients, {
       propsData: {
         nutrients: {
           dietLabels: [ 'LOW_FAT' ],
@@ -20,9 +18,6 @@ describe('Component: ingredient nutrients', () => {
         },
       },
     });
-  });
-
-  it('should match snapshot', () => {
-    expect(component.html()).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

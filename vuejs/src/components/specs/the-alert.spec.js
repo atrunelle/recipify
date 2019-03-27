@@ -3,7 +3,6 @@ import { mount, createLocalVue } from '@vue/test-utils';
 import TheAlert from '../the-alert';
 
 describe('Component: app', () => {
-  let component;
   let localVue = createLocalVue();
 
   localVue.use(Vuex);
@@ -19,30 +18,38 @@ describe('Component: app', () => {
     hideAlert: jest.fn(),
   };
 
-  beforeEach(() => {
-    const store = new Vuex.Store({
-      state,
-      mutations,
-    });
+  const store = new Vuex.Store({
+    state,
+    mutations,
+  });
 
-    component = mount(TheAlert, {
-      localVue,
-      store,
-    });
+  beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it('should hide alert if no value is passed', () => {
-    component.vm.onAlertInput();
+    const wrapper = mount(TheAlert, {
+      localVue,
+      store,
+    });
+    wrapper.vm.onAlertInput();
     expect(mutations.hideAlert).toHaveBeenCalled();
   });
 
   it('should not hide alert if value is passed', () => {
-    component.vm.onAlertInput({});
+    const wrapper = mount(TheAlert, {
+      localVue,
+      store,
+    });
+    wrapper.vm.onAlertInput({});
     expect(mutations.hideAlert).not.toHaveBeenCalled();
   });
 
   it('should hide success alert automatically', () => {
+    mount(TheAlert, {
+      localVue,
+      store,
+    });
     global.setTimeout = (callback, delay) => callback();
     state.alert = {
       type: 'success',
@@ -53,6 +60,10 @@ describe('Component: app', () => {
   });
 
   it('should not hide alert automatically', () => {
+    mount(TheAlert, {
+      localVue,
+      store,
+    });
     global.setTimeout = (callback, delay) => callback();
     state.alert = {
       type: 'error',
@@ -63,6 +74,10 @@ describe('Component: app', () => {
   });
 
   it('should match snapshot', () => {
-    expect(component.html()).toMatchSnapshot();
+    const wrapper = mount(TheAlert, {
+      localVue,
+      store,
+    });
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

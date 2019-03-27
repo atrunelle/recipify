@@ -2,10 +2,8 @@ import { mount } from '@vue/test-utils';
 import NutritionMacro from '../nutrition-macro';
 
 describe('Component: nutrients chart', () => {
-  let component;
-
-  beforeEach(() => {
-    component = mount(NutritionMacro, {
+  it('should match snapshot', () => {
+    const wrapper = mount(NutritionMacro, {
       propsData: {
         totalNutrients: [{
           totalQuantity: {
@@ -20,9 +18,6 @@ describe('Component: nutrients chart', () => {
         }],
       },
     });
-  });
-
-  it('should match snapshot', () => {
-    expect(component.html()).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

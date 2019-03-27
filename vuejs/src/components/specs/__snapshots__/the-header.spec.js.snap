@@ -2,20 +2,18 @@
 
 exports[`Component: the header should match snapshot 1`] = `
 <header>
-  <nav></nav>
-  <div class="v-responsive light-green" style="height: 40vh;">
-    <div class="v-responsive__content">
-      <div class="container fill-height">
-        <div class="layout column align-center justify-center"><img src="/logo.svg" alt="logo" class="the-header__logo">
-          <h1 class="display-3">
-            Recipify
-          </h1>
-          <p class="the-header__text text-xs-center subheading">
-            Create your own recipes by selecting ingredient and reviewing nutritional values before saving!
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <the-menu-stub></the-menu-stub>
+  <v-responsive-stub height="40vh" class="light-green">
+    <v-container-stub tag="div" fill-height="">
+      <v-layout-stub tag="div" column="" align-center="" justify-center=""><img src="/logo.svg" alt="logo" class="the-header__logo">
+        <h1 class="display-3">
+          Recipify
+        </h1>
+        <p class="the-header__text text-xs-center subheading">
+          Create your own recipes by selecting ingredient and reviewing nutritional values before saving!
+        </p>
+      </v-layout-stub>
+    </v-container-stub>
+  </v-responsive-stub>
 </header>
 `;
