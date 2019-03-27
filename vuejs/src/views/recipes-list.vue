@@ -9,9 +9,7 @@
         v-for="(recipe, key) in recipes"
         :key="key"
       >
-        <recipe-details
-          :recipe="recipe"
-        />
+        <recipe-details :recipe="recipe" />
       </v-flex>
     </v-layout>
 
@@ -39,8 +37,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import * as recipeTypes from '@/store/recipe/types';
+import { mapState } from 'vuex';
 
 import CircleIcon from '@/components/circle-icon';
 import RecipeDetails from '@/components/recipe-details.vue';
@@ -52,9 +49,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters('recipe', {
-      recipes: recipeTypes.GET_RECIPES,
-    }),
+    ...mapState('recipe', ['recipes']),
   },
 };
 </script>

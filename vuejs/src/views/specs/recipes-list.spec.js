@@ -1,7 +1,6 @@
 import Vuex from 'vuex';
 import { mount, createLocalVue } from '@vue/test-utils';
 import RecipesList from '../recipes-list';
-import getters from '@/store/recipe/getters';
 
 describe('Component: recipes list', () => {
   let component;
@@ -25,7 +24,6 @@ describe('Component: recipes list', () => {
         },
         ],
       },
-      getters,
     };
 
     const store = new Vuex.Store({

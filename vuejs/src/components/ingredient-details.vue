@@ -6,7 +6,7 @@
       </v-list-tile-content>
       <v-list-tile-action
         :id="`remove-button-${index}`"
-        @click="remove(index)"
+        @click="onRemove(index)"
       >
         <v-icon>delete</v-icon>
       </v-list-tile-action>
@@ -34,10 +34,11 @@ export default {
       type: Number,
       required: true,
     },
+  },
 
-    remove: {
-      type: Function,
-      required: true,
+  methods: {
+    onRemove (index) {
+      this.$emit('remove', index);
     },
   },
 };

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 
 import * as appTypes from '@/store/types';
 
@@ -23,7 +23,7 @@ export default {
   },
 
   methods: {
-    ...mapActions([
+    ...mapMutations([
       appTypes.HIDE_ALERT,
     ]),
 

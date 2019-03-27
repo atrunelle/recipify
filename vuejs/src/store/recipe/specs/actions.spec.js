@@ -1,7 +1,7 @@
 import { testAction } from 'test/unit/utils';
 import actions from '../actions';
 
-import recipeService from '../../recipe.service';
+import recipeService from '@/core/recipe.service';
 
 describe('Store: recipes actions', () => {
   it('should trigger remove ingredients mutation ', (done) => {

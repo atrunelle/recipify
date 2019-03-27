@@ -6,7 +6,9 @@ exports[`Component: recipes list should match snapshot 1`] = `
     <div class="flex md4">
       <div class="v-card v-sheet theme--light" style="height: 100%;">
         <div class="v-card__title v-card__title--primary">
-          <h2 class="headline">recipe 1</h2>
+          <h2 class="headline">
+            recipe 1
+          </h2>
         </div>
         <div role="list" class="v-list theme--light">
           <div role="listitem">

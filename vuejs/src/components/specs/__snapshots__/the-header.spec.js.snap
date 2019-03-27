@@ -3,17 +3,16 @@
 exports[`Component: the header should match snapshot 1`] = `
 <header>
   <nav></nav>
-  <div class="v-jumbotron theme--light" style="height: 400px;">
-    <div class="v-jumbotron__wrapper">
-      <div class="v-jumbotron__background light-green"></div>
-      <div class="v-jumbotron__content">
-        <div class="container fill-height">
-          <div class="layout column align-center justify-center"><img src="/logo.svg" alt="logo" class="the-header__logo">
-            <h1 class="display-3">Recipify</h1>
-            <p class="the-header__text text-xs-center subheading">
-              Create your own recipes by selecting ingredient and reviewing nutritional values before saving!
-            </p>
-          </div>
+  <div class="v-responsive light-green" style="height: 40vh;">
+    <div class="v-responsive__content">
+      <div class="container fill-height">
+        <div class="layout column align-center justify-center"><img src="/logo.svg" alt="logo" class="the-header__logo">
+          <h1 class="display-3">
+            Recipify
+          </h1>
+          <p class="the-header__text text-xs-center subheading">
+            Create your own recipes by selecting ingredient and reviewing nutritional values before saving!
+          </p>
         </div>
       </div>
     </div>

@@ -4,7 +4,9 @@ exports[`Component: the footer should match snapshot 1`] = `
 <footer class="v-footer grey darken-3 theme--light" style="height: 32px;">
   <div class="layout row wrap aligh-center justify-center">
     <div class="flex xs12 text-xs-center white--text">
-      <p class="my-2 body-1">Powered by Vue</p>
+      <p class="my-2 body-1">
+        Powered by Vue
+      </p>
     </div>
   </div>
 </footer>

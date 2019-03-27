@@ -12,12 +12,51 @@
         align-center
         justify-center
       >
-        <ingredients-list
-          :ingredients="ingredients"
-          :remove="remove"
-          :remove-all="removeAll"
-          :save="save"
-        />
+        <v-card v-if="ingredients.length">
+          <v-card-title
+            primary-title
+            class="justify-space-between"
+          >
+            <h2 class="headline">
+              Your recipe ingredients list
+            </h2>
+            <v-flex md3>
+              <v-text-field
+                md3
+                v-model="recipeName"
+                label="Recipe name"
+              />
+            </v-flex>
+          </v-card-title>
+          <v-list>
+            <ingredient-details
+              data-test="ingredient-details"
+              v-for="(ingredient, key) in ingredients"
+              :key="key"
+              :index="key"
+              :ingredient="ingredient"
+              @remove="remove"
+            />
+          </v-list>
+          <v-card-actions class="justify-end">
+            <v-btn
+              flat
+              id="remove-all-button"
+              data-test="remove-all"
+              @click="removeAll"
+            >
+              Remove all ingredients
+            </v-btn>
+            <v-btn
+              id="save-button"
+              color="primary"
+              data-test="save-recipe"
+              @click="save"
+            >
+              Save recipe
+            </v-btn>
+          </v-card-actions>
+        </v-card>
       </v-flex>
       <ingredients-data
         :total-nutrients="totalNutrients"
@@ -30,29 +69,29 @@
 </template>
 
 <script>
+import IngredientDetails from '@/components/ingredient-details';
 import SearchIngredient from '@/components/search-ingredient';
-import IngredientsList from '@/components/ingredients-list';
 import IngredientsData from '@/components/ingredients-data';
 import NutritionMacro from '@/components/nutrition-macro';
 
-import { mapGetters, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import * as recipeTypes from '@/store/recipe/types';
 
 export default {
   components: {
     SearchIngredient,
-    IngredientsList,
+    IngredientDetails,
     IngredientsData,
     NutritionMacro,
   },
 
   computed: {
-    ...mapGetters('recipe', {
-      ingredients: recipeTypes.GET_INGREDIENTS,
-      totalNutrients: recipeTypes.GET_TOTAL_NUTRIENTS,
-      totalWeight: recipeTypes.GET_TOTAL_WEIGHT,
-      totalCalories: recipeTypes.GET_TOTAL_CALORIES,
-    }),
+    ...mapState('recipe', [
+      'ingredients',
+      'totalNutrients',
+      'totalWeight',
+      'totalCalories',
+    ]),
   },
 
   methods: {
@@ -64,3 +103,9 @@ export default {
   },
 };
 </script>
+
+<style type="scss" scoped>
+.list__tile__title {
+  max-width: 48vw;
+}
+</style>

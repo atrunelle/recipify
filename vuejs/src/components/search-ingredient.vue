@@ -20,11 +20,13 @@
           class="ma-1"
           label="Ingredient and quantity"
           placeholder="Example: 200gr chicken"
+          data-test="ingredient"
           v-model="ingredient"
         />
         <v-text-field
           class="ma-1"
           label="Number of servings"
+          data-test="number-servings"
           v-model.number="numberOfServing"
         />
         <v-btn

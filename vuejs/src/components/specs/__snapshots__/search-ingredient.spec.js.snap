@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: search ingredient should match snapshot 1`] = `
+<div class="search-ingredient v-card v-sheet theme--light">
+  <div class="v-card__title v-card__title--primary">
+    <h2 class="headline">
+      What do you have in your fridge?
+    </h2>
+  </div>
+  <form novalidate="novalidate" id="search-ingredient-form">
+    <div class="layout justify-space-between align-center px-4 row"><input type="text" label="Ingredient and quantity" placeholder="Example: 200gr chicken" data-test="ingredient" value="" class="ma-1"> <input type="text" label="Number of servings" data-test="number-servings" value="1" class="ma-1"> <button disabled="disabled" type="submit" class="v-btn v-btn--disabled theme--light primary--text">
+        <div class="v-btn__content">
+          Add
+        </div>
+      </button></div>
+  </form>
+</div>
+`;

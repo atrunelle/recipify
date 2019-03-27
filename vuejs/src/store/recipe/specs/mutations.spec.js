@@ -1,5 +1,5 @@
 import mutations from '../mutations';
-import nutritionService from '../../nutrition.service';
+import nutritionService from '@/core/nutrition.service';
 
 describe('Store: recipe mutations', () => {
   it('should add ingredient to recipe ', () => {

@@ -1,6 +1,5 @@
 import Vuex from 'vuex';
 import { mount, createLocalVue } from '@vue/test-utils';
-import getters from '@/store/getters';
 import TheAlert from '../the-alert';
 
 describe('Component: app', () => {
@@ -16,22 +15,14 @@ describe('Component: app', () => {
     },
   };
 
-  const appActions = {
+  const mutations = {
     hideAlert: jest.fn(),
   };
 
   beforeEach(() => {
-    const appStore = {
-      namespaced: true,
-      state,
-      getters,
-      actions: appActions,
-    };
-
     const store = new Vuex.Store({
-      modules: {
-        app: appStore,
-      },
+      state,
+      mutations,
     });
 
     component = mount(TheAlert, {
@@ -43,12 +34,12 @@ describe('Component: app', () => {
 
   it('should hide alert if no value is passed', () => {
     component.vm.onAlertInput();
-    expect(appActions.hideAlert).toHaveBeenCalled();
+    expect(mutations.hideAlert).toHaveBeenCalled();
   });
 
   it('should not hide alert if value is passed', () => {
     component.vm.onAlertInput({});
-    expect(appActions.hideAlert).not.toHaveBeenCalled();
+    expect(mutations.hideAlert).not.toHaveBeenCalled();
   });
 
   it('should hide success alert automatically', () => {
@@ -58,7 +49,7 @@ describe('Component: app', () => {
       text: 'alert',
     };
 
-    expect(appActions.hideAlert).toHaveBeenCalled();
+    expect(mutations.hideAlert).toHaveBeenCalled();
   });
 
   it('should not hide alert automatically', () => {
@@ -68,7 +59,7 @@ describe('Component: app', () => {
       text: 'alert',
     };
 
-    expect(appActions.hideAlert).not.toHaveBeenCalled();
+    expect(mutations.hideAlert).not.toHaveBeenCalled();
   });
 
   it('should match snapshot', () => {

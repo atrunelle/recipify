@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import actions from '@/store/actions';
 import mutations from '@/store/mutations';
 import recipe from '@/store/recipe/';
 
@@ -17,7 +16,6 @@ const store = new Vuex.Store({
       type: 'error',
     },
   },
-  actions,
   mutations,
 });
 
