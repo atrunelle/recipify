@@ -2,30 +2,30 @@
 
 exports[`Component: Ingredients data should match snapshot 1`] = `
 <div class="flex xs12">
-    <div class="card" style="height: auto;">
-        <div class="card__title card__title--primary">
-            <h2 class="headline">Total nutrients</h2>
-        </div>
-        <div class="card__text">
-            <h3 class="subheading">Calories: 120cal</h3>
-            <h3 class="subheading">Total Weight: 100gr</h3>
-            <div class="layout align-end justify-space-between">
-                <div class="flex text-xs-center">
-                    <p class="body-1">Total Nutrients</p>
-                    <p class="body-1">Total Daily percentage</p>
-                </div>
-                <div class="flex text-xs-center">
-                    <h3 class="subheading pa-2"></h3>
-                    <p class="body-1">100.00gr</p>
-                    <p class="body-1">20.00%</p>
-                </div>
-                <div class="flex text-xs-center">
-                    <h3 class="subheading pa-2"></h3>
-                    <p class="body-1">100.00gr</p>
-                    <p class="body-1">40.00%</p>
-                </div>
-            </div>
-        </div>
+  <div class="v-card v-sheet theme--light">
+    <div class="v-card__title v-card__title--primary">
+      <h2 class="headline">Total nutrients</h2>
     </div>
+    <div class="v-card__text">
+      <h3 class="subheading">Calories: 120cal</h3>
+      <h3 class="subheading">Total Weight: 100gr</h3>
+      <div class="layout align-end justify-space-between">
+        <div class="flex text-xs-center">
+          <p class="body-1">Total Nutrients</p>
+          <p class="body-1">Total Daily percentage</p>
+        </div>
+        <div class="flex text-xs-center">
+          <h3 class="subheading pa-2"></h3>
+          <p class="body-1">100.00gr</p>
+          <p class="body-1">20.00%</p>
+        </div>
+        <div class="flex text-xs-center">
+          <h3 class="subheading pa-2"></h3>
+          <p class="body-1">100.00gr</p>
+          <p class="body-1">40.00%</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

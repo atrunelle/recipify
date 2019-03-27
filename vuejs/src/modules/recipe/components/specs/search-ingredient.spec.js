@@ -43,7 +43,7 @@ describe('Component: search ingredient', () => {
     vm = component.vm;
   });
 
-  it('should add ingredients to recipe', (done) => {
+  xit('should add ingredients to recipe', (done) => {
     recipeActions.addIngredient.mockResolvedValue({});
     component.find('#search-ingredient-form').trigger('submit');
     component.setData({

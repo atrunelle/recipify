@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import RecipeCreator from '@/pages/recipe-creator';
-const RecipesList = () => import('@/pages/recipes-list');
+import RecipeCreator from '@/views/recipe-creator';
+const RecipesList = () => import('@/views/recipes-list');
 
 Vue.use(Router);
 

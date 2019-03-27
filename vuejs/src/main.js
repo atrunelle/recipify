@@ -2,10 +2,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Vuetify from 'vuetify';
-import 'babel-polyfill';
 
 import App from '@/app';
-import router from '@/router';
+import router from './router';
 import store from '@/store';
 import '@/core';
 

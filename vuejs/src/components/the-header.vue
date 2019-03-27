@@ -8,7 +8,7 @@
           align-center
           justify-center>
           <img
-            src="/static/logo.svg"
+            src="/logo.svg"
             class="the-header__logo"
             alt="logo">
           <h1 class="display-3">Recipify</h1>

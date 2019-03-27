@@ -6,7 +6,7 @@ axios.defaults.baseURL = '/api';
 const recipeService = {
   defaults: {
     // eslint-disable-next-line no-undef
-    apiAuth: `app_id=${APP_ID}&app_key=${APP_KEY}`,
+    apiAuth: `app_id=${process.env.VUE_APP_APP_ID}&app_key=${process.env.VUE_APP_APP_KEY}`,
     foodUrl: `/api/food-database`,
   },
 

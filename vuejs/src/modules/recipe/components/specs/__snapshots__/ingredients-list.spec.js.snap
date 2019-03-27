@@ -1,58 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component: ingredients list should match snapshot 1`] = `
-<div class="card" style="height: auto;">
-    <div class="card__title justify-space-between card__title--primary">
-        <h2 class="headline">Your recipe ingredients list</h2>
-        <div class="flex md3">
-            <input type="text" md3="" label="Recipe name">
+<div class="v-card v-sheet theme--light">
+  <div class="v-card__title justify-space-between v-card__title--primary">
+    <h2 class="headline">Your recipe ingredients list</h2>
+    <div class="flex md3"><input type="text" md3="" label="Recipe name" value=""></div>
+  </div>
+  <div role="list" class="v-list theme--light">
+    <div class="v-list__group">
+      <div class="v-list__group__header">
+        <div role="listitem">
+          <div class="v-list__tile theme--light">
+            <div class="v-list__tile__content">
+              <div class="v-list__tile__title">carrot cal for gr </div>
+            </div>
+            <div id="remove-button-0" class="v-list__tile__action"><i aria-hidden="true" class="v-icon material-icons theme--light">delete</i></div>
+          </div>
         </div>
-    </div>
-    <div class="list">
-        <div class="list__group">
-            <div class="list__group__header">
-                <div>
-                    <div class="list__tile">
-                        <div class="list__tile__content">
-                            <div class="list__tile__title">carrot cal for gr </div>
-                        </div>
-                        <div id="remove-button-0" class="list__tile__action">
-                            <i aria-hidden="true" class="icon material-icons">delete</i>
-                        </div>
-                    </div>
-                </div>
-                <div class="list__group__header__append-icon">
-                    <i aria-hidden="true" class="icon material-icons">keyboard_arrow_down</i>
-                </div>
+        <div class="v-list__group__header__append-icon"><i aria-hidden="true" class="v-icon material-icons theme--light">keyboard_arrow_down</i></div>
+      </div>
+      <div class="v-list__group__items" style="display: none;">
+        <div>
+          <div class="layout justify-space-between align-center row">
+            <div class="flex text-xs-center">
+              <h3 class="pa-2">Fat</h3>
+              <p>5.00gr</p>
             </div>
-            <div class="list__group__items" style="display: none;">
-                <div>
-                    <div class="layout justify-space-between align-center row">
-                        <div class="flex text-xs-center">
-                            <h3 class="pa-2">Fat</h3>
-                            <p>5.00gr</p>
-                        </div>
-                        <div class="flex text-xs-center">
-                            <h3 class="pa-2">Fat</h3>
-                            <p>5.00gr</p>
-                        </div>
-                    </div>
-                    <div class="text-xs-center pa-2"></div>
-                </div>
+            <div class="flex text-xs-center">
+              <h3 class="pa-2">Fat</h3>
+              <p>5.00gr</p>
             </div>
+          </div>
+          <div class="text-xs-center pa-2"></div>
         </div>
+      </div>
     </div>
-    <div class="card__actions justify-end">
-        <button type="button" class="btn btn--flat" id="remove-all-button">
-            <div class="btn__content">
-                Remove all ingredients
-            </div>
-        </button>
-        <button type="button" class="btn primary" id="save-button">
-            <div class="btn__content">
-                Save recipe
-            </div>
-        </button>
-    </div>
+  </div>
+  <div class="v-card__actions justify-end"><button type="button" class="v-btn v-btn--flat theme--light" id="remove-all-button">
+      <div class="v-btn__content">
+        Remove all ingredients
+      </div>
+    </button> <button type="button" class="v-btn theme--light primary" id="save-button">
+      <div class="v-btn__content">
+        Save recipe
+      </div>
+    </button></div>
 </div>
 `;
