@@ -15,12 +15,3 @@ In order to focus purely on the logic, and not have to design the app from scrat
 
 ## Testing
 Each of those applications is fully unit tested or in the process to be. I didn't use TDD as for some, I was learning the framework at the time, and preferred to leave testing complexity the framework can bring apart.
-
-## Architecture
-
-All apps follow a stateful/stateless architecture, so it's scalable, testable and most components can be reused across the application.
-Features are can be found in the `modules` folder, with the idea to be able to add folder per features (such as auth for example). 
-
-Store modules related to each feature will be found here as well, so all related code is next to each other.
-
-Test files can be found next to source code in a `specs` folder or in the folder itself, so they are close to files they relate to as well and can be quickly found/edited.
