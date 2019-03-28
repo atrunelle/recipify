@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should match snapshot 1`] = `"<div class=\\"MuiToolbar-root-1 MuiToolbar-gutters-2\\"><div class=\\"MuiGrid-container-3 MuiGrid-justify-xs-flex-end-21\\"><nav><a tabindex=\\"0\\" class=\\"MuiButtonBase-root-110 MuiButton-root-94\\" role=\\"button\\" href=\\"/\\"><span class=\\"MuiButton-label-95\\">Create recipe</span><span class=\\"MuiTouchRipple-root-113\\"></span></a><a tabindex=\\"0\\" class=\\"MuiButtonBase-root-110 MuiButton-root-94\\" role=\\"button\\" href=\\"/recipes/list\\"><span class=\\"MuiButton-label-95\\">My recipes</span><span class=\\"MuiTouchRipple-root-113\\"></span></a></nav></div></div>"`;
