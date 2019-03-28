@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
-import IngredientDetails from '../ingredient-details';
+import IngredientsDetails from '../ingredients-details';
 
 describe('Component: nutrients chart', () => {
   it('should show ingredient name and detail', () => {
-    const wrapper = mount(IngredientDetails, {
+    const wrapper = mount(IngredientsDetails, {
       propsData: {
-        ingredient: {
+        ingredients: [{
           name: 'Chicken',
           nutrients: {
             calories: 200,
@@ -14,8 +14,7 @@ describe('Component: nutrients chart', () => {
             dietLabels: [],
             healthLabels: [],
           },
-        },
-        index: 0,
+        }],
       },
     });
     const ingredientDetail = wrapper.find('[data-test="ingredient-detail"]').text();
@@ -23,9 +22,9 @@ describe('Component: nutrients chart', () => {
   });
 
   it('should remove ingredient', () => {
-    const wrapper = mount(IngredientDetails, {
+    const wrapper = mount(IngredientsDetails, {
       propsData: {
-        ingredient: {
+        ingredients: [{
           name: 'Chicken',
           nutrients: {
             calories: 200,
@@ -34,12 +33,20 @@ describe('Component: nutrients chart', () => {
             dietLabels: [],
             healthLabels: [],
           },
-        },
-        index: 0,
+        }, {
+          name: 'Spinach',
+          nutrients: {
+            calories: 150,
+            totalWeight: 400,
+            totalNutrients: {},
+            dietLabels: [],
+            healthLabels: [],
+          },
+        }],
       },
     });
 
-    wrapper.find('[data-test="remove-ingredient"]').trigger('click');
-    expect(wrapper.emitted().remove[0]).toEqual([0]);
+    wrapper.find('[data-test="remove-ingredient-1"]').trigger('click');
+    expect(wrapper.emitted().remove[0]).toEqual([1]);
   });
 });

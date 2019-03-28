@@ -28,16 +28,11 @@
               />
             </v-flex>
           </v-card-title>
-          <v-list>
-            <ingredient-details
-              data-test="ingredient-details"
-              v-for="(ingredient, key) in ingredients"
-              :key="key"
-              :index="key"
-              :ingredient="ingredient"
-              @remove="remove"
-            />
-          </v-list>
+          <ingredients-details
+            data-test="ingredient-details"
+            :ingredients="ingredients"
+            @remove="remove"
+          />
           <v-card-actions class="justify-end">
             <v-btn
               flat
@@ -73,7 +68,7 @@
 </template>
 
 <script>
-import IngredientDetails from '@/components/ingredient-details';
+import IngredientsDetails from '@/components/ingredients-details';
 import SearchIngredient from '@/components/search-ingredient';
 import IngredientsData from '@/components/ingredients-data';
 import NutritionMacro from '@/components/nutrition-macro';
@@ -92,7 +87,7 @@ export default {
 
   components: {
     SearchIngredient,
-    IngredientDetails,
+    IngredientsDetails,
     IngredientsData,
     NutritionMacro,
   },

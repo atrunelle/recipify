@@ -51,6 +51,7 @@ describe('Component: recipes list', () => {
       },
     });
     const wrapper = mount(RecipesList, {
+      stubs: ['router-link'],
       localVue,
       store,
     });
