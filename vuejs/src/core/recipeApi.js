@@ -1,6 +1,7 @@
 import axios from 'axios';
+const isProd = process.env.NODE_ENV === 'production';
 
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = (isProd) ? 'https://api.edamam.com/' : '/api';
 
 const recipeService = {
   defaults: {
